@@ -1,0 +1,15 @@
+<ul>
+	<li>Scholarships
+	<ul>
+		<li><%=link_to "Hal Rather Award", :controller => 'members/scholarships', :action => "hal_rather" %></li>
+		<li><%=link_to "NSCL Scholarship", :controller => 'members/scholarships', :action => "nscl_scholarship" %></li>
+		<li><%=link_to "Mark Schapler Award", :controller => 'members/scholarships', :action => "mark_schapler" %></li>
+	</ul>
+	</li>
+	<li>Member Services
+		<ul>
+			<li><%= link_to "Member Directory", :controller => 'members/services', :action => "directory" %></li>
+			<li><%= link_to "E-mail Lists", :controller => 'members/services', :action => "lists" %></li>
+		</ul>
+	</li>
+</ul>

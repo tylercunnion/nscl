@@ -39,7 +39,7 @@
 			<%= @content_for_layout %>
 		</div>
 		<div id="sectionnav">
-			<%= render :partial => "section_nav" %>
+			<%= render :partial => @controller.controller_path.split('/')[0] + "/section_nav" %>
 		</div>
 
 	</div>

@@ -4,13 +4,13 @@ class LinksController < ApplicationController
   end
   
   def scl
-    @national_links = Link.find(:all, :conditions => "section = 'national'")
-    @state_links = Link.find(:all, :conditions => "section = 'state'")
+    @national_links = Link.find(:all, :conditions => "section = 'National'")
+    @state_links = Link.find(:all, :conditions => "section = 'State'")
   end
   
   def classics
-    @classics_links = Link.find(:all, :conditions => "section = 'classical'")
-    @search_links = Link.find(:all, :conditions => "section = 'classical search'")
+    @classics_links = Link.find(:all, :conditions => "section = 'Classical'")
+    @search_links = Link.find(:all, :conditions => "section = 'Classical search'")
   end
     
 end

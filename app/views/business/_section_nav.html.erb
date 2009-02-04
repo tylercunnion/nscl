@@ -1,0 +1,16 @@
+<ul>
+    <li>Officers
+		<ul>
+			<% @officers.each do |o| -%>
+			<li><%= link_to o.name, :controller => "business/officers", :link => o.link %></li>
+			<%end -%>
+		</ul>
+	</li>
+	<li>Documents
+		<ul>
+			<li><%= link_to "Creed", :controller => "business/documents", :action => "creed"%></li>
+			<li><%= link_to "Song", :controller => "business/documents", :action => "song" %></li>
+			<li><%= link_to "Constitution", :controller => "business/documents", :action => "constitution"%></li>
+		</ul>
+	</li>
+</ul>

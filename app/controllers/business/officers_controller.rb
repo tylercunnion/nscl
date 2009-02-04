@@ -1,5 +1,4 @@
-class Business::OfficersController < ApplicationController
-  before_filter :sidebar
+class Business::OfficersController < BusinessController
   
   def index
     if params[:link]
@@ -39,9 +38,5 @@ class Business::OfficersController < ApplicationController
         @line_two = ""
       end
    end
-  end
-  
-  def sidebar
-    @officers = Officer.find(:all)
   end
 end
