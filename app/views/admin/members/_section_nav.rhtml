@@ -1,0 +1,14 @@
+<ul>
+	<li>Members
+		<ul>
+			<li><%=link_to "New Member", :action => 'new' %></li>
+			<% if @member && @member.id != nil -%><li><%=link_to "Edit this member", :action => 'edit', :id => @member %></li>
+			<li><%= link_to "Delete this member", {:action => 'delete', :id => @member}, :confirm => "Are you sure?", :method => :post %> </li>
+			<li><%=link_to "Register this member", {:action => 'register', :id => @member} %></li><% end -%>
+			<li>Find a member:<br />
+			<%= text_field_with_auto_complete :member, :name, {:size => 20}, :skip_style => true %></li>
+		</ul>
+	</li>
+	<li><%= link_to "Schools", :controller => "schools" %></li>
+	<li><%= link_to "Links", :controller => "links" %></li>
+</ul>

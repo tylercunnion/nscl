@@ -1,0 +1,25 @@
+<div class="profile">
+<h3><%= profile.name %></h3>
+<p>
+<% if profile.grad_year -%>
+<% if Date.today.year - profile.grad_year <= 4 %>
+	<strong>Status:</strong> Primary Member<br />
+<% else %>
+	<strong>Status:</strong> Secondary Member<br />
+<% end %>
+<% end %>
+<% if profile.school -%>
+	<strong>School:</strong> <%= profile.school.name %><br />
+<% end -%>
+<% if profile.state -%>
+		<strong>Delegation:</strong> <%= profile.state.name %><br />
+<% end -%>
+
+<% if profile.phone != nil and profile.phone != "" -%>
+	<%= "(" + profile.phone[0,3] + ") " + profile.phone[3,3] + "-" + profile.phone[6,4] %><br />
+<% end -%>
+<% if profile.email != nil and profile.phone != "" -%>
+	<%= mail_to profile.email, "E-mail " + profile.first, :encode => "hex"%>
+<% end %>
+</p>
+</div>

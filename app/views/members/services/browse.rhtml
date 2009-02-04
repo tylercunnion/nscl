@@ -1,0 +1,23 @@
+<h1>Member Directory</h1>
+<h2>Browse by <%= @browse_method %></h2>
+<% form_tag :action => 'browse' do %>
+<p>
+<select name="filter">
+	<%= options_from_collection_for_select(@filters, "id", "name", @filter) %>
+</select><%= submit_tag "Submit" %>
+<input type="hidden" name="method" value="<%= @method %>" />
+<input type="hidden" name="offset" value="<%= @offset %>" />
+</p>
+
+<%= render :partial => "page_selector"%>
+
+<% unless @results.empty? -%>
+<%= render_partial_collection 'profile', @results %>
+
+<% else -%>
+<h2>Sorry, no matches found.</h2>
+<% end -%>
+
+<%= render :partial => "page_selector"%>
+
+<% end -%>

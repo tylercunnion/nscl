@@ -1,0 +1,15 @@
+<h1><%= @officer.name %> &#8212; <%= @officer.member.name %></h1>
+<div class="officer-picture">
+</div>
+<div class="officer-profile">
+	<% unless @officer.name == "Advisor" || @officer.member.school.nil? -%>
+	<h2><%= @officer.member.school.name %></h2>
+	<%end -%>
+	<% unless @officer.member.phone.nil? || @officer.member.phone.empty? -%>
+	<p>
+		<%= "(" + @officer.member.phone[0,3] + ") " + @officer.member.phone[3,3] + "-" + @officer.member.phone[6,4] %>
+	</p>
+	<% end %>
+	<h2><%= mail_to @officer.email, "E-mail  #{@officer.member.first}", :encode => "hex"  %></h2>
+	<h2><%= mail_to "officers@nscl.org", "E-mail all the officers", :encode => "hex" %></h2>
+</div>

@@ -1,0 +1,12 @@
+<ul>
+	<li><%= link_to "Members", :controller => "members" %></li>
+	<li>Schools
+		<ul>
+			<li><%=link_to "New School", :action => 'new' %></li>
+			<% if @school && @school.id != nil -%><li><%= link_to "Edit this school", :action => "edit", :id => @school %></li>
+			<li><%= link_to "Delete this school", {:action => 'delete', :id => @school}, :confirm => "Are you sure?", :method => :post %></li><% end -%>
+			<li><%= link_to "List all schools", :action => 'list' %></li>
+		</ul>
+	</li>
+	<li><%= link_to "Links", :controller => "links"%></li>
+</ul>

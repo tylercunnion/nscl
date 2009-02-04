@@ -1,0 +1,5 @@
+<h1>Edit <%= @school.name %></h1>
+<% form_tag :action => "update", :id => @school do %>
+<%= render :partial => "form" %>
+<%= submit_tag "Edit this school"%>
+<% end%>

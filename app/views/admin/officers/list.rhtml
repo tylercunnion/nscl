@@ -1,0 +1,6 @@
+<h1>Edit Officers</h1>
+<ul>
+	<% @officers.each do |o| %>
+		<li><%= o.name %> - <%= o.member.name %></li>
+	<% end %>
+</ul>

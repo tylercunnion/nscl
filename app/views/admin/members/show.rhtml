@@ -1,0 +1,20 @@
+<h1>Viewing <%= @member.name %></h1>
+<p>
+	State: <%= @member.state.name %><br />
+	Graduated: <%= @member.grad_year %><br />
+	School: <% if @member.school -%><%= @member.school.name %><% end %><br />
+	Phone: <% if @member.phone && @member.phone != "" -%><%= "(" + @member.phone[0,3] + ") " + @member.phone[3,3] + "-" + @member.phone[6,4] %><% end %><br />
+	Public?: <% if @member.public == 1 -%>True<% else -%>False<% end -%>
+</p>
+<h3>Home Address</h3>
+<p>
+	<%= @member.home_apt %><br />
+	<%= @member.home_address %><br />
+	<%= @member.home_city %>, <% if @member.home_state -%><%= @member.home_state.abbreviation %><% end -%> <%= @member.home_zip %>
+</p>
+<h3>School Address</h3>
+<p>
+	<%= @member.school_apt %><br />
+	<%= @member.school_address %><br />
+	<%= @member.school_city %>, <% if @member.school_state -%><%= @member.school_state.abbreviation %><% end -%> <%= @member.school_zip %>
+</p>

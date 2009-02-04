@@ -1,0 +1,7 @@
+<ul class="members-results">
+<% for member in @members do -%>
+<li class="member">
+<%=link_to member.name, :action => 'show', :id => member %>
+</li>
+<% end -%>
+</ul>

@@ -1,0 +1,62 @@
+<h1>Hal Rather Award Application</h1>
+<% form_tag :action => "apply_hal_rather" do %>
+
+<p>
+	<label for="name">Name:</label><%= text_field_tag "name" %><br />
+	<label for="email">E-mail:</label><%= text_field_tag "email" %>
+</p>
+
+<h3>Permanent Address</h3>
+
+<p class="indent">
+	<label for="street">Street Address:</label><%= text_field_tag "street" %><br />
+	<label for="apt">Unit / Apt. #:</label><%= text_field_tag "apt" %><br />
+	<label for="region">City, State, Zip</label><%= text_field_tag "region" %>
+</p>
+<p><label for="grad_year">Year of high school graduation:</label><%= text_field_tag "grad_year", nil, {:size => "4", :maxlength => "4"}%></p>
+<h3>Are you a member in good standing of NSCL?</h3>
+<p>
+	<%= radio_button_tag "good_standing", "Yes" %><label for="good_standing_yes">Yes</label>
+	<%= radio_button_tag "good_standing", "No" %><label for="good_standing_no">No</label>
+</p>
+
+<p>
+	<label for="school">School you attend:</label><%= text_field_tag "school" %>
+</p>
+
+<p>
+	<label for="conventions">National conventions and/or NSCL reunions attended:</label><br />
+	<%= text_area_tag "conventions", nil, {:rows => "4", :cols => "40"} %>
+</p>
+
+<p>
+	<label for="service_nscl">Service to NSCL:</label><br />
+	<%= text_area_tag "service_nscl", nil, {:rows => "4", :cols => "40"} %>
+</p>
+
+<p>
+	<label for="service_state">Service to state/local SCL:</label><br />
+	<%= text_area_tag "service_state", nil, {:rows => "4", :cols => "40"} %>
+</p>
+
+<p>
+	<label for="need">Please give us an idea of your financial need in attending next year&#8217;s NJCL-NSCL Convention:</label><br />
+	<%= text_area_tag "need", nil, {:rows => "4", :cols => "40"} %>
+</p>
+
+<p>
+	You may submit an optional letter of recommendation. This is <strong>not</strong> required. Please submit your application and optional letter of recommendation by July 15 to:
+</p>
+<p class="indent"><strong>
+	Mr. Jeff Coker<br />
+	11345 Torino Way<br />
+	Reno, NV 89521<br />
+</strong></p>
+
+<p>
+	By pressing Submit, you are swearing that the information provided is accurate.
+</p>
+<p>
+	<%= submit_tag "Submit" %>	
+</p>
+<% end %>

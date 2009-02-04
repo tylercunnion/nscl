@@ -1,0 +1,107 @@
+<h1>Susan S. Schearer National Senior Classical League Scholarship Application</h1>
+<% form_tag :action => "apply_nscl_scholarship" do %>
+
+<p>
+	<label for="name">Name:</label><%= text_field_tag "name" %><br />
+	<label for="email">E-mail:</label><%= text_field_tag "email"%>
+</p>
+
+<h3>Permanent Address:</h3>
+
+<p class="indent">
+	<label for="home_street">Street Address:</label><%= text_field_tag "home_street" %><br />
+	<label for="home_apt">Unit / Apt. #:</label><%= text_field_tag "home_apt"%><br />
+	<label for="home_region">City, State Zip:</label><%= text_field_tag "home_region"%>
+</p>
+
+<h3>School Address:</h3>
+
+<p class="indent">
+	<label for="school_street">Street Address:</label><%= text_field_tag "school_street"%><br />
+	<label for="school_apt">Unit / Apt. #:</label><%= text_field_tag "school_apt"%><br />
+	<label for="school_region">City, State Zip:</label><%= text_field_tag "school_region"%>
+</p>
+
+<p><label for="school_name">School's name:</label><%= text_field_tag "school_name" %></p>
+
+<h3>Telephone Numbers:</h3>
+<p><label for="home_phone">Home:</label><%= text_field_tag "home_phone" %><br />
+<label for="school_phone">School:</label><%= text_field_tag "school_phone" %></p>
+
+<p><label for="year">Present year of study:</label>
+	<select id="year" name="year">
+		<option value="Freshman">Freshman</option>
+		<option value="Sophomore">Sophomore</option>
+		<option value="Junior">Junior</option>
+		<option value="Senior">Senior</option>
+	</select>
+</p>
+
+<p><%= check_box_tag "majoring" %><label for="majoring">I am majoring in Latin, Greek, or Classical Studies.</label></p>
+
+<p><%= check_box_tag "member" %><label for="member">I am a member in good standing of NSCL.</label><br />
+	<label for="joined_date">Approx. date joined:</label><%= text_field_tag "joined_date"%>
+</p>
+
+<p><label for="scl_activities">SCL activities to which I have contributed my time:</label><br />
+	(State whether on the national, state, or local level)<br />
+	<%= text_area_tag "scl_activities", nil, {:rows => "4", :cols => "40"} %>
+</p>
+
+<p><label for="special_achievements">Special achievements, honors, scholastic or extracurricular:</label><br />
+	<%= text_area_tag "special_achievements", nil, {:rows => "4", :cols => "40"} %>
+</p>
+
+<h2>Brief Financial Statement</h2>
+<p><label for="tuition">What is the approximate total yearly expenditure for your college tuition?</label><br />
+	<%= text_field_tag "tuition"%>
+</p>
+
+<p><label for="room_board">What is the approximate total yearly expenditure for your room and board?</label><br />
+	<%= text_field_tag "room_board"%>
+</p>
+
+<h3>Who is paying your way through college?</h3>
+<p>Please enter approximate percentage each party contributes.<br />
+	<label class="indent" for="self">Self</label><%=text_field_tag "self" %><br />
+	<label class="indent" for="parents">Parents</label><%= text_field_tag "parents" %><br />
+	<label class="indent" for="both">Both</label><%= text_field_tag "both" %><br />
+	<label class="indent" for="other">Other</label><%= text_field_tag "other" %>
+</p>
+
+<p><label for="self_income">Approximate self-earned income:</label><%= text_field_tag "self_income" %></p>
+
+<p><label for="parents_income">Approximate income of parents:</label><%= text_field_tag "parents_income" %></p>
+
+<p><label for="siblings">Number of siblings in college next year:</label><%= text_field_tag "siblings"%></p>
+
+<h3>How much financial aid are you now receiving?</h3>
+<p>
+	<label for="aid_scholarships">from other scholarships:</label><%= text_field_tag "aid_scholarships" %><br />
+	<label for="aid_loans">from loans:</label><%= text_field_tag "aid_loans" %><br />
+	<label for="aid_other">from other sources (please specify):</label><br />
+		<%=text_area_tag "aid_other", nil, {:rows => "4", :cols => "40"}%>
+</p>
+
+<h3>Do you have reason to believe that next year's financial aid will be appreciably different?</h3>
+<p>
+	<%= radio_button_tag "next_different", "No" %><label for="next_different_no">No</label><br />
+	<%= radio_button_tag "next_different", "Yes" %><label for="good_standing_yes">Yes</label><br />
+	<label for="different_reason">If Yes, explain how:</label><br />
+	<%= text_area_tag "different_reason", nil, {:rows => "4", :cols => "40"}%>
+</p>
+
+<p><label for="other_facts">Please list here other facts regarding your financial status which you feel should be considered in evaluating your scholarship application:</label><br />
+	<%= text_area_tag "other_facts", nil, {:rows => "4", :cols => "40"} %>
+</p>
+
+<p>By pressing Submit, you are swearing that the information provided is accurate. You will also send, by July 1, an official transcript of your college grades through this year to:</p>
+<p class="indent"><strong>
+	Mr. Jeff Coker<br />
+	11345 Torino Way<br />
+	Reno, NV 89521<br /></strong>
+</p>
+
+<%= submit_tag "Submit" %>
+<%end%>
+

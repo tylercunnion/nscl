@@ -1,0 +1,52 @@
+<h1>Joining the SCL</h1>
+        <p>The SCL is open to anyone who has an interest in the classics and is of college age or above. The $6 membership fee is good for the first four years following high school graduation; this period is called Primary Membership. After that, you can pay an additional $4 for four more years of SCL membership, called Secondary membership.</p>
+		<p>If you are interested, just fill out this handy form. You may then pay either by check or online with Google Checkout.</p>
+		
+		<%= form_tag :action => 'submit_application' %>
+		<p><label for="member_first">First Name:</label><%= text_field 'member', 'first' %></p>
+		<p><label for="member_last">Last Name:</label><%= text_field 'member', 'last' %></p>
+		<p><label for="member_email">E-mail:</label><%= text_field 'member', 'email' %></p>
+		<p><label for="member_phone">Phone Number:</label><%= text_field 'member', 'phone' %></p>
+		<p><label for="member_grad_year">Year of HS Graduation:</label><%= text_field 'member', 'grad_year', { :size => '4', :maxlength => '4' } %></p>
+<!--
+		<h3>Home Address</h3>
+		
+		<p class="indent">
+
+			<label for="member_home_address">Street address:</label><%= text_field 'member', 'home_address' %><br />
+			<label for="member_home_apt">Unit / Apt. #:</label><%= text_field 'member', 'home_apt' %><br />
+
+			<label for="member_home_city">City:</label><%= text_field 'member', 'home_city' %><br />
+			<label for="member_home_state">State:</label><%= text_field 'member', 'home_state', {:size => '2', :maxlength => '2'} %>
+			<label for="member_home_zip">Zip:</label><%= text_field 'member', 'home_zip', {:size => '5', :maxlength=> '5' }%>
+		</p>
+-->
+		
+		<p><label for="member_school_id">School&#8217;s name:</label>
+			<select onchange="other_school()" id="member_school_id" name="member[school_id]">
+					<option value="0">Other (please specify below)</option>
+					<%= options_from_collection_for_select(@schools, "id", "name", @member.school_id)%>
+			</select>
+			<span class="indent"><label for="school_other">Other:</label><%= text_field_tag 'school_other' %></span>
+		</p>
+<!--		
+		<h3>School Address</h3>
+
+		<p class="indent">
+			<label for="member_school_address">Street address:</label><%= text_field 'member', 'school_address' %><br />
+			<label for="member_school_apt">Unit / Apt. #:</label><%= text_field 'member', 'school_apt' %><br />
+
+			<label for="member_school_city">City:</label><%= text_field 'member', 'school_city' %><br />
+			<label for="member_school_state">State:</label><%= text_field 'member', 'school_state', {:size => '2', :maxlength => '2'} %>
+			<label for="member_school_zip">Zip:</label><%= text_field 'member', 'school_zip', {:size => '5', :maxlength=> '5' }%>
+		</p>
+-->
+		<h3>Do you wish for this this information to be made public in the online SCL Membership Directory?</h3>
+		<p class="indent">
+			<%= radio_button 'member', 'public', true %><label style="display: inline; float: none" for="member_public_true">Yes</label>
+			<%= radio_button 'member', 'public', false %><label style="display: inline; float: none" for="member_public_false">No</label>
+		</p>
+		
+		<%= submit_tag "I will send payment" %>
+		<%= submit_tag "I will pay online" %>
+		</form>
