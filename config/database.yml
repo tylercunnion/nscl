@@ -18,3 +18,7 @@ production:
   username: tylercunnion_scl
   password: fugit
   host: localhost
+
+development:
+    adapter:sqlite3
+    dbfile: db/nscl_dev.db
