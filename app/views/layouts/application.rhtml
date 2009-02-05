@@ -10,12 +10,12 @@
 		{
 			if (document.getElementById('member_school_id').value == 0)
 			{
-				document.getElementById('school_other').disabled = false;
+				document.getElementById('other_school_box').className = "";
 			}
 			else
 			{
 				document.getElementById('school_other').value = "";
-				document.getElementById('school_other').disabled = true;
+				document.getElementById('other_school_box').className = "invisible";
 			}
 		}
 	</script>

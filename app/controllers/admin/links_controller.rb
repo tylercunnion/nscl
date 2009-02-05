@@ -1,4 +1,4 @@
-class Admin::LinksController < ApplicationController
+class Admin::LinksController < AdminController
   
   def index
     list

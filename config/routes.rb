@@ -22,7 +22,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '', :controller => "about", :action => "index"
   map.connect 'business', :controller => "business/officers", :action => "index"
   map.connect 'members', :controller => "members/scholarships", :action => "index"
-  map.connect 'admin', :controller => "admin/members", :action => "index"
+  map.connect 'admin', :controller => "admin", :action => "index"
 #map.connect 'events', :controller => "events", :action => "index"
 
   # Allow downloading Web Service WSDL as a file with an extension

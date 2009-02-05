@@ -1,4 +1,4 @@
-class Admin::SchoolsController < ApplicationController
+class Admin::SchoolsController < AdminController
   def index
     list
     render :action => 'list'

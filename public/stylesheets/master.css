@@ -56,7 +56,7 @@ ol
 #header.links{background: url('../images/banner_links.png');}
 #header.members{background: url('../images/banner_members.png');}
 #header.publications{background: url('../images/banner_publications.png');}
-#header.admin{background: url('../images/banner_admin.png');}
+#header.admin, #header.users{background: url('../images/banner_admin.png');}
 
 #content
 {
@@ -159,14 +159,9 @@ ol
 }
 
 label {
-	clear: left;
 	font-weight: bold;
-	width: 10em;
-	text-align: right;
-	float: left;
-	display: block;
-	padding-right: .5em;
 }
+
 
 .fieldWithErrors input{
 	border: 2px solid red;	
@@ -186,4 +181,6 @@ ul.registration-results {
 	z-index: 1000;
 }
 ul.registration-results li.selected { background-color: #ffb;}
+
+.invisible {display: none;}
 

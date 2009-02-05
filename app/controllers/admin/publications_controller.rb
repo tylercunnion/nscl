@@ -1,4 +1,4 @@
-class Admin::PublicationsController < ApplicationController
+class Admin::PublicationsController < AdminController
   
   def index
     list

@@ -3,11 +3,11 @@
 		<p>If you are interested, just fill out this handy form. You may then pay either by check or online with Google Checkout.</p>
 		
 		<%= form_tag :action => 'submit_application' %>
-		<p><label for="member_first">First Name:</label><%= text_field 'member', 'first' %></p>
-		<p><label for="member_last">Last Name:</label><%= text_field 'member', 'last' %></p>
-		<p><label for="member_email">E-mail:</label><%= text_field 'member', 'email' %></p>
-		<p><label for="member_phone">Phone Number:</label><%= text_field 'member', 'phone' %></p>
-		<p><label for="member_grad_year">Year of HS Graduation:</label><%= text_field 'member', 'grad_year', { :size => '4', :maxlength => '4' } %></p>
+		<p><label for="member_first">First Name:</label><br /><%= text_field 'member', 'first' %></p>
+		<p><label for="member_last">Last Name:</label><br /><%= text_field 'member', 'last' %></p>
+		<p><label for="member_email">E-mail:</label><br /><%= text_field 'member', 'email' %></p>
+		<p><label for="member_phone">Phone Number:</label><br /><%= text_field 'member', 'phone' %></p>
+		<p><label for="member_grad_year">Year of HS Graduation:</label><br /><%= text_field 'member', 'grad_year', { :size => '4', :maxlength => '4' } %></p>
 <!--
 		<h3>Home Address</h3>
 		
@@ -22,12 +22,12 @@
 		</p>
 -->
 		
-		<p><label for="member_school_id">School&#8217;s name:</label>
+		<p><label for="member_school_id">School&#8217;s name:</label><br />
 			<select onchange="other_school()" id="member_school_id" name="member[school_id]">
 					<option value="0">Other (please specify below)</option>
 					<%= options_from_collection_for_select(@schools, "id", "name", @member.school_id)%>
-			</select>
-			<span class="indent"><label for="school_other">Other:</label><%= text_field_tag 'school_other' %></span>
+			</select><br />
+			<div id="other_school_box"><label for="school_other">Other:</label><br /><%= text_field_tag 'school_other' %></div>
 		</p>
 <!--		
 		<h3>School Address</h3>
