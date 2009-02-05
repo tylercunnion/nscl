@@ -10,8 +10,10 @@ class Admin::MembersController < ApplicationController
     @members = Member.find(:all,
       :conditions => ["concat_ws(' ', first, last) like ?", "%" + value + "%"],
       :order => 'last, first',
-      :limit => 10)
+      :limit => 10) 
     render :partial => 'results'
+  rescue
+    render :nothing
   end
   
   def auto_complete_for_member_register
@@ -22,24 +24,6 @@ class Admin::MembersController < ApplicationController
       :limit => 10,
       :include => 'state')
     render :partial => 'register_results'
-  end
-  
-  def capitalize
-    @members = Member.find(:all)
-    @members.each do |m|
-      array = m.first.split(' ')
-      array.each_index do |x|
-        array[x] = array[x].capitalize
-      end
-      m.first = array.join(' ')
-      
-      array = m.last.split(' ')
-      array.each_index do |x|
-        array[x] = array[x].capitalize
-      end
-      m.last = array.join(' ')    
-      m.save
-    end
   end
   
   def new
@@ -106,7 +90,23 @@ private
     return years
   end
   
-
+  def capitalize
+    @members = Member.find(:all)
+    @members.each do |m|
+      array = m.first.split(' ')
+      array.each_index do |x|
+        array[x] = array[x].capitalize
+      end
+      m.first = array.join(' ')
+      
+      array = m.last.split(' ')
+      array.each_index do |x|
+        array[x] = array[x].capitalize
+      end
+      m.last = array.join(' ')    
+      m.save
+    end
+  end
   
   
 end

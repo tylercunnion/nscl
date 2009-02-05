@@ -1,0 +1,27 @@
+<ul>
+	<li>Members
+		<ul>
+			<li><%=link_to "New Member", :controller => 'members', :action => 'new' %></li>
+			<% if @member && @member.id != nil -%><li><%=link_to "Edit this member", :controller => 'members', :action => 'edit', :id => @member %></li>
+			<li><%= link_to "Delete this member", {:controller => 'members', :action => 'delete', :id => @member}, :confirm => "Are you sure?", :method => :post %> </li>
+			<li><%=link_to "Register this member", {:controller => 'members', :action => 'register', :id => @member} %></li><% end -%>
+			<li>Find a member:<br />
+			<%= text_field_with_auto_complete :member, :name, {:size => 20}, :skip_style => true %></li>
+		</ul>
+	</li>
+	<li>Schools
+		<ul>
+			<li><%=link_to "New School", :controller => 'schools', :action => 'new' %></li>
+			<% if @school && @school.id != nil -%><li><%= link_to "Edit this school", :controller => 'schools', :action => "edit", :id => @school %></li>
+			<li><%= link_to "Delete this school", {:controller => 'schools', :action => 'delete', :id => @school}, :confirm => "Are you sure?", :method => :post %></li><% end -%>
+			<li><%= link_to "List all schools", :controller => 'schools', :action => 'list' %></li>
+		</ul>
+	</li>	<li>Links
+		<ul>
+			<li><%=link_to "New Link", :controller => 'links', :action => "new" %></li>
+			<% if @link && @link.id != nil -%><li><%= link_to "Edit this link", :controller => 'links', :action => 'edit', :id => @link %></li>
+			<li><%= link_to "Delete this link", {:controller => 'links', :action => 'delete', :id => @link}, :confirm => "Are you sure?", :method => :post %></li><% end -%>
+			<li><%=link_to "List all links", :controller => 'links', :action => 'list' %></li>
+		</ul>
+	</li>
+</ul>
