@@ -13,5 +13,13 @@ class Member < ActiveRecord::Base
     first + " " + last
   end
   
+  def blank?
+    if self.id.nil?
+      return true
+    else
+      return false
+    end
+  end
+  
   validates_presence_of :first, :last
 end
