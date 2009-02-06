@@ -1,25 +1,31 @@
 class Admin::PublicationsController < AdminController
   
+  before_filter :check_publications_permissions
+  
   def index
-    list
-    render :action => 'list'
+    @publications = Publication.find(:all, :order => 'date')
+    
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @publications.to_xml }
+    end
   end
   
   def create
     if @publication = Publication.create(params[:publication])
       flash[:notice] = 'Publication successfully uploaded.'
-      redirect_to :action => 'show', :id => @publication
+      redirect_to publication_url(@publication)
     else
-      render action => 'new'
+      render :action => 'new'
     end
   end
   
   def update
     if @publication = Publication.update(params[:id], params[:publication])
       flash[:notce] = 'Publication successfully updated.'
-      redirect_to :action => 'show', :id => @publication
+      redirect_to publication_url(@publication)
     else
-      render action => 'edit'
+      render :action => 'edit'
     end
   end
   
@@ -28,16 +34,25 @@ class Admin::PublicationsController < AdminController
     @publication = Publication.new
   end
   
-  def list
-    @publications = Publication.find(:all, :order => 'date')
-  end
-  
   def show
-    @publication = Publication.find(params[:id])
+    @publication = Publication.find(params[:id], :include => [:editor])
   end
   
   def edit
     @publication = Publication.find(params[:id])
+  end
+  
+  def destroy
+    @publication = Publication.find(params[:id])
+    @publication.destroy
+  end
+  
+  private
+  
+  def check_publications_permissions
+    unless current_user.edit_publications?
+      redirect_to denied_url
+    end
   end
 
   

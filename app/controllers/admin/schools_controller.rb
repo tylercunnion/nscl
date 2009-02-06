@@ -1,4 +1,7 @@
 class Admin::SchoolsController < AdminController
+  
+  before_filter :check_schools_permissions
+  
   def index
     list
     render :action => 'list'
@@ -40,6 +43,13 @@ class Admin::SchoolsController < AdminController
     @schools = School.find(:all, :order => 'name')
   end
   
+  private
+  
+  def check_schools_permissions
+    unless current_user.edit_schools?
+      redirect_to denied_url
+    end
+  end
   
   
 end

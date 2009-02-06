@@ -6,6 +6,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
 
   map.resource :session
+  
+  map.resources :publications, :controller => 'admin/publications', :path_prefix => "admin"
+  map.resources :members, :controller => 'admin/members', :path_prefix => "admin"
+  map.resources :schools, :controller => 'admin/schools', :path_prefix => "admin"
+  map.resources :links, :controller => 'admin/links', :path_prefix => "admin"
 
   # The priority is based upon order of creation: first created -> highest priority.
   
@@ -23,6 +28,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'business', :controller => "business/officers", :action => "index"
   map.connect 'members', :controller => "members/scholarships", :action => "index"
   map.connect 'admin', :controller => "admin", :action => "index"
+  map.denied 'admin/denied', :controller => "admin", :action => "denied"
 #map.connect 'events', :controller => "events", :action => "index"
 
   # Allow downloading Web Service WSDL as a file with an extension

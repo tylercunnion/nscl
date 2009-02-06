@@ -1,0 +1,6 @@
+<h2>Publications</h2>
+<ul>
+<% @publications.each do |p| %>
+	<li><%= p.pub_type %> - <%= p.date %></li>
+<% end %>
+</ul>

@@ -1,5 +1,7 @@
 class Admin::MembersController < AdminController
   
+  before_filter :check_member_permissions
+  
   require 'readline'
   include Readline
   
@@ -13,6 +15,12 @@ class Admin::MembersController < AdminController
       :limit => 10,
       :include => 'state')
     render :partial => 'register_results'
+  end
+  
+  def destroy
+    @member = Member.find(params[:id])
+    @member.destroy
+    redirect_to members_url
   end
   
   def new
@@ -68,6 +76,12 @@ class Admin::MembersController < AdminController
   end
   
 private
+
+  def check_member_permissions
+    unless current_user.edit_members?
+      redirect_to denied_url
+    end
+  end
 
   def get_years
     years = []

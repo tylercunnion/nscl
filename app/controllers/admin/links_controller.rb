@@ -1,5 +1,7 @@
 class Admin::LinksController < AdminController
   
+  before_filter :check_link_permissions
+  
   def index
     list
     render :action => 'list'
@@ -29,6 +31,14 @@ class Admin::LinksController < AdminController
   
   def edit
     @link = Link.find(params[:id])
+  end
+  
+  private
+  
+  def check_link_permissions
+    unless current_user.edit_links?
+      redirect_to denied_url
+    end
   end
   
   

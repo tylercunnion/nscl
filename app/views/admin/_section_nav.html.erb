@@ -1,9 +1,9 @@
 <ul>
 	<li>Members
 		<ul>
-			<li><%=link_to "New Member", :controller => 'admin/members', :action => 'new' %></li>
-			<% unless @member.blank? -%><li><%=link_to "Edit this member", :controller => 'admin/members', :action => 'edit', :id => @member %></li>
-			<li><%= link_to "Delete this member", {:controller => 'admin/members', :action => 'delete', :id => @member}, :confirm => "Are you sure?", :method => :post %> </li>
+			<li><%=link_to "New Member", new_member_url %></li>
+			<% unless @member.blank? -%><li><%=link_to "Edit this member", edit_member_url(@member) %></li>
+			<li><%= link_to "Delete this member", member_url(@member), :confirm => "Are you sure?", :method => :delete %> </li>
 			<li><%=link_to "Register this member", {:controller => 'admin/members', :action => 'register', :id => @member} %></li><% end -%>
 			<li>Find a member:<br />
 			<%= text_field_with_auto_complete :member, :name, {:size => 20}, :skip_style => true %></li>
@@ -11,17 +11,17 @@
 	</li>
 	<li>Schools
 		<ul>
-			<li><%=link_to "New School", :controller => 'admin/schools', :action => 'new' %></li>
-			<% unless @school.blank? -%><li><%= link_to "Edit this school", :controller => 'admin/schools', :action => "edit", :id => @school %></li>
-			<li><%= link_to "Delete this school", {:controller => 'admin/schools', :action => 'delete', :id => @school}, :confirm => "Are you sure?", :method => :post %></li><% end -%>
-			<li><%= link_to "List all schools", :controller => 'admin/schools', :action => 'list' %></li>
+			<li><%=link_to "New School", new_school_url %></li>
+			<% unless @school.blank? -%><li><%= link_to "Edit this school", edit_school_url(@school) %></li>
+			<li><%= link_to "Delete this school", school_url(@school), :confirm => "Are you sure?", :method => :delete %></li><% end -%>
+			<li><%= link_to "List all schools", schools_url %></li>
 		</ul>
 	</li>	<li>Links
 		<ul>
-			<li><%=link_to "New Link", :controller => 'admin/links', :action => "new" %></li>
-			<% unless @link.blank? -%><li><%= link_to "Edit this link", :controller => 'admin/links', :action => 'edit', :id => @link %></li>
-			<li><%= link_to "Delete this link", {:controller => 'admin/links', :action => 'delete', :id => @link}, :confirm => "Are you sure?", :method => :post %></li><% end -%>
-			<li><%=link_to "List all links", :controller => 'admin/links', :action => 'list' %></li>
+			<li><%=link_to "New Link", new_link_url %></li>
+			<% unless @link.blank? -%><li><%= link_to "Edit this link", edit_link_url(@link) %></li>
+			<li><%= link_to "Delete this link", link_url(@link), :confirm => "Are you sure?", :method => :delete %></li><% end -%>
+			<li><%=link_to "List all links", links_url %></li>
 		</ul>
 	</li>
 	<li>Publications

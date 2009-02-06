@@ -1,30 +1,34 @@
+<% form_for @member do |f| %>
 <%= error_messages_for 'member'%>
 <p>
-	<label for="member[first]">First Name:</label><%= text_field "member", "first"%><br />
-	<label for="member[last]">Last Name:</label><%= text_field "member", "last"%><br />
-	<label for="member[email]">E-mail Address:</label><%= text_field "member", "email"%><br />
-	<label for="member[phone]">Phone Number:</label><%= text_field "member", "phone", :size => 10, :maxlength => 10 %> (Only put numbers here, no dashes, parentheses, etc.)<br />
+	<label for="member[first]">First Name:</label><%= f.text_field :first %><br />
+	<label for="member[last]">Last Name:</label><%= f.text_field :last %><br />
+	<label for="member[email]">E-mail Address:</label><%= f.text_field :email %><br />
+	<label for="member[phone]">Phone Number:</label><%= f.text_field :phone, :size => 10, :maxlength => 10 %> (Only put numbers here, no dashes, parentheses, etc.)<br />
 	<label for="member[grad_year]">HS Graduation:</label><%= select("member", "grad_year", @years, {:include_blank => true})%><br />
 	<label for="member[state_id]">State:</label><%= select("member", "state_id", @states.collect {|s| [s.abbreviation, s.id] }, {:include_blank => true}) %>
 </p>
 
 <h3>Home Address</h3>
 <p>
-	<label for="member[home_address]">Street Address:</label><%= text_field "member", "home_address" %><br />
-	<label for="member[home_apt]">Unit / Apt. #:</label><%= text_field "member", "home_apt" %><br />
-	<label for="member[home_city]">City:</label><%= text_field "member", "home_city"%><br />
+	<label for="member[home_address]">Street Address:</label><%= f.text_field :home_address %><br />
+	<label for="member[home_apt]">Unit / Apt. #:</label><%= f.text_field :home_apt %><br />
+	<label for="member[home_city]">City:</label><%= f.text_field :home_city %><br />
 	<label for="member[home_state_id]">State:</label><%= select("member", "home_state_id", @states.collect {|s| [s.abbreviation, s.id] }, {:include_blank => true}) %><br />
-	<label for="member[home_zip]">Zip:</label><%= text_field "member", "home_zip", :size => 5, :maxlength => 5 %>
+	<label for="member[home_zip]">Zip:</label><%= f.text_field :home_zip, :size => 5, :maxlength => 5 %>
 </p>
 
 <p><label for="member[school_id]">School:</label><%= select("member", "school_id", @schools.collect {|s| [s.name, s.id]}, {:include_blank => true}) %></p>
 
 <h3>School Address</h3>
 <p>
-	<label for="member[school_address]">Street Address:</label><%= text_field "member", "school_address" %><br />
-	<label for="member[school_apt]">Unit / Apt. #:</label><%= text_field "member", "school_apt" %><br />
-	<label for="member[school_city]">City:</label><%= text_field "member", "school_city"%><br />
+	<label for="member[school_address]">Street Address:</label><%= f.text_field :school_address %><br />
+	<label for="member[school_apt]">Unit / Apt. #:</label><%= f.text_field :school_apt %><br />
+	<label for="member[school_city]">City:</label><%= f.text_field :school_city %><br />
 	<label for="member[school_state_id]">State:</label><%= select("member", "school_state_id", @states.collect {|s| [s.abbreviation, s.id] }, {:include_blank => true}) %><br />
-	<label for="member[school_zip]">Zip:</label><%= text_field "member", "school_zip", :size => 5, :maxlength => 5 %>
+	<label for="member[school_zip]">Zip:</label><%= f.text_field :school_zip, :size => 5, :maxlength => 5 %>
 </p>
-<p><label for="member[public]">Make this information public on the SCL web site.</label><%= check_box "member", "public" %></p>
+<p><label for="member[public]">Make this information public on the SCL web site.</label><%= f.check_box :public %></p>
+
+	<%= submit_tag "Save"%>
+<% end %>
