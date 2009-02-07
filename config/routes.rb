@@ -11,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :members, :controller => 'admin/members', :path_prefix => "admin"
   map.resources :schools, :controller => 'admin/schools', :path_prefix => "admin"
   map.resources :links, :controller => 'admin/links', :path_prefix => "admin"
+  map.resources :officers, :controller => 'admin/officers', :path_prefix => "admin"
 
   # The priority is based upon order of creation: first created -> highest priority.
   
