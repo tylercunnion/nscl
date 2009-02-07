@@ -13,9 +13,9 @@ class AdminController < ApplicationController
       :conditions => ["concat_ws(' ', first, last) like ?", "%" + value + "%"],
       :order => 'last, first',
       :limit => 10) 
-    render :partial => 'results'
+    render :partial => 'admin/members/results'
   rescue
-    render :nothing
+    render :nothing => true
   end
   
 end

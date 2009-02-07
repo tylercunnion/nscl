@@ -35,7 +35,7 @@ class Admin::PublicationsController < AdminController
   end
   
   def show
-    @publication = Publication.find(params[:id], :include => [:editor])
+    @publication = Publication.find(params[:id])
   end
   
   def edit

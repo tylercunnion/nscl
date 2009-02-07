@@ -3,11 +3,6 @@ class Admin::OfficersController < AdminController
   before_filter :check_officer_permissions
 
   def index
-    list
-    render :action => 'list'
-  end
-  
-  def list
     @officers = Officer.find(:all, :include => :member, :order => "officers.id")
   end
   

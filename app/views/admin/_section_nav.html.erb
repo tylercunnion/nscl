@@ -26,10 +26,10 @@
 	</li>
 	<li>Publications
 		<ul>
-			<li><%= link_to "New Publication", :controller => 'admin/publications', :action => "new"%></li>
-			<% unless @publication.blank? -%><li><%= link_to "Edit this publication", :controller => 'admin/publications', :action => 'edit', :id => @publication %></li>
-			<li><%= link_to "Delete this publication", {:controller => 'admin/publications', :action => 'delete', :id => @school}, :confirm => "Are you sure?", :method => :post %></li><% end -%>
-			<li><%= link_to "List all publications", :controller => 'admin/publications', :action => 'list' %></li>
+			<li><%= link_to "New Publication", new_publication_url %></li>
+			<% unless @publication.blank? -%><li><%= link_to "Edit this publication", edit_publication_url(@publication) %></li>
+			<li><%= link_to "Delete this publication", publication_url(@school), :confirm => "Are you sure?", :method => :delete %></li><% end -%>
+			<li><%= link_to "List all publications", publications_url %></li>
 		</ul>
 	</li>
 </ul>

@@ -9,14 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090205165442) do
+ActiveRecord::Schema.define(:version => 20090207033604) do
 
   create_table "links", :force => true do |t|
     t.string  "section",     :limit => 0, :default => "National", :null => false
     t.string  "url",                      :default => "",         :null => false
     t.string  "name",                     :default => "",         :null => false
     t.text    "description"
-    t.integer "order_no",    :limit => 6
+    t.integer "order_no",    :limit => 2
   end
 
   create_table "members", :force => true do |t|
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(:version => 20090205165442) do
     t.integer "school_id"
     t.string  "last",            :limit => 45
     t.string  "first",           :limit => 45
-    t.integer "public",          :limit => 1
-    t.integer "grad_year",       :limit => 4
+    t.integer "public"
+    t.integer "grad_year"
     t.string  "email",           :limit => 45
     t.string  "home_apt",        :limit => 45
     t.string  "home_address",    :limit => 100
@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(:version => 20090205165442) do
   create_table "publications", :force => true do |t|
     t.string   "pub_type",              :null => false
     t.date     "date",                  :null => false
-    t.integer  "editor_id",             :null => false
     t.string   "publication_file_name"
     t.datetime "created_at"
     t.datetime "updated_at"
