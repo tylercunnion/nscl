@@ -1,4 +1,4 @@
-class Filter
+class BrowseFilter
   attr_reader :id, :name
   
   def initialize(id, name)

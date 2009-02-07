@@ -30,11 +30,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'members', :controller => "members/scholarships", :action => "index"
   map.connect 'admin', :controller => "admin", :action => "index"
   map.denied 'admin/denied', :controller => "admin", :action => "denied"
-#map.connect 'events', :controller => "events", :action => "index"
 
-  # Allow downloading Web Service WSDL as a file with an extension
-  # instead of a file named 'wsdl'
-  map.connect ':controller/service.wsdl', :action => 'wsdl'
+  map.connect 'members/services/browse/:browse_method', :controller => "members/services", :action => "browse"
   map.connect 'business/officers/:link/:action', :controller => "business/officers"
 
   map.connect 'publications/:action', :controller => "publications"

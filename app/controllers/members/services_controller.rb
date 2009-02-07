@@ -30,7 +30,7 @@ class Members::ServicesController < ApplicationController
                           :conditions => ["concat_ws(' ', first, last) like ? and public = true", "%" + params[:name] + "%"])
     @results = Member.find(:all,
                            :conditions => ["concat_ws(' ', first, last) like ? and public = true", "%" + params[:name] + "%"], 
-                           :include => ['school', 'delegation', 'second_delegation'],
+                           :include => ['school', 'state'],
                            :order => "last, first",
                            :offset => offset,
                            :limit => 10)
@@ -51,19 +51,19 @@ class Members::ServicesController < ApplicationController
     if params[:commit]
       offset = 0
     end
-    case params[:method]
-    when "last"
-      browse_by_last(params[:filter], offset)
-    when "first"
-      browse_by_first(params[:filter], offset)
-    when "school"
-      browse_by_school(params[:filter], offset)
-    when "delegation"
-      browse_by_delegation(params[:filter], offset)
-    when nil
-      redirect_to :action => "directory"
+    case params[:browse_method]
+      when "last"
+        browse_by_last(params[:browse_filter], offset)
+      when "first"
+        browse_by_first(params[:browse_filter], offset)
+      when "school"
+        browse_by_school(params[:browse_filter], offset)
+      when "delegation"
+        browse_by_delegation(params[:browse_filter], offset)
+      else
+        redirect_to :action => "directory"
     end
-    @pages = (@count  / 10) + 1
+    @pages = (@count / 10) + 1
     @offset = offset
   end
  
@@ -79,64 +79,64 @@ class Members::ServicesController < ApplicationController
   
 protected
  
-  def browse_by_last(filter, offset)
-    filter ||= "a%"
+  def browse_by_last(browse_filter, offset)
+    browse_filter ||= "a%"
     @filters = get_alphabet
-    @browse_method = "Last Name"
-    @method = "last"
-    @filter = filter
+    @browse_method_name = "Last Name"
+    @browse_method = "last"
+    @filter = browse_filter
     @count = Member.count(:all,
-                          :conditions => ["last like ? and public = true", filter])
+                          :conditions => ["last like ? and public = true", browse_filter])
     @results = Member.find(:all,
-                           :conditions => ["last like ? and public = true", filter],
+                           :conditions => ["last like ? and public = true", browse_filter],
                            :include => ['school', 'state', 'home_state', 'school_state'],
                            :order => "last, first",
                            :limit => 10,
                            :offset => offset)
   end
   
-  def browse_by_first(filter, offset)
-    filter ||= "a%"
+  def browse_by_first(browse_filter, offset)
+    browse_filter ||= "a%"
     @filters = get_alphabet
-    @browse_method = "First Name"
-    @method = "first"
-    @filter = filter
+    @browse_method_name = "First Name"
+    @browse_method = "first"
+    @filter = browse_filter
     @count = Member.count(:all,
-                          :conditions => ["first like ? and public = true", filter])
+                          :conditions => ["first like ? and public = true", browse_filter])
     @results = Member.find(:all,
-                           :conditions => ["first like ? and public = true", filter],
+                           :conditions => ["first like ? and public = true", browse_filter],
                            :include => ['school', 'state', 'home_state', 'school_state'],
                            :order => "first, last",
                            :limit => 10,
                            :offset => offset)
   end
   
-  def browse_by_school(filter, offset)
+  def browse_by_school(browse_filter, offset)
     @filters = School.find(:all, :order => "name")
-    filter ||= @filters.first.id
-    @browse_method = "School"
-    @method = "school"
-    @filter = filter.to_i
+    browse_filter ||= @filters.first.id
+    @browse_method_name = "School"
+    @browse_method = "school"
+    @filter = browse_filter.to_i
     @count = Member.count(:all,
-                          :conditions => ["school_id = ? and public = true", filter])
+                          :conditions => ["school_id = ? and public = true", browse_filter])
     @results = Member.find(:all,
-                           :conditions => ["school_id = ? and public = true", filter],
+                           :conditions => ["school_id = ? and public = true", browse_filter],
                            :include => ['school', 'state', 'home_state', 'school_state'],
                            :order => "last, first",
                            :limit => 10,
                            :offset => offset)
   end
   
-  def browse_by_delegation(filter, offset)
+  def browse_by_delegation(browse_filter, offset)
     @filters = State.find(:all, :order => "name")
-    filter ||= @filters.first.id
-    @browse_method = "Delegation"
-    @method = "delegation"
-    @filter = filter.to_i
+    browse_filter ||= @filters.first.id
+    @browse_method_name = "Delegation"
+    @browse_method = "delegation"
+    @filter = browse_filter.to_i
     @count = Member.count(:all,
-                          :conditions => ["state_id = ? and public = true", filter])
+                          :conditions => ["state_id = ? and public = true", browse_filter])
     @results = Member.find(:all,
-                           :conditions => ["state_id = ? and public = true", filter],
+                           :conditions => ["state_id = ? and public = true", browse_filter],
                            :include => ['school', 'state', 'home_state', 'school_state'],
                            :order => "last, first",
                            :limit => 10,
@@ -145,13 +145,12 @@ protected
   
   def get_alphabet
     letter = 'A'
-    filters = Array.new
+    browse_filters = Array.new
     26.times do
-      filters << Filter.new("#{letter}%", "#{letter}")
-      letter.succ!
+      browse_filters << BrowseFilter.new("#{letter}%", "#{letter}")
+      letter.next!
     end
-
-    return filters
+    return browse_filters
   end
   
   def authenticate
