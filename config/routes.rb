@@ -31,7 +31,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'admin', :controller => "admin", :action => "index"
   map.denied 'admin/denied', :controller => "admin", :action => "denied"
 
-  map.connect 'members/services/browse/:browse_method', :controller => "members/services", :action => "browse"
+  map.browse 'members/services/browse', :controller => "members/services", :action => "browse"
   map.connect 'business/officers/:link/:action', :controller => "business/officers"
 
   map.connect 'publications/:action', :controller => "publications"

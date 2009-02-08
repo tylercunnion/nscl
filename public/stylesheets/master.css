@@ -158,6 +158,11 @@ ol
 	margin-left: 2em;
 }
 
+.previous-next
+{
+	font-size: .9em;
+}
+
 label {
 	font-weight: bold;
 }

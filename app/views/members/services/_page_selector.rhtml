@@ -1,9 +1,9 @@
-<p class="previous-next">
-	<% unless @offset == 0 -%>
-	<input name="previous" type="submit" value="&laquo; Previous" />
-	<% end -%>
-	Page <%= (@offset / 10) + 1 %> of <%= @pages %>
-	<% unless @offset + 10 >= @count -%>
-	<input name="next" type="submit" value="Next &raquo;" />
-	<% end -%>
-</p>
+<div class="previous-next">
+	<%= link_to_unless @offset == 0, "&laquo; Previous", { :action => "browse", :browse_method => @browse_method, :offset => @offset - PAGE_SIZE, :browse_filter => @browse_filter} do
+		end
+	%>
+	Page <%= (@offset / PAGE_SIZE) + 1 %> of <%= @pages %>
+	<%= link_to_unless @offset + PAGE_SIZE >= @count, "Next &raquo;", {:action => "browse", :browse_method => @browse_method, :offset => @offset + PAGE_SIZE, :browse_filter => @browse_filter} do
+		end
+	%>
+</div>

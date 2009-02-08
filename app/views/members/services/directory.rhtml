@@ -7,13 +7,13 @@
 </p>
 <%end%>
 
-<% form_tag(:action => "browse") do %>
+<% form_tag browse_path, :method => "get" do %>
 	<p>Browse the entire directory by category<br />
 		<select name="browse_method">
 			<option value="last">Last Name</option>
 			<option value="first">First Name</option>
 			<option value="delegation">Delegation</option>
 			<option value="school">School</option>
-		</select> <%= submit_tag "Browse"%>
+		</select> <input type="submit" value="Browse" />
 	</p>
 <% end %>

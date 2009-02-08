@@ -68,3 +68,5 @@ ActionMailer::Base.smtp_settings = {
     :password => 'butteslmbohurfdurf',
     :authentication => :login
     }
+    
+PAGE_SIZE = 10

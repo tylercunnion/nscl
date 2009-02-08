@@ -42,15 +42,6 @@ class Members::ServicesController < ApplicationController
   def browse
     offset = params[:offset].to_i
     offset ||= 0
-    if params[:next]
-      offset += 10
-    end
-    if params[:previous]
-      offset -= 10
-    end
-    if params[:commit]
-      offset = 0
-    end
     case params[:browse_method]
       when "last"
         browse_by_last(params[:browse_filter], offset)
@@ -63,8 +54,10 @@ class Members::ServicesController < ApplicationController
       else
         redirect_to :action => "directory"
     end
+    @count ||= 0
     @pages = (@count / 10) + 1
     @offset = offset
+    @browse_filter = params[:browse_filter]
   end
  
   def verify
