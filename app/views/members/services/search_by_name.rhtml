@@ -1,13 +1,11 @@
 <h1>Member Directory</h1>
 <h2>Search Results for &#8220;<%= @search_term%>&#8221;</h2>
 <% form_tag :action => "search_by_name" do%>
-<input type="hidden" name="name" value="<%= @search_term%>">
-<input type="hidden" name="offset" value="<%= @offset %>">
 
 <%= render :partial => "page_selector"%>
 
 <% unless @results.empty? %>
-	<%= render_partial_collection 'profile', @results %>
+	<%= render :partial => 'profile', :collection => @results %>
 <% else %>
 	<h2>Sorry, no matches found.</h2>
 <% end %>

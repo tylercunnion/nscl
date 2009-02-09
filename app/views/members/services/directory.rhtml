@@ -1,9 +1,9 @@
 <h1>Member Directory</h1>
 <p>The member directory is a database of SCL members who have agreed to have their contact information made available online.</p>
-<% form_tag :action => "search_by_name" do %>
+<% form_tag ({:action => "search_by_name"}, {:method => "get"}) do %>
 
 <p>Search for members by name<br />
-	<%= text_field_tag "name" %> <%= submit_tag "Search" %>
+	<%= text_field_tag "name" %> <input type="submit" value="Search" />
 </p>
 <%end%>
 

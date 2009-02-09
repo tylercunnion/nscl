@@ -10,21 +10,11 @@ class Members::ServicesController < ApplicationController
   end
   
   def search_by_name
-    if params[:name] == "" or params[:name] == nil
+    if params[:name].blank?
       redirect_to :action => "directory" and return
     end
-    
     offset = params[:offset].to_i
     offset ||= 0
-    if params[:next]
-      offset += 10
-    end
-    if params[:previous]
-      offset -= 10
-    end
-    if params[:commit]
-      offset = 0
-    end      
     
     @count = Member.count(:all,
                           :conditions => ["concat_ws(' ', first, last) like ? and public = true", "%" + params[:name] + "%"])
@@ -33,9 +23,9 @@ class Members::ServicesController < ApplicationController
                            :include => ['school', 'state'],
                            :order => "last, first",
                            :offset => offset,
-                           :limit => 10)
+                           :limit => PAGE_SIZE)
     @search_term = params[:name]
-    @pages = (@count / 10) + 1
+    @pages = (@count.to_f / PAGE_SIZE).ceil
     @offset = offset
   end
   
@@ -55,7 +45,7 @@ class Members::ServicesController < ApplicationController
         redirect_to :action => "directory"
     end
     @count ||= 0
-    @pages = (@count / 10) + 1
+    @pages = (@count.to_f / PAGE_SIZE).ceil
     @offset = offset
     @browse_filter = params[:browse_filter]
   end
@@ -84,7 +74,7 @@ protected
                            :conditions => ["last like ? and public = true", browse_filter],
                            :include => ['school', 'state', 'home_state', 'school_state'],
                            :order => "last, first",
-                           :limit => 10,
+                           :limit => PAGE_SIZE,
                            :offset => offset)
   end
   
@@ -100,7 +90,7 @@ protected
                            :conditions => ["first like ? and public = true", browse_filter],
                            :include => ['school', 'state', 'home_state', 'school_state'],
                            :order => "first, last",
-                           :limit => 10,
+                           :limit => PAGE_SIZE,
                            :offset => offset)
   end
   
@@ -116,7 +106,7 @@ protected
                            :conditions => ["school_id = ? and public = true", browse_filter],
                            :include => ['school', 'state', 'home_state', 'school_state'],
                            :order => "last, first",
-                           :limit => 10,
+                           :limit => PAGE_SIZE,
                            :offset => offset)
   end
   
@@ -132,7 +122,7 @@ protected
                            :conditions => ["state_id = ? and public = true", browse_filter],
                            :include => ['school', 'state', 'home_state', 'school_state'],
                            :order => "last, first",
-                           :limit => 10,
+                           :limit => PAGE_SIZE,
                            :offset => offset)
   end
   

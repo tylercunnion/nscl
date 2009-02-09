@@ -69,4 +69,4 @@ ActionMailer::Base.smtp_settings = {
     :authentication => :login
     }
     
-PAGE_SIZE = 10
+PAGE_SIZE = 10.0

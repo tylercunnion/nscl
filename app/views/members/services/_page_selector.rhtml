@@ -1,9 +1,9 @@
 <div class="previous-next">
-	<%= link_to_unless @offset == 0, "&laquo; Previous", { :action => "browse", :browse_method => @browse_method, :offset => @offset - PAGE_SIZE, :browse_filter => @browse_filter} do
+	<%= link_to_unless @offset == 0, "&laquo; Previous", { :action => controller.action_name, :browse_method => @browse_method, :offset => @offset - PAGE_SIZE, :browse_filter => @browse_filter, :name => @search_term} do
 		end
 	%>
 	Page <%= (@offset / PAGE_SIZE) + 1 %> of <%= @pages %>
-	<%= link_to_unless @offset + PAGE_SIZE >= @count, "Next &raquo;", {:action => "browse", :browse_method => @browse_method, :offset => @offset + PAGE_SIZE, :browse_filter => @browse_filter} do
+	<%= link_to_unless @offset + PAGE_SIZE >= @count, "Next &raquo;", {:action => controller.action_name, :browse_method => @browse_method, :offset => @offset + PAGE_SIZE, :browse_filter => @browse_filter, :name => @search_term} do
 		end
 	%>
 </div>

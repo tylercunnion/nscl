@@ -70,9 +70,9 @@ ol
 	margin-right: auto;
 	padding-top: 30px;
 	padding-left: 60px;
-	padding-right: 50px;
+	padding-right: 20px;
 	padding-bottom: 10px;
-	width: 640px;
+	width: 670px;
 	position: relative;
 	left: 30px;
 
@@ -80,7 +80,7 @@ ol
 
 #footer
 {
-	clear:both;
+	clear: both;
     width: 750px;
     height: 59px;
     margin: 0px auto;
@@ -94,18 +94,17 @@ ol
 	background: #f5f5d6;
     width: 450px;
 	float: left;
-	border-right: 200px solid #f5f5d6;
-	margin-right: -200px;
+	/*border-right: 200px solid #f5f5d6;*/
 }
 
 #sectionnav
 {
     background: url('../images/slash-trans.png');
     width: 200px;
-    float: left;
+    float: right;
     margin-top: 10px;
     margin-left: 20px;
-	margin-right: -200px;
+	/*margin-right: -200px;*/
 }
 
 #sectionnav ul {
