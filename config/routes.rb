@@ -15,6 +15,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :links, :controller => 'admin/links', :path_prefix => "admin"
   map.resources :officers, :controller => 'admin/officers', :path_prefix => "admin"
 
+  map.resources :blog_posts, :as => "blog"
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   
   # Sample of regular route:

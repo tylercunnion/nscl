@@ -4,8 +4,10 @@ class User < ActiveRecord::Base
   include Authentication
   include Authentication::ByPassword
   include Authentication::ByCookieToken
+  
+  has_many :blog_posts, :foreign_key => "author_id"
 
-  acts_as_bitfield :privileges, :fields => [:edit_members, :edit_links, :edit_officers, :edit_publications, :edit_schools]
+  acts_as_bitfield :privileges, :fields => [:edit_members, :edit_links, :edit_officers, :edit_publications, :edit_schools, :blog_author]
 
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
