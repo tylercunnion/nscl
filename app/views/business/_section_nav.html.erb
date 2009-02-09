@@ -3,7 +3,7 @@
 		<ul>
 			<% @officers.each do |o| -%>
 			<li><%= link_to o.name, :controller => "business/officers", :link => o.link %></li>
-			<%end -%>
+			<% end -%>
 		</ul>
 	</li>
 	<li>Documents

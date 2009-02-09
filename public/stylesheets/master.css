@@ -56,7 +56,7 @@ ol
 #header.links{background: url('../images/banner_links.png');}
 #header.members{background: url('../images/banner_members.png');}
 #header.publications{background: url('../images/banner_publications.png');}
-#header.admin, #header.users{background: url('../images/banner_admin.png');}
+#header.admin, #header.users, #header.sessions{background: url('../images/banner_admin.png');}
 
 #content
 {
