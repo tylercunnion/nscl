@@ -1,6 +1,6 @@
 class Admin::OfficersController < AdminController
   
-  before_filter :check_officer_permissions
+  before_filter :login_required
 
   def index
     @officers = Officer.find(:all, :include => :member, :order => "officers.id")
@@ -8,10 +8,8 @@ class Admin::OfficersController < AdminController
   
   private
   
-  def check_officer_permissions
-    unless current_user.edit_officers?
-      redirect_to denied_url
-    end
+  def authorized?
+    logged_in? && current_user.edit_officers?
   end
   
 end

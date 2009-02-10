@@ -1,6 +1,6 @@
 class Admin::PublicationsController < AdminController
   
-  before_filter :check_publications_permissions
+  before_filter :login_required
   
   def index
     @publications = Publication.find(:all, :order => 'date')
@@ -50,9 +50,7 @@ class Admin::PublicationsController < AdminController
   private
   
   def check_publications_permissions
-    unless current_user.edit_publications?
-      redirect_to denied_url
-    end
+    logged_in? && current_user.edit_publications?
   end
 
   

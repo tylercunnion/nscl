@@ -1,6 +1,6 @@
 class Admin::SchoolsController < AdminController
   
-  before_filter :check_schools_permissions
+  before_filter :login_required
   
   def index
     list
@@ -46,9 +46,7 @@ class Admin::SchoolsController < AdminController
   private
   
   def check_schools_permissions
-    unless current_user.edit_schools?
-      redirect_to denied_url
-    end
+    logged_in? && current_user.edit_schools?
   end
   
   
