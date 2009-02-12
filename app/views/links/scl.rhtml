@@ -1,4 +1,4 @@
-<h1>National Links</h1>
+<h2>National Links</h2>
 <% @national_links.each do |link| -%>
 	<p><%= link_to link.name, link.url %>
 	<% if link.description != nil and link.description != "" -%>
@@ -6,7 +6,7 @@
 	<% end -%>
 	</p>
 <% end -%>
-<h1>State Links</h1>
+<h2>State Links</h2>
 <% @state_links.each do |link| -%>
 	<p><%= link_to link.name, link.url %>
 	<% if link.description != nil and link.description != "" -%>

@@ -22,7 +22,7 @@
 </head>
 <body>
 <div id="header" class="<%= @controller.controller_path.split('/')[0] %>">
-	<%= link_to image_tag("seal_headline.png", :alt => "nscl.org"), {:controller => "/about"} %>
+	<h1><%= link_to image_tag("seal_headline.png", :alt => "National Senior Classical League"), {:controller => "/about"} %></h1>
 	<div id="navigation-div">
 	    <ul id="navigation">
 			<li><%= link_to image_tag("events.png", :alt => "Events"), {:controller => "/events", :action => "index"} %></li>

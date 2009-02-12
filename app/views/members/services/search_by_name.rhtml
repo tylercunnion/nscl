@@ -1,5 +1,5 @@
-<h1>Member Directory</h1>
-<h2>Search Results for &#8220;<%= @search_term%>&#8221;</h2>
+<h2>Member Directory</h2>
+<h3>Search Results for &#8220;<%= @search_term%>&#8221;</h3>
 <% form_tag :action => "search_by_name" do%>
 
 <%= render :partial => "page_selector"%>
@@ -7,7 +7,7 @@
 <% unless @results.empty? %>
 	<%= render :partial => 'profile', :collection => @results %>
 <% else %>
-	<h2>Sorry, no matches found.</h2>
+	<strong>Sorry, no matches found.</strong>
 <% end %>
 
 <%= render :partial => "page_selector"%>

@@ -1,4 +1,4 @@
-<h1>Classical Links</h1>
+<h2>Classical Links</h2>
 <% @classics_links.each do |link| -%>
 	<p><%= link_to link.name, link.url %>
 	<% if link.description != nil and link.description != "" -%>
@@ -7,7 +7,7 @@
 	</p>
 <% end -%>
 	
-<h1>Search Indexes and Directories</h1>
+<h2>Search Indexes and Directories</h2>
 <% @search_links.each do |link| -%>
 	<p><%= link_to link.name, link.url %>
 	<% if link.description != nil and link.description != "" -%>
