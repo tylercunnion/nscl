@@ -1,0 +1,61 @@
+<h2>Convention Chairs</h2>
+<p>Are you an avid SCLer who wants to help out in any way you can at the next NJCL convention? If so then you've come to the right place... You can help the SCL by chairing an SCL event! If you're interested in chairing an event, please fill out the following form and submit it. To get your most wanted chair position, rank the top 3 events.</p>
+
+<% form_tag :action => :chairs_signup do %>
+
+<div style="float: left; width: 200px;">
+
+<p>
+	<label for="name">Name</label><br />
+	<%= text_field_tag :name %>
+</p>
+
+<p>
+	<label for="email">E-mail Address</label><br />
+	<%= text_field_tag :email %>
+</p>
+
+<p>
+	<label for="phone">Phone Number</label><br />
+	<%= text_field_tag :phone %>
+</p>
+
+<p>
+	<label for="delegation">Delegation</label><br />
+	<%= text_field_tag :delegation %>
+</p>
+
+</div>
+
+
+<div style="float: left">
+<p>
+<label for="chair1">First Choice:</label><br />
+<select name="chair1" id="chair1">
+	<%= options_for_select @chairs %>
+</select>
+</p>
+
+<p>
+<label for="chair2">Second Choice:</label><br />
+<select name="chair2" id="chair2">
+	<%= options_for_select @chairs %>
+</select>
+</p>
+
+<p>
+<label for="chair3">Third Choice:</label><br />
+<select name="chair3" id="chair3">
+	<%= options_for_select @chairs %>
+</select>
+</p>
+</div>
+<div style="clear: both" />
+<p>
+	<label for="experience">Previous SCL or related experience (optional)</label><br />
+	<%= text_area_tag :experience, "", {:cols => 30, :rows => 3} %>
+</p>
+<p>
+	<%= submit_tag "Submit" %>
+</p>
+<% end %>
