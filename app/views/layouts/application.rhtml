@@ -35,11 +35,11 @@
 </div>
 
 	<div id="content">
-		<div id="text">
-			<%= @content_for_layout %>
-		</div>
 		<div id="sectionnav">
 			<%= render :partial => @controller.controller_path.split('/')[0] + "/section_nav" %>
+		</div>
+		<div id="text">
+			<%= @content_for_layout %>
 		</div>
 
 	</div>
