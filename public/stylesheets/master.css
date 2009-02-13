@@ -226,7 +226,7 @@ form br, form p, form fieldset
 	border: 2px solid red;	
 }
 
-.chairs-form label, .chairs-form p
+.no-column-form label, .no-column-form p, .no-column-form select
 {
 	float: none;
 	text-align: left;
