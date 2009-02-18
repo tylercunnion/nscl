@@ -56,6 +56,15 @@ ol
     z-index: 1000;
 }
 
+#header_home_link
+{
+	width: 510px;
+	height: 110px;
+	top: 55px;
+	left: 0px;
+	position:absolute;
+}
+
 #header.about{background: url('../images/banner_home.png');}
 #header.business{background: url('../images/banner_business.png');}
 #header.events{background: url('../images/banner_events.png');}
