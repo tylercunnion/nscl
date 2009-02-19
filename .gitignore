@@ -4,3 +4,4 @@ db/development.sqlite3
 db/development-blog.sqlite3
 doc/*
 vendor/rails/*
+public/system/*

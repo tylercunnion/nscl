@@ -7,7 +7,7 @@ class PublicationsController < ApplicationController
     if params[:year]
       @publications = Publication.find_by_year(params[:year])
     else
-      
+      @publications = Publication.find(:all)
     end
   end
   

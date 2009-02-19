@@ -13,4 +13,8 @@ class Publication < ActiveRecord::Base
     end
   end
   
+  def year
+    self.date.strftime('%Y')
+  end
+  
 end
