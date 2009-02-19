@@ -19,4 +19,11 @@ class Mail < ActionMailer::Base
     subject "Hal Rather Application: " + form[:name]
     body :form => form
   end
+  
+  def nscl_scholarship_application( form )
+    recipients NSCL_SCHOL_CONTACT
+    from "web@nscl.org"
+    subject "NSCL Scholarship Application: " + form[:name]
+    body :form => form
+  end
 end

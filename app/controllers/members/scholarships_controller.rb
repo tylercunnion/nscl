@@ -7,4 +7,8 @@ class Members::ScholarshipsController < ApplicationController
     Mail.deliver_hal_rather_application(params)
   end
   
+  def apply_nscl_scholarship
+    Mail.deliver_nscl_scholarship_application(params)
+  end
+  
 end
