@@ -5,9 +5,9 @@ class PublicationsController < ApplicationController
   
   def convention_ear
     if params[:year]
-      @year= params[:year]
+      @year = params[:year]
     else
-      @year = Publication.maximum('YEAR(date)')
+      @year = Publication.maximum('date').year.to_s
     end
     @publications = Publication.find(:all, :conditions => "pub_type = 'Convention Ear'")
   end

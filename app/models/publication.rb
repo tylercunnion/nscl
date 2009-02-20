@@ -2,7 +2,7 @@ class Publication < ActiveRecord::Base
   has_attached_file :publication, :styles => { :thumb => ["125x165>", :png]}
   
   def self.find_by_year( year )
-    self.find(:all, :conditions => ["YEAR(date) = ?", year])
+    self.find(:all, :conditions => {:date => Date.new(year, 1,1)..Date.new(year, 12, 31)})
   end
   
   def blank?
