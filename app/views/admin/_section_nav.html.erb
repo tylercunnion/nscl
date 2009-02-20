@@ -28,7 +28,7 @@
 		<ul>
 			<li><%= link_to "New Publication", new_publication_url %></li>
 			<% unless @publication.blank? -%><li><%= link_to "Edit this publication", edit_publication_url(@publication) %></li>
-			<li><%= link_to "Delete this publication", publication_url(@school), :confirm => "Are you sure?", :method => :delete %></li><% end -%>
+			<li><%= link_to "Delete this publication", publication_url(@publication), :confirm => "Are you sure?", :method => :delete %></li><% end -%>
 			<li><%= link_to "List all publications", publications_url %></li>
 		</ul>
 	</li>
