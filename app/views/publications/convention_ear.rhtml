@@ -1,24 +1,4 @@
 <h2>The Convention Ear</h2>
 <p>The Convention Ear is the daily convention newsletter produced by the SCL each year during the NJCL convention. The <%=link_to "NSCL Editor", :controller => "business/officers/", :link => "editor"%> is in charge of overall design and layout, as well as recruiting as many other SCLers as possible to create this amalgam of caffeine-induced hysteria. Each edition is archived here by date.</p>
 
-<div class="no-column-form">
-<% form_tag nil, :method=> "get" do %>
-<select id="year" name="year">
-<% @publications.group_by(&:year).sort {|a,b| b <=> a }.each do |year, pub| %>
-	<option value="<%= year %>" <%if @year == year %>selected="selected"<%end%>><%= year %></option>
-<% end %>
-</select>
-<input type="submit" value="Go" />
-<% end -%>
-</div>
-
-<% @publications.group_by(&:year).each do |year, pub| -%>
-<% if year == @year -%>
-<% pub.sort { |a,b| a.date <=> b.date }.each do |p| -%>
-<p>
-	<%= link_to image_tag(p.publication.url(:thumb)), p.publication.url %><br />
-	<%= p.date %>
-</p>
-<% end -%>
-<% end -%>
-<% end -%>
+<%= render :partial => 'publication_display'%>
