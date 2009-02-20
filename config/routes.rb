@@ -30,7 +30,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # You can have the root of your site routed by hooking up '' 
   # -- just remember to delete public/index.html.
-  map.connect '', :controller => "about", :action => "index"
+  map.home '', :controller => "about", :action => "index"
   map.connect 'business', :controller => "business/officers", :action => "index"
   map.connect 'members', :controller => "members/scholarships", :action => "index"
   map.connect 'admin', :controller => "admin", :action => "index"

@@ -1,5 +1,5 @@
-<h1>Member Directory</h1>
-<h2>Browse by <%= @browse_method_name %></h2>
+<h2>Member Directory</h2>
+<h3>Browse by <%= @browse_method_name %></h3>
 <% form_tag browse_path, :method => "get" do %>
 <input type="hidden" name="browse_method" value="<%= @browse_method %>">
 <select name="browse_filter">
@@ -14,7 +14,7 @@
 <%= render :partial => 'profile', :collection => @results %>
 
 <% else -%>
-<h2>Sorry, no matches found.</h2>
+<strong>Sorry, no matches found.</strong>
 <% end -%>
 
 <%= render :partial => "page_selector"%>

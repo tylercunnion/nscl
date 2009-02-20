@@ -1,6 +1,6 @@
 class Admin::MembersController < AdminController
   
-  before_filter :check_member_permissions
+  before_filter :login_required
   
   require 'readline'
   include Readline
@@ -77,10 +77,8 @@ class Admin::MembersController < AdminController
   
 private
 
-  def check_member_permissions
-    unless current_user.edit_members?
-      redirect_to denied_url
-    end
+  def authorized?
+    logged_in? && current_user.edit_members?
   end
 
   def get_years

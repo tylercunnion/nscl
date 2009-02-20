@@ -1,4 +1,4 @@
-<h1>List all Links</h1>
+<h2>List all Links</h2>
 <ul>
 <% @links.each do |l| %>
 <li><%= link_to "#{l.name} &#8212; #{l.url}", :action => 'show', :id => l %></li>

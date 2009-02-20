@@ -22,24 +22,26 @@
 </head>
 <body>
 <div id="header" class="<%= @controller.controller_path.split('/')[0] %>">
-	<%= link_to image_tag("seal_headline.png", :alt => "nscl.org"), {:controller => "/about"} %>
+	<h1>
+		<%= image_tag "seal_headline.png", :alt => "National Senior Classical League" %>
+		<%= link_to "", home_url, {:id => "header_home_link"} %>
+	</h1>
 	<div id="navigation-div">
 	    <ul id="navigation">
 			<li><%= link_to image_tag("events.png", :alt => "Events"), {:controller => "/events", :action => "index"} %></li>
 			<li><%= link_to image_tag("members.png", :alt => "Members"), {:controller => '/members'} %></li>
 	        <li><%= link_to image_tag("official.png", :alt => "Official Business"), {:controller => '/business'} %></li>
 	        <li><%= link_to image_tag("publications.png", :alt => "Publications"), {:controller => '/publications'} %></li>
-	        <li><%= link_to image_tag("links.png", :alt => "Links"), {:controller => '/links'} %></li>
 	    </ul>
 	</div>
 </div>
 
 	<div id="content">
-		<div id="text">
-			<%= @content_for_layout %>
-		</div>
 		<div id="sectionnav">
 			<%= render :partial => @controller.controller_path.split('/')[0] + "/section_nav" %>
+		</div>
+		<div id="text">
+			<%= @content_for_layout %>
 		</div>
 
 	</div>

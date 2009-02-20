@@ -1,20 +1,26 @@
 html
 {
    background: #cccc99;
-   font-size: 14px;
-}
-
-h1
-{
-    font-size: 1.5em;
-    font-variant: small-caps;
+   font-size: 12px;
 }
 
 h2
 {
+    font-size: 1.3em;
+    //font-variant: small-caps;
+}
+
+h3
+{
 	font-size: 1.1em;
 	line-height: 1em;
 }
+
+h1
+{
+	color: red;
+}
+
 
 body
 {
@@ -48,6 +54,15 @@ ol
     height: 210px;
     border: none;
     z-index: 1000;
+}
+
+#header_home_link
+{
+	width: 510px;
+	height: 110px;
+	top: 55px;
+	left: 0px;
+	position:absolute;
 }
 
 #header.about{background: url('../images/banner_home.png');}
@@ -162,14 +177,62 @@ ol
 	font-size: .9em;
 }
 
-label {
+/* FORM STYLES */
+
+label, legend
+{
 	font-weight: bold;
 }
 
+label 
+{
+	text-align: right;
+	float: left;
+	width: 150px;
+	margin-right: 10px;
+	margin-bottom: 1em;
+}
+
+input, select
+{
+	float: left;
+	margin-bottom: 1em;
+}
+
+fieldset
+{
+	border: none;
+	margin: 0;
+	padding-left: 0;
+}
+
+form br, form p, form fieldset
+{
+	clear: both;
+}
+
+.radio
+{
+	margin-left: 155px;
+}
+
+.radio input, .radio label
+{
+	float: none;
+	display: inline;
+}
 
 .fieldWithErrors input{
 	border: 2px solid red;	
 }
+
+.no-column-form label, .no-column-form p, .no-column-form select, .no-column-form input
+{
+	float: none;
+	text-align: left;
+}
+
+/* END FORM STYLES */
 
 ul.members-results {
 	background-color: #fff;

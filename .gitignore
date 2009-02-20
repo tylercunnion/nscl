@@ -2,4 +2,7 @@ log/*
 config/database.yml
 db/development.sqlite3
 db/development-blog.sqlite3
-doc/app/*
+doc/*
+vendor/rails/*
+public/system/*
+

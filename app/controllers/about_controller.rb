@@ -33,4 +33,9 @@ class AboutController < ApplicationController
     
     Mail.deliver_membership_request(applicant, school, in_database)
   end
+  
+  def states
+    @links = Link.find(:all, :order => "name")
+  end
+  
 end

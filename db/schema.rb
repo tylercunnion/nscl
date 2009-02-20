@@ -9,14 +9,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090207033604) do
+ActiveRecord::Schema.define(:version => 20090220163614) do
+
+  create_table "blog_post_categories", :force => true do |t|
+    t.integer  "blog_post_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "blog_posts", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "author_id"
+    t.integer  "published"
+    t.datetime "publish_date"
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "links", :force => true do |t|
-    t.string  "section",     :limit => 0, :default => "National", :null => false
-    t.string  "url",                      :default => "",         :null => false
-    t.string  "name",                     :default => "",         :null => false
-    t.text    "description"
-    t.integer "order_no",    :limit => 2
+    t.string "url",         :default => "", :null => false
+    t.string "name",        :default => "", :null => false
+    t.text   "description"
   end
 
   create_table "members", :force => true do |t|

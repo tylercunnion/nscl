@@ -4,12 +4,23 @@ class PublicationsController < ApplicationController
   end
   
   def convention_ear
-    if params[:year]
-      @publications = Publication.find_by_year(params[:year])
-    else
-      
-    end
+    get_pubs( "Convention Ear", params[:year] )
   end
   
- 
+  def letter
+    get_pubs( "Letter of the League", params[:year] )
+  end
+  
+  private
+  
+  def get_pubs( pub_type, year )
+    @publications = Publication.find(:all, :conditions => ["pub_type = ?", pub_type])
+    if year
+      @year = year
+    else
+      @year = Publication.maximum('date', :conditions => ["pub_type = ?", pub_type]).year.to_s
+    end
+  rescue
+    @year = Date.today.year
+  end
 end

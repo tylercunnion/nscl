@@ -4,9 +4,11 @@ class Members::ScholarshipsController < ApplicationController
   end
   
   def apply_hal_rather
-    form = Hash.new
-    form[:name] = params[:name]
-    #form[:]
+    Mail.deliver_hal_rather_application(params)
+  end
+  
+  def apply_nscl_scholarship
+    Mail.deliver_nscl_scholarship_application(params)
   end
   
 end

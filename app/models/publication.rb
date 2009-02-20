@@ -1,8 +1,8 @@
 class Publication < ActiveRecord::Base
   has_attached_file :publication, :styles => { :thumb => ["125x165>", :png]}
   
-  def find_by_year(year)
-    #return self.find(:all, :conditions => [""])
+  def self.find_by_year( year )
+    self.find(:all, :conditions => {:date => Date.new(year, 1,1)..Date.new(year, 12, 31)})
   end
   
   def blank?
@@ -11,6 +11,10 @@ class Publication < ActiveRecord::Base
     else
       return false
     end
+  end
+  
+  def year
+    self.date.strftime('%Y')
   end
   
 end

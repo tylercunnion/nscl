@@ -5,7 +5,7 @@
 	</p>
 	<p>
 		<label for="publication[publication]">File:</label><br />
-		<%= f.file_field :publication %>
+		<%= f.file_field :publication, {:start_year => 1990} %>
 	</p>
 	<p>
 		<label for="publication[pub_type]">Publication:</label><br />
