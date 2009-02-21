@@ -1,3 +1,5 @@
 <h2>Edit Publication</h2>
 <%= image_tag @publication.publication.url(:thumb) %>
-<%= render :partial => 'form' %>
+<% form_for @publication, :html=> {:multipart => true, :method => :put} do |f| %>
+<%= render :partial => f %>
+<% end %>

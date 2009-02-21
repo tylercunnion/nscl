@@ -1,6 +1,11 @@
 <h2>Publications</h2>
 <ul>
-<% @publications.each do |p| %>
-	<li><%= p.pub_type %> - <%= p.date %></li>
+<% @publications.group_by(&:year).sort {|a,b| b <=> a}.each do |year, pub| %>
+	<li><%= year %></li>
+	<ul>
+		<% pub.each do |p| %>
+			<li><%= link_to p.pub_type, publication_url(p) %> - <%= p.date %></li>
+		<% end %>
+	</ul>
 <% end %>
 </ul>

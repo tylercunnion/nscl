@@ -1,15 +1,16 @@
-<% form_for @publication, :html=> {:multipart => true} do |f| %>
-	<p>
-		<label for="publication[date]">Date:</label><br />
-		<%= f.date_select :date %>
-	</p>
-	<p>
-		<label for="publication[publication]">File:</label><br />
-		<%= f.file_field :publication, {:start_year => 1990} %>
-	</p>
-	<p>
-		<label for="publication[pub_type]">Publication:</label><br />
-		<%= f.text_field :pub_type %>
-	</p>
-	<p><%= submit_tag "Save" %></p>
-<% end %>
+<p>
+	<label for="publication[date]">Date:</label><br />
+	<%= form.date_select :date, {:start_year => 1990} %>
+</p>
+<p>
+	<label for="publication[publication]">File:</label><br />
+	<%= form.file_field :publication %>
+</p>
+<p>
+	<label for="publication[pub_type]">Publication:</label><br />
+	<select id="publication_pub_type" name="publication[pub_type]">
+		<option>Convention Ear</option>
+		<option>Letter of the League</option>
+	</select>
+</p>
+<p><%= submit_tag "Save" %></p>

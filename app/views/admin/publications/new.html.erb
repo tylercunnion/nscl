@@ -1,2 +1,4 @@
 <h2>New Publication</h2>
-<%= render :partial => 'form' %>
+<% form_for @publication, :html=> {:multipart => true} do |f| %>
+<%= render :partial => f %>
+<% end %>
