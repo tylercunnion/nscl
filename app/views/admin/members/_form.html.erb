@@ -9,7 +9,7 @@
 	<label for="member[state_id]">State:</label><%= select("member", "state_id", @states.collect {|s| [s.abbreviation, s.id] }, {:include_blank => true}) %>
 </p>
 
-<h3>Home Address</h3>
+<fieldset><legend>Home Address</legend>
 <p>
 	<label for="member[home_address]">Street Address:</label><%= f.text_field :home_address %><br />
 	<label for="member[home_apt]">Unit / Apt. #:</label><%= f.text_field :home_apt %><br />
@@ -17,10 +17,11 @@
 	<label for="member[home_state_id]">State:</label><%= select("member", "home_state_id", @states.collect {|s| [s.abbreviation, s.id] }, {:include_blank => true}) %><br />
 	<label for="member[home_zip]">Zip:</label><%= f.text_field :home_zip, :size => 5, :maxlength => 5 %>
 </p>
+</fieldset>
 
 <p><label for="member[school_id]">School:</label><%= select("member", "school_id", @schools.collect {|s| [s.name, s.id]}, {:include_blank => true}) %></p>
 
-<h3>School Address</h3>
+<fieldset><legend>School Address</legend>
 <p>
 	<label for="member[school_address]">Street Address:</label><%= f.text_field :school_address %><br />
 	<label for="member[school_apt]">Unit / Apt. #:</label><%= f.text_field :school_apt %><br />
@@ -28,6 +29,8 @@
 	<label for="member[school_state_id]">State:</label><%= select("member", "school_state_id", @states.collect {|s| [s.abbreviation, s.id] }, {:include_blank => true}) %><br />
 	<label for="member[school_zip]">Zip:</label><%= f.text_field :school_zip, :size => 5, :maxlength => 5 %>
 </p>
+</fieldset>
+
 <p><label for="member[public]">Make this information public on the SCL web site.</label><%= f.check_box :public %></p>
 
 	<%= submit_tag "Save"%>
