@@ -5,6 +5,11 @@ class Members::ServicesController < ApplicationController
     redirect_to :action => "directory"
   end
   
+  def directory
+    @page_title = "NSCL Member Directory"
+  end
+  
+  
   def login
     @next_page = params[:nextpage]
   end
@@ -30,6 +35,7 @@ class Members::ServicesController < ApplicationController
   end
   
   def browse
+    @page_title = "Browse Directory"
     offset = params[:offset].to_i
     offset ||= 0
     case params[:browse_method]

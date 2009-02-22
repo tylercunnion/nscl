@@ -6,6 +6,7 @@ class AboutController < ApplicationController
 
   
   def join
+    @page_title = "Join NSCL"
     @schools = School.find(:all, :order => "name ASC")
     @member = Member.new
   end
@@ -33,9 +34,14 @@ class AboutController < ApplicationController
     
     Mail.deliver_membership_request(applicant, school, in_database)
   end
-  
+    
   def states
+    @page_title = "State Chapters"
     @links = Link.find(:all, :order => "name")
+  end
+  
+  def website
+    @page_title = "About the Website"
   end
   
 end

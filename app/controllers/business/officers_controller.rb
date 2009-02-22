@@ -11,7 +11,7 @@ class Business::OfficersController < BusinessController
   
   def view
     @officer = Officer.find_by_link(params[:link], :include => 'member')
-
+    @page_title = "NSCL " + @officer.name
     #Default behavior is to use the school address if one is given, otherwise, prefer home address.
     #This could be modified into a flag on the officer object to see which one to use.
     #If neither is given, blank out the two address line variables.
