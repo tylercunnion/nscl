@@ -3,7 +3,7 @@
 <% form_tag browse_path, :method => "get" do %>
 <input type="hidden" name="browse_method" value="<%= @browse_method %>">
 <select name="browse_filter">
-	<%= options_from_collection_for_select(@filters, "id", "name", @filter) %>
+	<%= options_from_collection_for_select(@filters, "id", "name", @browse_filter) %>
 </select><input type="submit" value="Browse" />
 <% end %>
 

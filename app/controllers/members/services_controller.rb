@@ -69,7 +69,8 @@ class Members::ServicesController < ApplicationController
 protected
  
   def browse_by_last(browse_filter, offset)
-    browse_filter ||= "a%"
+    browse_filter ||= "a"
+    browse_filter += '%'
     @filters = get_alphabet
     @browse_method_name = "Last Name"
     @browse_method = "last"
@@ -78,14 +79,15 @@ protected
                           :conditions => ["last like ? and public = true", browse_filter])
     @results = Member.find(:all,
                            :conditions => ["last like ? and public = true", browse_filter],
-                           :include => ['school', 'state', 'home_state', 'school_state'],
+                           :include => ['school', 'state'],
                            :order => "last, first",
                            :limit => PAGE_SIZE,
                            :offset => offset)
   end
   
   def browse_by_first(browse_filter, offset)
-    browse_filter ||= "a%"
+    browse_filter ||= "a"
+    browse_filter += '%'
     @filters = get_alphabet
     @browse_method_name = "First Name"
     @browse_method = "first"
@@ -94,39 +96,52 @@ protected
                           :conditions => ["first like ? and public = true", browse_filter])
     @results = Member.find(:all,
                            :conditions => ["first like ? and public = true", browse_filter],
-                           :include => ['school', 'state', 'home_state', 'school_state'],
+                           :include => ['school', 'state'],
                            :order => "first, last",
                            :limit => PAGE_SIZE,
                            :offset => offset)
   end
   
   def browse_by_school(browse_filter, offset)
-    @filters = School.find(:all, :order => "name")
+    @schools = School.find(:all, :order => "name")
+    
+    @filters = Array.new
+    @schools.each do |s|
+      @filters << BrowseFilter.new("#{s.name}", "#{s.name}")
+    end  
     browse_filter ||= @filters.first.id
     @browse_method_name = "School"
     @browse_method = "school"
     @filter = browse_filter.to_i
     @count = Member.count(:all,
-                          :conditions => ["school_id = ? and public = true", browse_filter])
+                          :include => :school,
+                          :conditions => ["schools.name = ? and public = true", browse_filter])
     @results = Member.find(:all,
-                           :conditions => ["school_id = ? and public = true", browse_filter],
-                           :include => ['school', 'state', 'home_state', 'school_state'],
+                           :conditions => ["schools.name = ? and public = true", browse_filter],
+                           :include => ['school', 'state'],
                            :order => "last, first",
                            :limit => PAGE_SIZE,
                            :offset => offset)
   end
   
   def browse_by_delegation(browse_filter, offset)
-    @filters = State.find(:all, :order => "name")
+    @states = State.find(:all, :order => "name")
+    
+    @filters = Array.new
+    @states.each do |s|
+      @filters << BrowseFilter.new("#{s.abbreviation}", "#{s.name}")
+    end
+    
     browse_filter ||= @filters.first.id
     @browse_method_name = "Delegation"
     @browse_method = "delegation"
-    @filter = browse_filter.to_i
+    @filter = browse_filter
     @count = Member.count(:all,
-                          :conditions => ["state_id = ? and public = true", browse_filter])
+                          :include => :state,
+                          :conditions => ["states.abbreviation = ? and public = true", browse_filter])
     @results = Member.find(:all,
-                           :conditions => ["state_id = ? and public = true", browse_filter],
-                           :include => ['school', 'state', 'home_state', 'school_state'],
+                           :conditions => ["states.abbreviation = ? and public = true", browse_filter],
+                           :include => ['school', 'state'],
                            :order => "last, first",
                            :limit => PAGE_SIZE,
                            :offset => offset)
@@ -136,7 +151,7 @@ protected
     letter = 'A'
     browse_filters = Array.new
     26.times do
-      browse_filters << BrowseFilter.new("#{letter}%", "#{letter}")
+      browse_filters << BrowseFilter.new("#{letter}", "#{letter}")
       letter.next!
     end
     return browse_filters
