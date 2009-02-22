@@ -3,6 +3,7 @@ class Admin::MembersController < AdminController
   before_filter :login_required
   
   require 'readline'
+  require 'csv'
   include Readline
   
 
@@ -69,11 +70,25 @@ class Admin::MembersController < AdminController
   
   def register
     @member = Member.find(params[:id], :include => ['school', 'state'])
-    writefile = File.open("convention_registration.csv", "a")
-    writefile.puts("\"" + @member.first + "\", \"" + @member.last + "\", " + @member.grad_year.to_s + "\n")
+    writefile = File.open("convention_registration_" + Date.today.year.to_s + ".csv", "a")
+    CSV::Writer.generate(writefile) do |csv|
+      unless File.size?(writefile)
+        csv << ["Last Name", "First Name", "Graduation Year", "State", "E-mail", "GA 1", "GA 2", "GA 3", "GA 4"]
+      end
+      csv << [@member.last, @member.first, @member.grad_year.to_s, @member.state.abbreviation, @member.email]
+    end
     writefile.close
-    #redirect_to :action => "registration"
+    flash[:notice] = @member.name + " registered."
+  rescue
+    flash[:error] = "An error occurred." + $!
+  ensure
+    redirect_to :action => "registration"
   end
+  
+  def get_spreadsheet
+    send_file("convention_registration_" + Date.today.year.to_s + ".csv") if File.exists?("convention_registration_" + Date.today.year.to_s + ".csv")
+  end
+  
   
 private
 

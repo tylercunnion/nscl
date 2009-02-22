@@ -7,6 +7,7 @@
 			<li><%=link_to "Register this member", {:controller => 'admin/members', :action => 'register', :id => @member} %></li><% end -%>
 			<li>Find a member:<br />
 			<%= text_field_with_auto_complete :member, :name, {:size => 20}, :skip_style => true %></li>
+			<li><%= link_to "Convention Registration", {:controller => 'admin/members', :action => 'registration'} %></li>
 		</ul>
 	</li>
 	<li>Schools

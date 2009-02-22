@@ -10,7 +10,7 @@ ActionController::Routing::Routes.draw do |map|
 
   
   map.resources :publications, :controller => 'admin/publications', :path_prefix => "admin"
-  map.resources :members, :controller => 'admin/members', :path_prefix => "admin"
+  map.resources :members, :controller => 'admin/members', :path_prefix => "admin", :collection => {:register => :put, :registration => :get, :get_spreadsheet => :get}
   map.resources :schools, :controller => 'admin/schools', :path_prefix => "admin"
   map.resources :links, :controller => 'admin/links', :path_prefix => "admin"
   map.resources :officers, :controller => 'admin/officers', :path_prefix => "admin"
