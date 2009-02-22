@@ -41,6 +41,8 @@
 			<%= render :partial => @controller.controller_path.split('/')[0] + "/section_nav" %>
 		</div>
 		<div id="text">
+			<p id="notice"><%= flash[:notice] %></p>
+			<p id="error"><%= flash[:error] %></p>
 			<%= @content_for_layout %>
 		</div>
 

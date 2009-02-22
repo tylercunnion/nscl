@@ -177,6 +177,16 @@ ol
 	font-size: .9em;
 }
 
+#error
+{
+	color: red;
+}
+
+#notice
+{
+	color: green;
+}
+
 /* FORM STYLES */
 
 label, legend
