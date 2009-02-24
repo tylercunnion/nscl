@@ -1,7 +1,5 @@
 class Admin::SchoolsController < AdminController
-  
-  before_filter :login_required
-  
+    
   def index
     list
     render :action => 'list'
@@ -42,12 +40,5 @@ class Admin::SchoolsController < AdminController
   def list
     @schools = School.find(:all, :order => 'name')
   end
-  
-  private
-  
-  def check_schools_permissions
-    logged_in? && current_user.edit_schools?
-  end
-  
   
 end

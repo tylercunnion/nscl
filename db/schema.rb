@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090220163614) do
+ActiveRecord::Schema.define(:version => 20090224030317) do
 
   create_table "blog_post_categories", :force => true do |t|
     t.integer  "blog_post_id"
@@ -75,6 +75,18 @@ ActiveRecord::Schema.define(:version => 20090220163614) do
     t.datetime "updated_at"
   end
 
+  create_table "roles", :force => true do |t|
+    t.string "name"
+  end
+
+  create_table "roles_users", :id => false, :force => true do |t|
+    t.integer "role_id"
+    t.integer "user_id"
+  end
+
+  add_index "roles_users", ["role_id"], :name => "index_roles_users_on_role_id"
+  add_index "roles_users", ["user_id"], :name => "index_roles_users_on_user_id"
+
   create_table "schools", :force => true do |t|
     t.string "name", :default => "", :null => false
   end
@@ -95,7 +107,6 @@ ActiveRecord::Schema.define(:version => 20090220163614) do
     t.datetime "updated_at"
     t.string   "remember_token",            :limit => 40
     t.datetime "remember_token_expires_at"
-    t.integer  "privileges"
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true

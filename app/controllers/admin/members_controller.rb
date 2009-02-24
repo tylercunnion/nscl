@@ -1,7 +1,5 @@
 class Admin::MembersController < AdminController
-  
-  before_filter :login_required
-  
+    
   require 'readline'
   require 'csv'
   include Readline
@@ -91,10 +89,6 @@ class Admin::MembersController < AdminController
   
   
 private
-
-  def authorized?
-    logged_in? && current_user.edit_members?
-  end
 
   def get_years
     years = []
