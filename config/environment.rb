@@ -63,12 +63,8 @@ end
 
 APP_CONFIG = YAML.load_file("#{RAILS_ROOT}/config/config.yml")[RAILS_ENV]
 
-ActionMailer::Base.smtp_settings = {
-    :address => APP_CONFIG["mail_address"],
-    :port => 25,
-    :user_name => APP_CONFIG['mail_user'],
-    :password => APP_CONFIG['mail_password'],
-    :authentication => :login
-    }
+
     
 PAGE_SIZE = 10.0
+HAL_CONTACT = "tyler.cunnion@gmail.com"
+

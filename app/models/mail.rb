@@ -15,7 +15,7 @@ class Mail < ActionMailer::Base
   
   def hal_rather_application( form )
     recipients HAL_CONTACT
-    from "web@nscl.org"
+    from "web@tylercunnion.com"
     subject "Hal Rather Application: " + form[:name]
     body :form => form
   end

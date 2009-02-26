@@ -18,3 +18,12 @@ config.action_controller.session_store = :active_record_store
 
 # Disable delivery errors, bad email addresses will be ignored
 # config.action_mailer.raise_delivery_errors = false
+
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+    :address => APP_CONFIG["mail_address"],
+    :port => 25,
+    :user_name => APP_CONFIG['mail_user'],
+    :password => APP_CONFIG['mail_password'],
+    :authentication => :login
+    }
