@@ -1,6 +1,6 @@
 class Admin::OfficersController < AdminController
   
-  before_filter :login_required
+  require_role "officers"
 
   def index
     @officers = Officer.find(:all, :include => :member, :order => "officers.id")

@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
   
-  require_role "admin"
+  before_filter :login_required
   
   def index
   end

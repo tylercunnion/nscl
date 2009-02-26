@@ -1,4 +1,6 @@
 class Admin::SchoolsController < AdminController
+
+  require_role "schools" 
     
   def index
     list

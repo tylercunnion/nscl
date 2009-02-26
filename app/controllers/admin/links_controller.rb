@@ -1,5 +1,7 @@
 class Admin::LinksController < AdminController
     
+  require_role "links"
+    
   def index
     list
     render :action => 'list'

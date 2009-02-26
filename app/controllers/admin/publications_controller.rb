@@ -1,6 +1,6 @@
 class Admin::PublicationsController < AdminController
   
-  before_filter :login_required
+  require_role "publications"
   
   def index
     @publications = Publication.find(:all, :order => 'date')
