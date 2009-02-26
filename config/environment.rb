@@ -61,11 +61,13 @@ end
 
 # Include your application configuration below
 
+APP_CONFIG = YAML.load_file("#{RAILS_ROOT}/config/config.yml")[RAILS_ENV]
+
 ActionMailer::Base.smtp_settings = {
-    :address => "mail.nscl.org",
+    :address => APP_CONFIG["mail_address"],
     :port => 25,
-    :user_name => "web+nscl.org",
-    :password => 'butteslmbohurfdurf',
+    :user_name => APP_CONFIG['mail_user'],
+    :password => APP_CONFIG['mail_password'],
     :authentication => :login
     }
     

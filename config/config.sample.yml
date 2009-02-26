@@ -1,0 +1,13 @@
+development:
+    mail_server: 
+    mail_user: 
+    mail_password: 
+    mail_address: 
+    member_password: 
+    
+production:
+    mail_server: 
+    mail_user: 
+    mail_password: 
+    mail_address: 
+    member_password: 

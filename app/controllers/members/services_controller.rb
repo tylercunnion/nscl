@@ -57,7 +57,7 @@ class Members::ServicesController < ApplicationController
   end
  
   def verify
-    if params[:password] == "bumblebee"
+    if params[:password] == APP_CONFIG['member_password']
       session[:member] = true
       redirect_to :action => params[:next_page] 
     else
