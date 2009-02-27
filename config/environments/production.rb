@@ -13,14 +13,16 @@ config.action_controller.perform_caching             = true
 
 config.action_controller.session_store = :active_record_store
 
+config.action_view.cache_template_loading = true
+
 # Enable serving of images, stylesheets, and javascripts from an asset server
 # config.action_controller.asset_host                  = "http://assets.example.com"
 
 # Disable delivery errors, bad email addresses will be ignored
 # config.action_mailer.raise_delivery_errors = false
 
-ActionMailer::Base.delivery_method = :smtp
-ActionMailer::Base.smtp_settings = {
+config.action_mailer.delivery_method = :smtp
+config.actionm_mailer.smtp_settings = {
     :address => APP_CONFIG["mail_address"],
     :port => 25,
     :user_name => APP_CONFIG['mail_user'],
