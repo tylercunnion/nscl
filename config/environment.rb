@@ -7,7 +7,7 @@
 # Specifies gem version of Rails to use when vendor/rails is not present
 RAILS_GEM_VERSION = '2.3.0' unless defined? RAILS_GEM_VERSION
 
-APP_CONFIG = YAML.load_file("#{RAILS_ROOT}/config/config.yml")[RAILS_ENV]
+APP_CONFIG = YAML.load_file(Rails.root.join('config','config.yml'))[RAILS_ENV]
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
