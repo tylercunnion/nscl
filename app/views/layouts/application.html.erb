@@ -24,14 +24,14 @@
 <div id="header" class="<%= @controller.controller_path.split('/')[0] %>">
 	<h1>
 		<%= image_tag "seal_headline.png", :alt => "National Senior Classical League" %>
-		<%= link_to "", home_url, {:id => "header_home_link"} %>
+		<%= link_to "", root_url, {:id => "header_home_link"} %>
 	</h1>
 	<div id="navigation-div">
 	    <ul id="navigation">
-			<li><%= link_to image_tag("events.png", :alt => "Events"), {:controller => "/events", :action => "index"} %></li>
-			<li><%= link_to image_tag("members.png", :alt => "Members"), {:controller => '/members'} %></li>
-	        <li><%= link_to image_tag("official.png", :alt => "Official Business"), {:controller => '/business'} %></li>
-	        <li><%= link_to image_tag("publications.png", :alt => "Publications"), {:controller => '/publications'} %></li>
+			<li><%= link_to image_tag("events.png", :alt => "Events"), events_section_path %></li>
+			<li><%= link_to image_tag("members.png", :alt => "Members"), members_section_path %></li>
+	        <li><%= link_to image_tag("official.png", :alt => "Official Business"), business_section_path %></li>
+	        <li><%= link_to image_tag("publications.png", :alt => "Publications"), publications_section_path %></li>
 	    </ul>
 	</div>
 </div>
