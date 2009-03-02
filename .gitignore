@@ -2,8 +2,11 @@ log/*
 config/database.yml
 config/config.yml
 db/development.sqlite3
+db/test.sqlite3
 db/development-blog.sqlite3
 doc/*
 vendor/rails/*
 public/system/*
 public/files/*
+*~
+*._*
