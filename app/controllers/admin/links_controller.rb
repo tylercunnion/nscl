@@ -33,10 +33,4 @@ class Admin::LinksController < AdminController
     @link = Link.find(params[:id])
   end
   
-  protected
-  
-  def authorized?
-    logged_in? && current_user.edit_links?
-  end
-  
 end

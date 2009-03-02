@@ -47,12 +47,6 @@ class Admin::PublicationsController < AdminController
     @publication.destroy
     redirect_to publications_url
   end
-  
-  private
-  
-  def check_publications_permissions
-    logged_in? && current_user.edit_publications?
-  end
 
   
 end
