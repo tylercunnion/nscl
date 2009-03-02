@@ -26,4 +26,11 @@ class Mail < ActionMailer::Base
     subject "NSCL Scholarship Application: " + form[:name]
     body :form => form
   end
+  
+  def event_chair ( form )
+    recipients VP_ADDRESS
+    from "web@nscl.org"
+    subject "Event Chair Application: " + form[:name]
+    body :form => form
+  end
 end

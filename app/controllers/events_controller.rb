@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     @chairs = ["Ludi Chess", "Ludi Soccer", "Ludi Basketball", "Ludi Volleyball", "That's Entertainment", "Olympika Swimming", "Olympika Track Events", "Olympika Field Events", "Marathon", "Banquet"]
   end
   
-  def chair_signup
-    
+  def chairs_signup
+    Mail.deliver_event_chair(params)
   end
 end
