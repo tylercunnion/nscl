@@ -10,4 +10,4 @@ Paperclip::Attachment.interpolations[:pub_type] = proc do |attachment, style|
   attachment.instance.pub_type.gsub(' ', '_')
 end
 
-Paperclip.options[:image_magick_path] = APP_CONFIG['imagemagick_dir']
+#Paperclip.options[:image_magick_path] = APP_CONFIG['imagemagick_dir']
