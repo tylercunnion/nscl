@@ -22,9 +22,9 @@ class Members::ServicesController < ApplicationController
     offset ||= 0
     
     @count = Member.count(:all,
-                          :conditions => ["concat_ws(' ', first, last) like ? and public = true", "%" + params[:name] + "%"])
+                          :conditions => ["concat_ws(' ', first, last) like ? and public = 1", "%" + params[:name] + "%"])
     @results = Member.find(:all,
-                           :conditions => ["concat_ws(' ', first, last) like ? and public = true", "%" + params[:name] + "%"], 
+                           :conditions => ["concat_ws(' ', first, last) like ? and public = 1", "%" + params[:name] + "%"], 
                            :include => ['school', 'state'],
                            :order => "last, first",
                            :offset => offset,
@@ -76,9 +76,9 @@ protected
     @browse_method = "last"
     @filter = browse_filter
     @count = Member.count(:all,
-                          :conditions => ["last like ? and public = true", browse_filter])
+                          :conditions => ["last like ? and public = 1", browse_filter])
     @results = Member.find(:all,
-                           :conditions => ["last like ? and public = true", browse_filter],
+                           :conditions => ["last like ? and public = 1", browse_filter],
                            :include => ['school', 'state'],
                            :order => "last, first",
                            :limit => PAGE_SIZE,
@@ -93,9 +93,9 @@ protected
     @browse_method = "first"
     @filter = browse_filter
     @count = Member.count(:all,
-                          :conditions => ["first like ? and public = true", browse_filter])
+                          :conditions => ["first like ? and public = 1", browse_filter])
     @results = Member.find(:all,
-                           :conditions => ["first like ? and public = true", browse_filter],
+                           :conditions => ["first like ? and public = 1", browse_filter],
                            :include => ['school', 'state'],
                            :order => "first, last",
                            :limit => PAGE_SIZE,
@@ -115,9 +115,9 @@ protected
     @filter = browse_filter.to_i
     @count = Member.count(:all,
                           :include => :school,
-                          :conditions => ["schools.name = ? and public = true", browse_filter])
+                          :conditions => ["schools.name = ? and public = 1", browse_filter])
     @results = Member.find(:all,
-                           :conditions => ["schools.name = ? and public = true", browse_filter],
+                           :conditions => ["schools.name = ? and public = 1", browse_filter],
                            :include => ['school', 'state'],
                            :order => "last, first",
                            :limit => PAGE_SIZE,
@@ -138,9 +138,9 @@ protected
     @filter = browse_filter
     @count = Member.count(:all,
                           :include => :state,
-                          :conditions => ["states.abbreviation = ? and public = true", browse_filter])
+                          :conditions => ["states.abbreviation = ? and public = 1", browse_filter])
     @results = Member.find(:all,
-                           :conditions => ["states.abbreviation = ? and public = true", browse_filter],
+                           :conditions => ["states.abbreviation = ? and public = 1", browse_filter],
                            :include => ['school', 'state'],
                            :order => "last, first",
                            :limit => PAGE_SIZE,
