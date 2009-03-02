@@ -27,10 +27,12 @@ class Members::ScholarshipsController < ApplicationController
   
   def apply_hal_rather
     Mail.deliver_hal_rather_application(params)
+    redirect_to :action => :thanks
   end
   
   def apply_nscl_scholarship
     Mail.deliver_nscl_scholarship_application(params)
+    redirect_to :action => :thanks
   end
   
 end
