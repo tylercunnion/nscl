@@ -43,4 +43,10 @@ class Admin::SchoolsController < AdminController
     @schools = School.find(:all, :order => 'name')
   end
   
+  def destroy
+    @school = School.find(params[:id])
+    @school.destroy
+    redirect_to schools_url
+  end
+  
 end

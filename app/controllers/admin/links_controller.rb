@@ -33,4 +33,10 @@ class Admin::LinksController < AdminController
     @link = Link.find(params[:id])
   end
   
+  def destroy
+    @link = Link.find(params[:id])
+    @link.destroy
+    redirect_to links_url
+  end
+  
 end
