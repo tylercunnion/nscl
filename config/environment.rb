@@ -7,10 +7,10 @@
 # Specifies gem version of Rails to use when vendor/rails is not present
 RAILS_GEM_VERSION = '2.3.0' unless defined? RAILS_GEM_VERSION
 
-APP_CONFIG = YAML.load_file(Rails.root.join('config','config.yml'))[RAILS_ENV]
-
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
+
+APP_CONFIG = YAML.load_file(Rails.root.join('config','config.yml'))[RAILS_ENV]
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here
@@ -63,8 +63,10 @@ end
 
 # Include your application configuration below
 
-    
+  
 PAGE_SIZE = 10.0
 HAL_CONTACT = APP_CONFIG['hal_contact']
 NSCL_SCHOL_CONTACT = APP_CONFIG['nscl_schol_contact']
 VP_ADDRESS = APP_CONFIG['vp_address']
+
+Paperclip.options[:command_path] = APP_CONFIG['imagemagick_dir']
