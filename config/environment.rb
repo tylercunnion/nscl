@@ -45,7 +45,7 @@ Rails::Initializer.run do |config|
   
   # See Rails::Configuration for more options
   
-  config.action_controller.session = { :session_key => "_nscl_session", :secret => "what brave new world we live in with such creatures in it" } 
+  config.action_controller.session = { :session_key => "_nscl_session", :secret => APP_CONFIG['session_secret'] } 
 end
 
 # Add new inflection rules using the following format 
@@ -65,5 +65,6 @@ end
 
     
 PAGE_SIZE = 10.0
-HAL_CONTACT = "tyler.cunnion@gmail.com"
+HAL_CONTACT = APP_CONFIG['hal_contact']
+NSCL_SCHOL_CONTACT = APP_CONFIG['nscl_schol_contact']
 

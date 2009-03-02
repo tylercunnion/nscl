@@ -1,13 +1,16 @@
+#Config.yml is used for any app configuration which is unique to a single
+#machine, or which we do not want to make public by storing in source control.
+#
+#This includes mail credentials, secret passwords, session secret, etc.
+#
+#If an item is added to config.yml, make sure it is outlined in this file.
+
 development:
-    mail_server: 
-    mail_user: 
-    mail_password: 
-    mail_address: 
-    member_password: 
-    
-production:
-    mail_server: 
-    mail_user: 
-    mail_password: 
-    mail_address: 
-    member_password: 
+    mail_domain: mail_server.com
+    mail_user: mailusername
+    mail_password: mailpassword
+    mail_address: smtp.mail_server.com
+    member_password: pw_for_member_services
+    session_secret: rake_secret
+    hal_contact: probably_put_your_own_addy_here
+    nscl_schol_contact: likewise
