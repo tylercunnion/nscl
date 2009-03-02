@@ -22,7 +22,7 @@ class AboutController < ApplicationController
       school = School.find(applicant.school_id)
       in_database = true
     end
-    
+=begin    
     case params[:commit]
     when "I will send payment"
       render :action => 'submit_application'
@@ -31,6 +31,8 @@ class AboutController < ApplicationController
       render :action => 'pay_online'
       Mail.deliver_membership_thanks(applicant, true)
     end
+=end
+    Mail.deliver_membership_thanks(applicant, false)
     
     Mail.deliver_membership_request(applicant, school, in_database)
   end

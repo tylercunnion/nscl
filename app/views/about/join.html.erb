@@ -1,6 +1,6 @@
 <h2>Joining the SCL</h2>
         <p>The SCL is open to anyone who has an interest in the classics and is of college age or above. The $6 membership fee is good for the first four years following high school graduation; this period is called Primary Membership. After that, you can pay an additional $4 for four more years of SCL membership, called Secondary membership.</p>
-		<p>If you are interested, just fill out this handy form. You may then pay either by check or online with Google Checkout.</p>
+		<p>If you are interested, just fill out this handy form.</p>
 		
 		<%= form_tag :action => 'submit_application' %>
 		<label for="member_first">First Name:</label><%= text_field 'member', 'first' %><br />
@@ -48,7 +48,8 @@
 			<%= radio_button 'member', 'public', true %><label for="member_public_true">Yes</label>
 			<%= radio_button 'member', 'public', false %><label for="member_public_false">No</label>
 		</p>
-		<p><strong>Please choose your method of payment:</strong></p>
+		<!--<p><strong>Please choose your method of payment:</strong></p>
 			<%= submit_tag "I will send payment" %><br />
-			<%= submit_tag "I will pay online" %>
+			<%= submit_tag "I will pay online" %>-->
+		<%= submit_tag "Submit Application" %>
 		</form>
