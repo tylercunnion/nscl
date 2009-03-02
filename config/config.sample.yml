@@ -15,3 +15,4 @@ development:
     hal_contact: probably_put_your_own_addy_here
     nscl_schol_contact: likewise
     vp_address: and again
+    imagemagick_dir: /dir/with/imagemagick/
