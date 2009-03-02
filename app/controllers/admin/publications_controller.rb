@@ -45,6 +45,7 @@ class Admin::PublicationsController < AdminController
   def destroy
     @publication = Publication.find(params[:id])
     @publication.destroy
+    redirect_to publications_url
   end
   
   private
