@@ -43,6 +43,11 @@
 			<label for="member_school_zip">Zip:</label><%= text_field 'member', 'school_zip', {:size => '5', :maxlength=> '5' }%>
 		</p>
 -->
+		<label for="member_state_id">State Delegation:<br /><span style="font-size: .7em; font-weight: normal;">You may be a member of multiple state chapters; choose whichever you consider your primary.</span></label>
+			<select id="member_state_id" name="member[state_id]">
+				<%= options_from_collection_for_select(@states, "id", "name", @member.state_id)%>
+			</select>
+		<br />
 		<p style="font-weight: bold;">Do you wish for this this information to be made public in the online SCL Membership Directory?</p>
 		<p class="radio">
 			<%= radio_button 'member', 'public', true %><label for="member_public_true">Yes</label>
