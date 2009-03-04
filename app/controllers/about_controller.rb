@@ -8,6 +8,7 @@ class AboutController < ApplicationController
   def join
     @page_title = "Join NSCL"
     @schools = School.find(:all, :order => "name ASC")
+    @states = State.find(:all, :order => "name ASC")
     @member = Member.new
   end
   
