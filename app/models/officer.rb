@@ -8,5 +8,7 @@ class Officer < ActiveRecord::Base
       return false
     end
   end
+  
+  validates_uniqueness_of :name, :link
 
 end

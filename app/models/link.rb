@@ -8,4 +8,8 @@ class Link < ActiveRecord::Base
     end
   end
   
+  validates_presence_of :url
+  validates_uniqueness_of :url
+  validates_presence_of :name
+  
 end
