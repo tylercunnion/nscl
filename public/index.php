@@ -64,7 +64,7 @@ switch ($section)
 				}
 				break;
 			case "tab_2":
-				unset($loc)
+			  unset($loc);
 				$code = "410 Gone";
 				break;
 		}
@@ -75,7 +75,7 @@ switch ($section)
 		{
 			case "tab_1":
 				$loc = $loc . "officers/";
-				switch ($page):
+				switch ($page)
 				{
 					case "2-Vice-President":
 						$loc = $loc . "vice-president";
@@ -106,7 +106,7 @@ switch ($section)
 				break;
 			case "tab_2":
 				$loc = $loc . "documents/";
-				switch ($page):
+				switch ($page)
 				{
 					case "2-Song":
 						$loc = $loc . "song";
@@ -137,7 +137,7 @@ switch ($section)
 						$loc .= "mark_schapler";
 						break;
 					case "1-Hal_Rather_Award":
-					case default:
+					default:
 						$loc .= "hal_rather";
 						break;						
 				}
@@ -178,7 +178,7 @@ switch ($section)
 }
 
 header("HTTP/1.1 " . $code);
-if isset($loc)
+if (isset($loc))
 {
 	header("Location: " . $loc);
 }
