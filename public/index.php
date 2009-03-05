@@ -48,7 +48,7 @@ switch ($section)
 		}
 		break;
 	case "productions":
-		$loc = $base_loc . "publications/"
+		$loc = $base_loc . "publications/";
 		switch ($tab)
 		{
 			case "tab_1":
