@@ -16,3 +16,4 @@ development:
     nscl_schol_contact: likewise
     vp_address: and again
     imagemagick_dir: /dir/with/imagemagick/
+    google_analytics: UA-xxxxx

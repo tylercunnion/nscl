@@ -70,3 +70,7 @@ NSCL_SCHOL_CONTACT = APP_CONFIG['nscl_schol_contact']
 VP_ADDRESS = APP_CONFIG['vp_address']
 
 Paperclip.options[:command_path] = APP_CONFIG['imagemagick_dir']
+
+Rubaidh::GoogleAnalytics.tracker_id = APP_CONFIG['google_analytics']
+Rubaidh::GoogleAnalytics.domain_name = "nscl.org"
+Rubaidh::GoogleAnalytics.environments = ['production']
