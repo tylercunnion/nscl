@@ -35,4 +35,5 @@ class Members::ScholarshipsController < ApplicationController
     redirect_to :action => :thanks
   end
   
+  enable_sitemap :except => ["apply_hal_rather", "apply_nscl_scholarship"]
 end

@@ -22,4 +22,6 @@ class EventsController < ApplicationController
   def chairs_signup
     Mail.deliver_event_chair(params)
   end
+  
+  enable_sitemap :except => ["chairs_signup"]
 end

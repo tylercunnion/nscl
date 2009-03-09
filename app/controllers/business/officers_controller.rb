@@ -37,6 +37,9 @@ class Business::OfficersController < BusinessController
         @line_one = ""
         @line_two = ""
       end
-   end
+   end   
   end
+  
+  enable_sitemap :only => ["index"], :obj_required => ["index"], :obj_key => "link"
+
 end

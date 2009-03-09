@@ -1,10 +1,9 @@
 class AboutController < ApplicationController
-
- def index
+  
+  def index
     render :action => 'about_scl'
   end
 
-  
   def join
     @page_title = "Join NSCL"
     @schools = School.find(:all, :order => "name ASC")
@@ -47,4 +46,5 @@ class AboutController < ApplicationController
     @page_title = "About the Website"
   end
   
+  enable_sitemap :except => ["submit_application"]
 end

@@ -16,9 +16,7 @@ class Business::DocumentsController < BusinessController
     @page_title = "NSCL Constitution"
   end
   
-  
-  
-  
+  enable_sitemap
   
 
 end

@@ -13,6 +13,8 @@ class PublicationsController < ApplicationController
     get_pubs( "Letter of the League", params[:year] )
   end
   
+  enable_sitemap :except => ["index"]
+  
   private
   
   def get_pubs( pub_type, year )
