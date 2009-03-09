@@ -1,0 +1,3 @@
+<% @actions.each do |action|%>
+	<%= url_for action.merge({:only_path => false}) %><br />
+<% end %>
