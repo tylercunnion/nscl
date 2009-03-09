@@ -21,6 +21,7 @@ ActionController::Routing::Routes.draw do |map|
   
   
   map.root                  :controller => "about", :action => "index"
+  map.sitemap               'sitemap/:action', :controller => "sitemap"
   map.business_section      'business/officers', :controller => "business/officers", :action => "index"
   map.events_section        'events/:action', :controller => "events"
   map.members_section       'members', :controller => "members/scholarships", :action => "index"
