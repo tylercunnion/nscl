@@ -19,9 +19,6 @@
 [submodule "vendor/plugins/sitemap_xml"]
 	path = vendor/plugins/sitemap_xml
 	url = git@github.com:tylercunnion/sitemap_xml.git
-[submodule "vendor/plugins/role_requirement.git"]
-	path = vendor/plugins/role_requirement.git
-	url = git://github.com/timcharper/role_requirement.git
 [submodule "vendor/plugins/role_requirement"]
 	path = vendor/plugins/role_requirement
 	url = git://github.com/timcharper/role_requirement.git
