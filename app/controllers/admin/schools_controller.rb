@@ -15,7 +15,7 @@ class Admin::SchoolsController < AdminController
     @school = School.new(params[:school])
     if @school.save
         flash[:notice] = 'School successfully created.'
-        redirect_to :action => 'show', :id => @school
+        redirect_to school_url(@school)
     else
         render :action => 'new'
     end
@@ -29,7 +29,7 @@ class Admin::SchoolsController < AdminController
     @school = School.find(params[:id])
     if @school.update_attributes(params[:school])
       flash[:notice] = 'School successfully updated.'
-      redirect_to :action => 'show', :id => @member
+      redirect_to school_url(@school)
     else
       render :action => 'edit'
     end
