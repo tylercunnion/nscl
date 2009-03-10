@@ -1,7 +1,6 @@
 <p>
-	<label for="link[name]">Name:<%=text_field "link", "name" %></label><br />
-	<label for="link[url]">URL:<%=text_field "link", "url" %></label><br />
-	<label for="link[description]">Description:</label><br />
-	<%=text_area "link", "description", :rows => 4 %><br />
-	<label for="link[section]">Type:</label>
+	<label for="link[name]">Name:</label><%= form.text_field :name %>
+	<label for="link[url]">URL:</label><%= form.text_field :url %>
+	<label for="link[description]">Description:</label>
+	<%= form.text_area :description, :rows => 4, :cols => 30 %><br />
 </p>

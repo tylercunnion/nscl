@@ -21,6 +21,16 @@ class Admin::LinksController < AdminController
     end
   end
   
+  def update
+    @link = Link.find(params[:id])
+    if @link.update_attributes(params[:link])
+      flash[:notice] = "Link successfully updated"
+      redirect_to link_url(@link)
+    else
+      render :action => "edit"
+    end
+  end
+  
   def list
     @links = Link.find(:all)
   end
