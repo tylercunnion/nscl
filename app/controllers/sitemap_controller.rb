@@ -7,6 +7,8 @@ class SitemapController < ApplicationController
 
     @files.each do |f|
       @actions = @actions + eval(f).sitemapped_actions 
+      # Memory?
+      eval(f).sitemapped_actions = []
     end     
     
   end
