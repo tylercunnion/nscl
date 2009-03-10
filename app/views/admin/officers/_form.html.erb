@@ -1,0 +1,3 @@
+<p><%=form.label :name %><%= form.text_field :name %></p>
+<p><%=form.label :member %><%= select :officer, :member_id, @members.collect { |m| [m.name, m.id] } %></p>
+<p><%= form.submit "Save"%></p>

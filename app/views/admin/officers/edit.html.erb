@@ -1,6 +1,4 @@
 <h2>Edit <%= @officer.name %></h2>
 <% form_for @officer do |f| %>
-	<p><%=f.label :name %><%= f.text_field :name %></p>
-	<p><%=f.label :member %><%= select :officer, :member_id, @members.collect { |m| [m.name, m.id] } %></p>
-	<p><%= f.submit "Save"%></p>
+<%= render :partial => f %>
 <% end %>
