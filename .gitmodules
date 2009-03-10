@@ -16,3 +16,6 @@
 [submodule "vendor/plugins/google_analytics"]
 	path = vendor/plugins/google_analytics
 	url = git://github.com/rubaidh/google_analytics.git
+[submodule "vendor/plugins/sitemap_xml"]
+	path = vendor/plugins/sitemap_xml
+	url = git@github.com:tylercunnion/sitemap_xml.git
