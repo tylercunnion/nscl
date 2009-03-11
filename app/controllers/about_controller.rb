@@ -4,6 +4,10 @@ class AboutController < ApplicationController
     render :action => 'about_scl'
   end
 
+  def ie6
+    @page_title = "Out-of-date Browser"
+  end
+  
   def join
     @page_title = "Join NSCL"
     @schools = School.find(:all, :order => "name ASC")
