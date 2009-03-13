@@ -13,7 +13,11 @@ class PublicationsController < ApplicationController
     get_pubs( "Letter of the League", params[:year] )
   end
   
-  enable_sitemap :except => ["index"]
+  enable_sitemap :except => :index,
+                 :dynamic => {:convention_ear => {:collection => [nil] + Publication.find(:all, :conditions => {:pub_type => "Convention Ear"}).group_by(&:year).collect {|year, pub| year}},
+                              :letter => {:collection => [nil] + Publication.find(:all, :conditions => {:pub_type => "Letter of the League"}).group_by(&:year).collect {|year, pub| year}}},
+                 :param => :year
+  
   
   private
   
