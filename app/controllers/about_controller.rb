@@ -50,5 +50,5 @@ class AboutController < ApplicationController
     @page_title = "About the Website"
   end
   
-  enable_sitemap :except => ["submit_application"]
+  enable_sitemap :except => [:submit_application]
 end

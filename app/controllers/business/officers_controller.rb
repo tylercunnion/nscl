@@ -40,6 +40,6 @@ class Business::OfficersController < BusinessController
    end   
   end
   
-  enable_sitemap :only => ["index"], :obj_required => ["index"], :obj_key => "link"
+  enable_sitemap :only => :index, :dynamic => :index, :param => :link
 
 end
