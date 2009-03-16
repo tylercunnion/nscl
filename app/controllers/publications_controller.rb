@@ -4,13 +4,13 @@ class PublicationsController < ApplicationController
   end
   
   def convention_ear
-    @page_title = "Convention Ear"
     get_pubs( "Convention Ear", params[:year] )
+    @page_title = "Convention Ear #{params[:year]}"
   end
   
   def letter
-    @page_title = "Letter of the League"
     get_pubs( "Letter of the League", params[:year] )
+    @page_title = "Letter of the League #{params[:year]}"
   end
   
   enable_sitemap :except => :index,
