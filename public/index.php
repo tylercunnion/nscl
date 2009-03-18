@@ -151,7 +151,7 @@ switch ($section)
 		$code = "410 Gone";
 		break;
 	case "links":
-		$loc = $base_loc . "state_links";
+		$loc = $base_loc . "states";
 		break;
 	case "welcome":
 	case NULL:
