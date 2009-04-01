@@ -27,5 +27,6 @@ config.action_mailer.smtp_settings = {
     :port => 25,
     :user_name => APP_CONFIG['mail_user'],
     :password => APP_CONFIG['mail_password'],
+    :domain => APP_CONFIG['mail_doman'],
     :authentication => :login
     }
