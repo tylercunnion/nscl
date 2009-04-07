@@ -26,17 +26,19 @@ ActionController::Routing::Routes.draw do |map|
   map.events_section        'events/:action', :controller => "events"
   map.members_section       'members', :controller => "members/scholarships", :action => "index"
   map.publications_section  'publications/:action', :controller => "publications"
-  map.about_section         '/:action', :controller => "about"
+  map.about_section         'about/:action', :controller => "about"
   
 
-  map.browse 'members/services/browse', :controller => "members/services", :action => "browse"
+  map.browse  'members/services/browse', :controller => "members/services", :action => "browse"
   map.connect 'business/officers/:link/:action', :controller => "business/officers"
   map.connect 'business/documents/:action', :controller => "business/documents"
-  map.connect 'publications/:action', :controller => "publications"
+  #map.connect 'publications/:action', :controller => "publications"
   map.connect 'members/scholarships/:action', :controller => "members/scholarships"
   map.connect 'members/services/:action', :controller => "members/services"
 
-  map.error '*path', :controller => "error", :action => "index"
+
+
+  map.error '*path', :controller => "pages", :action => "index"
   #map.connect ':controller/:action/:id.:format'
   #map.connect ':controller/:action/:id'
 end

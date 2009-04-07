@@ -65,7 +65,7 @@ ol
 	position:absolute;
 }
 
-#header.about, #header.error{background: url('../images/banner_home.png');}
+#header.about, #header.error, #header.pages {background: url('../images/banner_home.png');}
 #header.business{background: url('../images/banner_business.png');}
 #header.events{background: url('../images/banner_events.png');}
 #header.links{background: url('../images/banner_links.png');}

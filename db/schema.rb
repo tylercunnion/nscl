@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090224030317) do
+ActiveRecord::Schema.define(:version => 20090406135553) do
 
   create_table "blog_post_categories", :force => true do |t|
     t.integer  "blog_post_id"
@@ -65,6 +65,21 @@ ActiveRecord::Schema.define(:version => 20090224030317) do
     t.integer "member_id"
     t.string  "link",      :limit => 50
     t.string  "email",     :limit => 100
+  end
+
+  create_table "page_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.string   "address"
+    t.text     "body"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "publications", :force => true do |t|

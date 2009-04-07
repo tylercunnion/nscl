@@ -33,6 +33,7 @@ RewriteRule "^/(images|stylesheets|javascripts)/?(.*)""$0" [L]
 RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_FILENAME} \.php
 RewriteRule ^(.*)$ $1 [QSA,L]
 
+RewriteRule ^(about_scl|join|submit_application|website|states)$ about/$1 [R=301]
 
 RewriteRule ^(.*)$ http://127.0.0.1:42246/$1 [P,L]
 
