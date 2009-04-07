@@ -3,6 +3,8 @@ AddHandler fastcgi-script .fcgi
 AddHandler cgi-script .cgi
 Options +FollowSymLinks +ExecCGI
 
+RedirectMatch 301 "^/(about_scl|join|website|states|submit_application)$" /about/$1
+
 # If you don't want Rails to look in certain directories,
 # use the following rewrite rules so that Apache won't rewrite certain requests
 # 
@@ -32,8 +34,6 @@ RewriteRule "^/(images|stylesheets|javascripts)/?(.*)""$0" [L]
 
 RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_FILENAME} \.php
 RewriteRule ^(.*)$ $1 [QSA,L]
-
-RewriteRule ^(about_scl|join|submit_application|website|states)$ about/$1 [R=301]
 
 RewriteRule ^(.*)$ http://127.0.0.1:42246/$1 [P,L]
 
