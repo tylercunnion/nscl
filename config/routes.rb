@@ -14,6 +14,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :schools, :controller => 'admin/schools', :path_prefix => "admin"
   map.resources :links, :controller => 'admin/links', :path_prefix => "admin"
   map.resources :officers, :controller => 'admin/officers', :path_prefix => "admin"
+  
+  map.connect 'admin/cms/:action/:id', :controller => 'admin/cms'
 
   #map.resources :blog_posts, :as => "blog"
   map.connect 'admin/:action', :controller => "admin"

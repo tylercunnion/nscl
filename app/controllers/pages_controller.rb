@@ -8,7 +8,7 @@ class PagesController < ApplicationController
     logger.debug "Args: " + args.inspect
     unless args.blank? or args.length > 2
       category_name = args[0]
-      @category = PageCategory.find(:first, :conditions => {:name => category_name})
+      @category = PageCategory.find(:first, :conditions => {:name => category_name}, :include => :pages)
     end
     
     if @category.blank?
@@ -18,13 +18,15 @@ class PagesController < ApplicationController
     
     logger.debug "Category Retrieved"
     
+    @pages = @category.pages unless @category.blank?
+    
     if args[1]
       page_name = args[1]
     else
       page_name = "index"
     end
     
-    @page = Page.find(:first, :conditions => {:category_id => @category, :address => page_name}) unless @category.blank?
+    @page = @pages.find(:first, :conditions => {:address => }) unless @pages.blank?
     
     unless @page.blank?
       @page_body = RedCloth.new(@page.body)
