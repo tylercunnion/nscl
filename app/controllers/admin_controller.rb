@@ -1,10 +1,5 @@
 class AdminController < ApplicationController
   
-  before_filter :login_required
-  
-  def index
-  end
-  
-
+  before_filter :login_required, :set_javascript
   
 end
