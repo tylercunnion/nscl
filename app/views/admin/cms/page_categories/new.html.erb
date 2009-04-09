@@ -1,0 +1,5 @@
+<h2>New Directory</h2>
+<p><%= link_to "Return to directory listing", page_categories_url %></p>
+<% form_for @pageCategory do |f| %>
+	<%= render :partial => f %>
+<% end %>

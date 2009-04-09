@@ -14,8 +14,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :schools, :controller => 'admin/schools', :path_prefix => "admin"
   map.resources :links, :controller => 'admin/links', :path_prefix => "admin"
   map.resources :officers, :controller => 'admin/officers', :path_prefix => "admin"
-  
-  map.connect 'admin/cms/:action/:id', :controller => 'admin/cms'
+  map.resources :page_categories, :controller => 'admin/cms/page_categories', :path_prefix => "admin/cms" do |category|
+    category.resources :pages, :controller => 'admin/cms/pages'
+  end
+
 
   #map.resources :blog_posts, :as => "blog"
   map.connect 'admin/:action', :controller => "admin"
@@ -34,11 +36,10 @@ ActionController::Routing::Routes.draw do |map|
   map.browse  'members/services/browse', :controller => "members/services", :action => "browse"
   map.connect 'business/officers/:link/:action', :controller => "business/officers"
   map.connect 'business/documents/:action', :controller => "business/documents"
-  #map.connect 'publications/:action', :controller => "publications"
   map.connect 'members/scholarships/:action', :controller => "members/scholarships"
   map.connect 'members/services/:action', :controller => "members/services"
 
-
+  map.cms_page ':category/:page', :controller => "pages", :action => "index"
 
   map.error '*path', :controller => "pages", :action => "index"
   #map.connect ':controller/:action/:id.:format'

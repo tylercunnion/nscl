@@ -18,12 +18,14 @@ class ApplicationController < ActionController::Base
 
 
   def method_missing(methodname, *args)
-    logger.debug "Method: " + methodname
+    logger.debug "Performed: " + performed?.to_s
+    logger.debug "Method: " + methodname.to_s
+    logger.debug "Args: " + args.inspect
     begin
-      default_render
+      default_render unless performed?
     rescue ActionView::MissingTemplate => e
-      render 'error/index', :status => 404
+      render 'error/index', :status => 404 unless performed?
     end
    end
-  
+
 end

@@ -1,0 +1,9 @@
+<h2>Pages for <%= @category.name %></h2>
+<ul>
+<% @pages.each do |page| %>
+	<li><%= page.address %> - <%=link_to page.title, cms_page_path({:category => @category.name, :page => page.address}) %> <%=link_to "(edit)", edit_page_category_page_url(@category, page)%> <%=link_to "(delete)", page_category_page_url(@category, page), :confirm => "Are you sure?", :method => :delete %></li>
+<% end %>
+</ul>
+
+<p><%= link_to "Add a new Page", new_page_category_page_url(@category) %></p>
+<p><%=link_to "Return to Categories", page_categories_url %></p>

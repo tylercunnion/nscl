@@ -6,6 +6,7 @@ class Admin::MembersController < AdminController
   
   require_role "members"
   
+  
   def auto_complete_for_member_register
     value = params[:member][:register]
     @members = Member.find(:all,

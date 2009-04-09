@@ -1,0 +1,9 @@
+<% unless @pages.blank? %>
+<ul>
+<% @pages.each do |page| %>
+<% unless page.address == 'index' %>
+	<li><%=link_to page.title, cms_page_url(@category, page) %></li>
+<% end %>
+<% end %>
+</ul>
+<% end %>

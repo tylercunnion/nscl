@@ -3,13 +3,22 @@ class PagesController < ApplicationController
   require 'RedCloth'
   def index
     error = 0
-    args = params[:path]
-    logger.debug "Attempting to render CMS page"
-    logger.debug "Args: " + args.inspect
-    unless args.blank? or args.length > 2
+    
+    if params[:category]
+      category_name = params[:category]
+      page_name = params[:page]
+    else
+      args = params[:path]
       category_name = args[0]
-      @category = PageCategory.find(:first, :conditions => {:name => category_name}, :include => :pages)
-    end
+      page_name = args[1] if args[1]
+    end     
+      
+    page_name ||= "index"
+    
+    
+    logger.debug "Attempting to render CMS page"
+
+    @category = PageCategory.find(:first, :conditions => {:name => category_name}, :include => :pages)
     
     if @category.blank?
       logger.debug "FAIL: No category"
@@ -20,13 +29,7 @@ class PagesController < ApplicationController
     
     @pages = @category.pages unless @category.blank?
     
-    if args[1]
-      page_name = args[1]
-    else
-      page_name = "index"
-    end
-    
-    @page = @pages.find(:first, :conditions => {:address => }) unless @pages.blank?
+    @page = @pages.find(:first, :conditions => {:address => page_name}) unless @pages.blank?
     
     unless @page.blank?
       @page_body = RedCloth.new(@page.body)

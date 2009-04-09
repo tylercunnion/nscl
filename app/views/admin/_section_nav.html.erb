@@ -7,8 +7,8 @@
 			<li><%=link_to "Register this member", {:controller => 'admin/members', :action => 'register', :id => @member} %></li><% end -%>
 			<li>Find a member:<br />
 			<input id="member_name" name="member[name]" size="20" type="text" /><div class="auto_complete" id="member_name_auto_complete"></div>
-			<%= auto_complete_field "member_name", :url => {:controller => "admin/members", :action => "auto_complete_for_member_name"}, :min_chars => 3%>	
-			<li><%= link_to "Convention Registration", {:controller => 'admin/members', :action => 'registration'} %></li>
+			<%= auto_complete_field "member_name", :url => auto_complete_for_member_name_members_url, :min_chars => 3%>	
+			<li><%= link_to "Convention Registration", register_members_url(@member) %></li>
 		</ul>
 	</li>
 	<li>Schools
@@ -37,6 +37,11 @@
 	<li>Officers
 		<ul>
 			<li><%= link_to "List Officers", officers_url %></li>
+		</ul>
+	</li>
+	<li>CMS
+		<ul>
+			<li><%= link_to "Directory Listing", page_categories_url %></li>
 		</ul>
 	</li>
 </ul>
