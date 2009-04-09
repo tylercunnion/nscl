@@ -24,4 +24,4 @@
 	url = git://github.com/timcharper/role_requirement.git
 [submodule "vendor/plugins/classifier"]
 	path = vendor/plugins/classifier
-	url = git://github.com/xaviershay/classifier.git
+	url = git://github.com/francois/classifier
