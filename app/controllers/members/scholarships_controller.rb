@@ -26,13 +26,23 @@ class Members::ScholarshipsController < ApplicationController
   
   
   def apply_hal_rather
-    Mail.deliver_hal_rather_application(params)
-    redirect_to :action => :thanks
+    spam = SpamFilter.new
+    if spam.is_legit?(params)
+      Mail.deliver_hal_rather_application(params)
+      redirect_to :action => :thanks
+    else
+      redirect_to :action => :failure
+    end
   end
   
   def apply_nscl_scholarship
-    Mail.deliver_nscl_scholarship_application(params)
-    redirect_to :action => :thanks
+    spam = SpamFilter.new
+    if spam.is_legit?(params)
+      Mail.deliver_nscl_scholarship_application(params)
+      redirect_to :action => :thanks
+    else
+      redirect_to :action => :failure
+    end
   end
   
   enable_sitemap :except => ["apply_hal_rather", "apply_nscl_scholarship"]
