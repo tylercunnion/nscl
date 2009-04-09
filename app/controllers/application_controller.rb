@@ -10,7 +10,13 @@ class ApplicationController < ActionController::Base
   include RoleRequirementSystem
 
   before_filter :login_from_cookie
-    
+  
+  def set_javascript
+    logger.debug "Javascripts on"
+    @javascripts = true
+  end
+
+
   def method_missing(methodname, *args)
     logger.debug "Method: " + methodname
     begin
