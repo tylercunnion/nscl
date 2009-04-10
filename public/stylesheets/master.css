@@ -90,13 +90,14 @@ ol
 	width: 670px;
 	position: relative;
 	left: 30px;
-
+	border-left: 1px solid black;
+	border-right: 1px solid black;
 }
 
 #footer
 {
 	clear: both;
-    width: 750px;
+    width: 752px;
     height: 59px;
     margin: 0px auto;
     position: relative;
