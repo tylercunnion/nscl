@@ -58,14 +58,14 @@ ol
 
 #header_home_link
 {
-	width: 510px;
+	width: 215px;
 	height: 110px;
 	top: 55px;
 	left: 0px;
 	position:absolute;
 }
 
-#header.about, #header.error, #header.pages {background: url('../images/banner_home.png');}
+#header {background: url('../images/banner_home.png');}
 #header.business{background: url('../images/banner_business.png');}
 #header.events{background: url('../images/banner_events.png');}
 #header.links{background: url('../images/banner_links.png');}
@@ -107,7 +107,7 @@ ol
 #text
 {
 	background: #f5f5d6;
-    width: 450px;
+    width: 500px;
 	float: left;
 	/*border-right: 200px solid #f5f5d6;*/
 }
@@ -115,10 +115,11 @@ ol
 #sectionnav
 {
     background: url('../images/slash-trans.png');
-    width: 200px;
+    width: 140px;
     float: right;
     margin-top: 10px;
     margin-left: 20px;
+    padding-right: 10px;
 	/*margin-right: -200px;*/
 }
 
@@ -135,9 +136,9 @@ ol
 #navigation-div
 {
 	position: absolute;
-	top: 60px;
-	right: 80px;
-	width: 250px;
+	top: 120px;
+	left: 270px;
+	width: 550px;
 	
 }
 
@@ -154,6 +155,7 @@ ol
 	border: none;
 	float:left;
 	margin-top: 3px;
+	margin-right: 5px;
 }
 
 
