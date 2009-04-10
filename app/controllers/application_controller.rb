@@ -16,16 +16,29 @@ class ApplicationController < ActionController::Base
     @javascripts = true
   end
 
-
+=begin
   def method_missing(methodname, *args)
     logger.debug "Performed: " + performed?.to_s
     logger.debug "Method: " + methodname.to_s
     logger.debug "Args: " + args.inspect
-    begin
-      default_render unless performed?
-    rescue ActionView::MissingTemplate => e
-      render 'error/index', :status => 404 unless performed?
+    unless performed?
+      begin
+        default_render
+      rescue ActionView::MissingTemplate => e
+        render 'error/index', :status => 404
+      end
     end
    end
 
+  def method_missing(methodname, *args)
+    rescue #ActionView::MissingTemplate, ActionController::UnknownAction
+      render 'error/index', :status => 404
+  end
+=end
+
+  def rescue_action_in_public(exception)
+    log_error(exception)
+    render 'error/index', :status => 404
+  end
+    
 end
