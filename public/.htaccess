@@ -30,6 +30,9 @@ RewriteEngine On
 
 RewriteBase /
 
+RewriteCond %{HTTP_USER_AGENT} ^NV32ts
+RewriteRule ^(.*)$ http://пошёл.на.хуй
+
 RewriteRule "^/(images|stylesheets|javascripts)/?(.*)""$0" [L]
 
 RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_FILENAME} \.php
