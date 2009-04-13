@@ -1,7 +1,12 @@
-<h2><%= @officer.name %> &#8212; <%= @officer.member.name %></h2>
 <div class="officer-picture">
+	<% if File.exists? "#{RAILS_ROOT}/public/images/members/#{@officer.member.id}.jpg" -%>
+	<%= image_tag "members/#{@officer.member.id}.jpg"%>
+	<% else -%>
+	<%= image_tag "members/missing.png" %>
+	<% end -%>
 </div>
 <div class="officer-profile">
+	<h2><%= @officer.name %> &#8212; <%= @officer.member.name %></h2>
 	<% unless @officer.name == "Advisor" || @officer.member.school.nil? -%>
 	<h3><%= @officer.member.school.name %></h3>
 	<%end -%>

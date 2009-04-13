@@ -73,6 +73,25 @@ ol
 #header.publications{background: url('../images/banner_publications.png');}
 #header.admin, #header.users, #header.sessions{background: url('../images/banner_admin.png');}
 
+.officer-picture
+{
+    float: left;
+    background: url(/images/shadow.png) no-repeat bottom right;
+    margin: 5px 10px 0 10px;
+    
+}
+
+.officer-picture img
+{
+    display: block;
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid #a9a9a9;
+    margin: -6px 6px 6px -6px;
+    padding: 4px;
+    
+}
+
 #content
 {
 	overflow: hidden;
