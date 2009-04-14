@@ -1,5 +1,7 @@
 class AboutController < ApplicationController
   
+  caches_page :about_scl, :ie6, :join, :states, :website
+  
   def index
     render :action => 'about_scl'
   end

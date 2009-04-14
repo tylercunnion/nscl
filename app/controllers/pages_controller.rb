@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
   
+  caches_page :index
+  
   require 'RedCloth'
   def index
     error = 0
