@@ -1,6 +1,6 @@
 class Business::OfficersController < BusinessController
   
-  caches_page :view
+  caches_page :index
   
   def index
     if params[:link]

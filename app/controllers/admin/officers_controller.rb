@@ -1,6 +1,7 @@
 class Admin::OfficersController < AdminController
   
   require_role "officers"
+  cache_sweeper :officer_sweeper, :only => [:create, :update, :destroy]
 
   def index
     @officers = Officer.find(:all, :include => :member, :order => "officers.id")

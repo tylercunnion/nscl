@@ -1,6 +1,7 @@
 class Admin::LinksController < AdminController
     
   require_role "links"
+  cache_sweeper :link_sweeper, :only => [:create, :update, :destroy]
     
   def index
     list

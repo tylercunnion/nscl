@@ -1,6 +1,8 @@
 class Admin::SchoolsController < AdminController
 
-  require_role "schools" 
+  require_role "schools"
+  cache_sweeper :school_sweeper, :only => [:create, :update, :destroy]
+   
     
   def index
     list

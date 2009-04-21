@@ -1,5 +1,6 @@
 class Admin::Cms::PagesController < ApplicationController
   before_filter :find_page, :only => [:show, :edit, :update, :destroy]
+  cache_sweeper :page_sweeper, :only => [:create, :update, :destroy]
 
   require_role "cms"
 
