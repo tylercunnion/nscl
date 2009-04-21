@@ -45,6 +45,7 @@ Rails::Initializer.run do |config|
   
   # See Rails::Configuration for more options
   config.load_paths += %W( #{RAILS_ROOT}/app/sweepers )
+  config.action_controller.page_cache_directory = File.join(RAILS_ROOT, "public", "cache")
   config.action_controller.session = { :session_key => "_nscl_session", :secret => APP_CONFIG['session_secret'] } 
 end
 

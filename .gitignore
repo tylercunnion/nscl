@@ -6,6 +6,7 @@ doc/*
 vendor/rails/*
 public/system/*
 public/files/*
+public/cache/*
 bayes_data/*
 routes.txt
 *~
