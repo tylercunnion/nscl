@@ -7,6 +7,7 @@ vendor/rails/*
 public/system/*
 public/files/*
 public/cache/*
+public/google*
 bayes_data/*
 routes.txt
 *~
