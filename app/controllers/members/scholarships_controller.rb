@@ -1,7 +1,5 @@
 class Members::ScholarshipsController < ApplicationController
   
-  caches_page :hal_rather, :hal_rather_application, :nscl_scholarship_application, :nscl_scholarship, :mark_schapler
-  
   def index
     redirect_to :action => "hal_rather"
   end

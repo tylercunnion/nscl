@@ -1,7 +1,5 @@
 class Business::DocumentsController < BusinessController
 
-  caches_page :creed, :song, :constitution
-
   def index
     redirect_to :action => 'creed'
   end
