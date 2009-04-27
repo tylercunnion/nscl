@@ -5,24 +5,36 @@ class SpamFilter
   
   def initialize
     @m = SnapshotMadeleine.new("bayes_data") {
-      Classifier::Bayes.new 'Spam', 'Legit'
+      Classifier::Bayes.new :categories => ['Spam', 'Legit']
     }
   end
   
+  def stringify(subject)
+    if subject.respond_to?('gsub')
+      return subject
+    elsif subject.respond_to?('values')
+      return stringify(subject.values)
+    elsif subject.respond_to?('join')
+      return subject.join(" ")
+    else
+      raise ArgumentError
+    end
+  end
+  
   def train_spam(spam)
-    spam = spam.values.join(" ") if spam.class == Hash
+    spam = stringify(spam)
     @m.system.train_spam spam
     @m.take_snapshot
   end
   
   def train_legit(legit)
-    legit = legit.values.join(" ") if legit.class == Hash
+    legit = stringify(legit)
     @m.system.train_legit legit
     @m.take_snapshot
   end
   
   def is_legit?(subject)
-    subject = subject.values.join(" ") if subject.class == Hash
+    subject = stringify(subject)
     return case @m.system.classify subject
     when "Legit":
       true
