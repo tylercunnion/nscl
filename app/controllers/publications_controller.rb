@@ -4,7 +4,9 @@ class PublicationsController < ApplicationController
   end
   
   def convention_ear
-    get_pubs( "Convention Ear", params[:year] )
+    unless read_fragment({:year => params[:year] || 3000})
+      get_pubs( "Convention Ear", params[:year] )
+    end
     @page_title = "Convention Ear #{params[:year]}"
   end
   
