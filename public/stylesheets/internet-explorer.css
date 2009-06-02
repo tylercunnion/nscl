@@ -1,0 +1,25 @@
+/* Gentium used under the terms of the Open Font License: http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&item_id=OFL */
+
+@font-face {
+    font-family: Gentium;
+    src: url("/fonts/Gentium/EOT/GenBasR.eot");
+}
+
+@font-face {
+    font-family: Gentium;
+    src: url("/fonts/Gentium/EOT/GenBasI.eot");
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Gentium;
+    src: url("/fonts/Gentium/EOT/GenBasB.eot");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Gentium;
+    src: url("/fonts/Gentium/EOT/GenBasBI.eot");
+    font-style: italic;
+    font-weight: bold;
+}
