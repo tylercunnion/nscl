@@ -1,5 +1,5 @@
-<div class="profile">
-<h3><%= profile.name %></h3>
+<div class="profile vcard">
+<h2 class="fn"><%= profile.name %></h2>
 <p>
 <% if profile.grad_year -%>
 <% if Date.today.year - profile.grad_year <= 4 %>

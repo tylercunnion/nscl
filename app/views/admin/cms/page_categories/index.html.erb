@@ -1,4 +1,4 @@
-<h2>Directories</h2>
+<h1>Directories</h1>
 <ul>
 <% @pageCategories.each do |c|%>
 	<li><%=link_to c.name, page_category_pages_url(c)  %> <%= link_to "(edit)", edit_page_category_url(c)%> <%= link_to "(delete)", page_category_url(c), :confirm => "Are you sure?", :method => :delete %></li>

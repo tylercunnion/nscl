@@ -1,4 +1,4 @@
-<h2>Officers</h2>
+<h1>Officers</h1>
 <ul>
 	<% @officers.each do |o| %>
 		<li><%= o.name %> - <%= o.member.name %> <%= link_to "(edit)", edit_officer_url(o) %></li>

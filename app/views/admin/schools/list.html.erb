@@ -1,4 +1,4 @@
-<h2>List all schools</h2>
+<h1>List all schools</h1>
 <ul>
 <% @schools.each do |s| %>
 	<li><%=link_to s.name, :action => "show", :id => s %></li>

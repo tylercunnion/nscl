@@ -1,20 +1,23 @@
-<div class="officer-picture">
-	<% if File.exists? "#{RAILS_ROOT}/public/images/members/#{@officer.member.id}.jpg" -%>
-	<%= image_tag "members/#{@officer.member.id}.jpg"%>
-	<% else -%>
-	<%= image_tag "members/missing.png" %>
-	<% end -%>
-</div>
-<div class="officer-profile">
-	<h2><%= @officer.name %> &#8212; <%= @officer.member.name %></h2>
-	<% unless @officer.name == "Advisor" || @officer.member.school.nil? -%>
-	<h3><%= @officer.member.school.name %></h3>
-	<%end -%>
-	<% unless @officer.member.phone.nil? || @officer.member.phone.empty? -%>
-	<p>
-		<%= "(" + @officer.member.phone[0,3] + ") " + @officer.member.phone[3,3] + "-" + @officer.member.phone[6,4] %>
-	</p>
-	<% end %>
-	<h3><%= mail_to @officer.email, "E-mail  #{@officer.member.first}", :encode => "hex"  %></h3>
-	<h3><%= mail_to "officers@nscl.org", "E-mail all the officers", :encode => "hex" %></h3>
+<div class="vcard">
+	<div class="officer-picture">
+		<% if File.exists? "#{RAILS_ROOT}/public/images/members/#{@officer.member.id}.jpg" -%>
+		<%= image_tag "members/#{@officer.member.id}.jpg", :class => "photo" %>
+		<% else -%>
+		<%= image_tag "members/missing.png"%>
+		<% end -%>
+	</div>
+	<div class="officer-profile">
+		<h1><span class="title"><%= @officer.name %></span> &#8212; <span class="fn"><%= @officer.member.name %></span></h1>
+		<span class="org" style="display: none;">National Senior Classical League</span>
+		<% unless @officer.name == "Advisor" || @officer.member.school.nil? -%>
+		<h2><%= @officer.member.school.name %></h2>
+		<%end -%>
+		<% unless @officer.member.phone.nil? || @officer.member.phone.empty? -%>
+		<p>
+			<%= "(" + @officer.member.phone[0,3] + ") " + @officer.member.phone[3,3] + "-" + @officer.member.phone[6,4] %>
+		</p>
+		<% end %>
+		<h2><%= mail_to @officer.email, "E-mail  #{@officer.member.first}", :encode => "hex"  %></h2>
+		<h2><%= mail_to "officers@nscl.org", "E-mail all the officers", :encode => "hex" %></h2>
+	</div>
 </div>
