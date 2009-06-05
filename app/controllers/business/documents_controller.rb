@@ -13,6 +13,7 @@ class Business::DocumentsController < BusinessController
   end
   
   def constitution
+    Rubaidh::GoogleAnalytics.defer_load = false
     @page_title = "NSCL Constitution"
   end
   
