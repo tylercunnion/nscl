@@ -3,6 +3,10 @@ AddHandler fastcgi-script .fcgi
 AddHandler cgi-script .cgi
 Options +FollowSymLinks +ExecCGI
 
+ExpiresActive On
+ExpiresDefault "access plus 1 year"
+
+
 RedirectMatch 301 "^/(about_scl|join|website|states|submit_application)$" /about/$1
 
 # If you don't want Rails to look in certain directories,
