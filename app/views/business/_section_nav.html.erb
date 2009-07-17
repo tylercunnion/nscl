@@ -3,16 +3,16 @@
 		<ul>
 			<% cache "officer_sidebar_list" do %>
 			<% @officers.each do |o| -%>
-			<li><%= link_to o.name, :controller => "business/officers", :link => o.link %></li>
+			<li><%= link_to_for_sidebar o.name, :controller => "business/officers", :link => o.link %></li>
 			<% end -%>
 			<% end -%>
 		</ul>
 	</li>
 	<li>Documents
 		<ul>
-			<li><%= link_to "Creed", :controller => "business/documents", :action => "creed"%></li>
-			<li><%= link_to "Song", :controller => "business/documents", :action => "song" %></li>
-			<li><%= link_to "Constitution", :controller => "business/documents", :action => "constitution"%></li>
+			<li><%= link_to_for_sidebar "Creed", :controller => "business/documents", :action => "creed"%></li>
+			<li><%= link_to_for_sidebar "Song", :controller => "business/documents", :action => "song" %></li>
+			<li><%= link_to_for_sidebar "Constitution", :controller => "business/documents", :action => "constitution"%></li>
 		</ul>
 	</li>
 </ul>

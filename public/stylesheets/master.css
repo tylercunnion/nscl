@@ -227,19 +227,20 @@ ol
 #text
 {
     font-family: Gentium, Georgia, serif;
-    width: 480px;
+    width: 460px;
 	float: left;
 }
 
 #sectionnav
 {
     background: url('../images/slash-trans.png');
-    width: 150px;
+    width: 180px;
     float: right;
-    margin-top: 1.5em;;
+    margin-top: 1em;
     margin-left: 20px;
     padding-right: 10px;
-    
+    padding-top: .5em;
+	padding-bottom: .5em;
     font-size: 0.929em;
     line-height: 1.61538em;
 }
@@ -288,6 +289,12 @@ ol
 #header a:hover
 {
 	background: none;
+}
+
+.current-page-link
+{
+	font-weight: normal;
+	font-style: italic;
 }
 
 .indent
