@@ -23,11 +23,11 @@ config.action_view.cache_template_loading = true
 
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
     :address => APP_CONFIG["mail_address"],
-    :port => 25,
+    :port => 587,
     :user_name => APP_CONFIG['mail_user'],
     :password => APP_CONFIG['mail_password'],
     :domain => APP_CONFIG['mail_domain'],
-    :enable_starttls_auto => true,
     :authentication => :login
     }
