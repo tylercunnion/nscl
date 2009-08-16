@@ -28,5 +28,6 @@ config.action_mailer.smtp_settings = {
     :user_name => APP_CONFIG['mail_user'],
     :password => APP_CONFIG['mail_password'],
     :domain => APP_CONFIG['mail_domain'],
+    :enable_starttls_auto => true,
     :authentication => :login
     }
