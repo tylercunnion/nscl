@@ -21,5 +21,5 @@ class Member < ActiveRecord::Base
     end
   end
   
-  validates_presence_of :first, :last, :email, :grad_year, :school_id, :state_id
+  validates_presence_of :first, :last, :grad_year, :school_id, :state_id
 end
