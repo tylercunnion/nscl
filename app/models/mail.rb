@@ -6,11 +6,11 @@ class Mail < ActionMailer::Base
     body :paid_online => paid_online
   end
   
-  def membership_request( applicant, school, in_database )
+  def membership_request( applicant, school )
     recipients "treasurer@nscl.org"
     from "webmaster@nscl.org"
     subject "Membership Application: " + applicant.first + " " + applicant.last
-    body :applicant => applicant, :school => school, :in_database => in_database
+    body :applicant => applicant, :school => school
   end
   
   def hal_rather_application( form )

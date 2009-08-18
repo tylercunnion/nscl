@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090410152617) do
+ActiveRecord::Schema.define(:version => 20090817203315) do
 
   create_table "blog_post_categories", :force => true do |t|
     t.integer  "blog_post_id"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20090410152617) do
     t.string  "school_zip",      :limit => 5
     t.string  "phone",           :limit => 10
     t.string  "school_name",     :limit => 100
+    t.boolean "active",                         :default => true
   end
 
   create_table "officers", :force => true do |t|
