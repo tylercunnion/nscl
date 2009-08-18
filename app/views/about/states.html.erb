@@ -3,6 +3,6 @@
 <p>Do you know a state website that isn't listed here? E-mail the <%= mail_to "web@nscl.org", "NSCL.org team", :encode => "hex" %>.</p>
 <ul>
 <% @links.each do |l| %>
-	<li><%= link_to l.name, l.url %><% unless l.description.empty? %> - <%= l.description %><%end%></li>
+	<li><%= link_to_tracked l.name, "/state-links/" + l.name.gsub(" ", "-"), l.url %><% unless l.description.blank? %> - <%= l.description %><%end%></li>
 <% end %>
 </ul>
