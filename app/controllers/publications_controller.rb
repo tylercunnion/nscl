@@ -4,6 +4,7 @@ class PublicationsController < ApplicationController
   end
   
   def convention_ear
+    Rubaidh::GoogleAnalytics.defer_load = false
     unless read_fragment({:year => params[:year] || 3000})
       get_pubs( "Convention Ear", params[:year] )
     end
@@ -11,6 +12,7 @@ class PublicationsController < ApplicationController
   end
   
   def letter
+    Rubaidh::GoogleAnalytics.defer_load = false
     get_pubs( "Letter of the League", params[:year] )
     @page_title = "Letter of the League #{params[:year]}"
   end

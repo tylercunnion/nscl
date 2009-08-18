@@ -13,7 +13,7 @@
 		<% if year == @year -%>
 			<% pub.sort { |a,b| a.date <=> b.date }.each do |p| -%>
 				<p>
-					<%= link_to image_tag(p.publication.url(:thumb)), p.publication.url %><br />
+					<%= link_to_tracked image_tag(p.publication.url(:thumb)), p.publication.url, p.publication.url %><br />
 				</p>
 			<% end # do -%>
 		<% end # if -%>
