@@ -1,6 +1,6 @@
 <h1>State Chapters</h1>
 <p>There's more to SCL than just what goes on on the national stage. Here are links to state chapters around the country.</p>
-<p>Do you know a state website that isn't listed here? E-mail the <%= mail_to "web@nscl.org", "NSCL.org team", :encode => "hex" %>.</p>
+<p>Do you know a state website that isn't listed here? E-mail the <%= mail_to "webmaster@nscl.org", "NSCL.org team", :encode => "hex" %>.</p>
 <ul>
 <% @links.each do |l| %>
 	<li><%= link_to_tracked l.name, "/state-links/" + l.name.gsub(" ", "-"), l.url %><% unless l.description.blank? %> - <%= l.description %><%end%></li>
