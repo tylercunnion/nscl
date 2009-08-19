@@ -17,3 +17,4 @@ development:
     vp_address: and again
     imagemagick_dir: /dir/with/imagemagick/
     google_analytics: UA-xxxxx
+    rest_site_key: long_phrase
