@@ -24,7 +24,7 @@ RedirectMatch 301 "^/(about_scl|join|website|states|submit_application)$" /about
 # Example:
 #   RewriteRule ^(.*)$ dispatch.fcgi [QSA,L]
 RewriteEngine On
- 
+
 # If your Rails application is accessed via an Alias directive,
 # then you MUST also set the RewriteBase in this htaccess file.
 #
@@ -37,15 +37,10 @@ RewriteBase /
 RewriteCond %{HTTP_USER_AGENT} ^NV32ts
 RewriteRule ^(.*)$ http://пошёл.на.хуй
 
-
 RewriteRule "^/(images|stylesheets|javascripts|fonts|files|documents)/?(.*)""$0" [L]
 
 RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_FILENAME} \.php
 RewriteRule ^(.*)$ $1 [QSA,L]
-
-
-
-
 
 RewriteRule ^(.*)$ http://127.0.0.1:42246/$1 [P,L]
 
