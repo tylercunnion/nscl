@@ -7,7 +7,7 @@ doc/*
 vendor/rails/*
 public/system/*
 public/files/*
-public/cache/*
+public/business/*
 public/google*
 bayes_data/*
 routes.txt
@@ -15,3 +15,4 @@ routes.txt
 *._*
 *.swp
 config/smtp_gmail.yml
+
