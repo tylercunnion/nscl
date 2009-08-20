@@ -67,17 +67,3 @@ end
 # Add new mime types for use in respond_to blocks:
 # Mime::Type.register "text/richtext", :rtf
 # Mime::Type.register "application/x-mobile", :mobile
-
-# Include your application configuration below
-
-  
-PAGE_SIZE = 10.0
-HAL_CONTACT = APP_CONFIG['hal_contact']
-NSCL_SCHOL_CONTACT = APP_CONFIG['nscl_schol_contact']
-VP_ADDRESS = APP_CONFIG['vp_address']
-
-Paperclip.options[:command_path] = APP_CONFIG['imagemagick_dir']
-
-Rubaidh::GoogleAnalytics.tracker_id = APP_CONFIG['google_analytics']
-Rubaidh::GoogleAnalytics.domain_name = "nscl.org"
-Rubaidh::GoogleAnalytics.environments = ['production']

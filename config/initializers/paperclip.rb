@@ -1,3 +1,5 @@
+Paperclip.options[:command_path] = APP_CONFIG['imagemagick_dir']
+
 Paperclip.interpolates :year do |attachment, style|
   attachment.instance.year
 end
