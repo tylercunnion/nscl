@@ -24,7 +24,7 @@
 -->
 		
 		<label for="member_school_id">School&#8217;s name:</label>
-			<select onchange="other_school()" id="member_school_id" name="member[school_id]">
+			<select id="member_school_id" name="member[school_id]">
 					<option value="0">Other (please specify below)</option>
 					<%= options_from_collection_for_select(@schools, "id", "name", @member.school_id)%>
 			</select><br />
@@ -59,3 +59,19 @@
 			<%= submit_tag "I will pay online" %>-->
 		<%= submit_tag "Submit Application" %>
 		</form>
+		
+		
+<% content_for :jquery do %>
+		$("#member_school_id").change(function()
+		{
+			if (document.getElementById('member_school_id').value == 0)
+			{
+				document.getElementById('other_school_box').className = "";
+			}
+			else
+			{
+				document.getElementById('school_other').value = "";
+				document.getElementById('other_school_box').className = "invisible";
+			}
+		});
+<% end %>
