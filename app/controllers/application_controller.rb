@@ -40,5 +40,6 @@ class ApplicationController < ActionController::Base
     log_error(exception)
     render 'error/index', :status => 404
   end
-    
+  
+  
 end
