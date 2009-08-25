@@ -24,11 +24,11 @@
 -->
 		
 		<label for="member_school_id">School&#8217;s name:</label>
-			<select id="member_school_id" name="member[school_id]">
+			<select  id="member_school_id" name="member[school_id]">
 					<option value="0">Other (please specify below)</option>
 					<%= options_from_collection_for_select(@schools, "id", "name", @member.school_id)%>
 			</select><br />
-			<div id="other_school_box"><label for="school_other">Other:</label><%= text_field_tag 'school_other' %></div>
+			<label for="school_other">Other:</label><%= text_field_tag 'school_other' %>
 			
 		<br />
 
@@ -64,14 +64,13 @@
 <% content_for :jquery do %>
 		$("#member_school_id").change(function()
 		{
-			if (document.getElementById('member_school_id').value == 0)
+			if ($(this).val() == 0)
 			{
-				document.getElementById('other_school_box').className = "";
+				$("#school_other").removeAttr("disabled");
 			}
 			else
 			{
-				document.getElementById('school_other').value = "";
-				document.getElementById('other_school_box').className = "invisible";
+				$('#school_other').val("").attr("disabled", "disabled");
 			}
 		});
 <% end %>
