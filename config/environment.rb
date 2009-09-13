@@ -47,6 +47,12 @@ Rails::Initializer.run do |config|
   config.load_paths += %W( #{RAILS_ROOT}/app/sweepers )
   config.cache_store = :file_store, File.join(RAILS_ROOT, "tmp", "cache")
   config.action_controller.session = { :session_key => "_nscl_session", :secret => APP_CONFIG['session_secret'] } 
+  
+  #Gems
+  config.gem 'rubaidh-google_analytics', :lib => 'rubaidh/google_analytics', :source => 'http://gems.github.com'
+  config.gem 'francois-classifier', :lib => 'classifier', :source => 'http://gems.github.com'
+  config.gem 'thoughtbot-paperclip', :lib => 'paperclip', :source => 'http://gems.github.com'
+  
 end
 
 # Add new inflection rules using the following format 
@@ -61,17 +67,3 @@ end
 # Add new mime types for use in respond_to blocks:
 # Mime::Type.register "text/richtext", :rtf
 # Mime::Type.register "application/x-mobile", :mobile
-
-# Include your application configuration below
-
-  
-PAGE_SIZE = 10.0
-HAL_CONTACT = APP_CONFIG['hal_contact']
-NSCL_SCHOL_CONTACT = APP_CONFIG['nscl_schol_contact']
-VP_ADDRESS = APP_CONFIG['vp_address']
-
-Paperclip.options[:command_path] = APP_CONFIG['imagemagick_dir']
-
-Rubaidh::GoogleAnalytics.tracker_id = APP_CONFIG['google_analytics']
-Rubaidh::GoogleAnalytics.domain_name = "nscl.org"
-Rubaidh::GoogleAnalytics.environments = ['production']
