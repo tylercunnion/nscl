@@ -17,35 +17,35 @@
 
 
 	</head>
-<body>
-<div id="header" class="<%= @controller.controller_path.split('/')[0] %>">
-		<%= image_tag "seal_headline.png", :alt => "National Senior Classical League" %>
-		<%= link_to "", root_url, {:id => "header_home_link"} %>
-	<div id="navigation-div">
-	    <ul id="navigation">
-			<li><%= link_to image_tag("events.png", :alt => "Events"), :controller => "/events", :action => "convention" %></li>
-			<li><%= link_to image_tag("members.png", :alt => "Members"), :controller => "/members/scholarships", :action => "hal_rather" %></li>
-	        <li><%= link_to image_tag("official.png", :alt => "Official Business"), :controller => "/business/officers", :link => "president" %></li>
-	        <li><%= link_to image_tag("publications.png", :alt => "Publications"), :controller => "/publications", :action => "convention_ear" %></li>
-			<li><%= link_to image_tag("nscl50.png", :alt => "NSCL 50"), "/nscl50" %></li>
-	    </ul>
-	</div>
-</div>
+	<body>
+		<div id="header" class="<%= @controller.controller_path.split('/')[0] %>">
+			<%= image_tag "seal_headline.png", :alt => "National Senior Classical League" %>
+			<%= link_to "", root_url, {:id => "header_home_link"} %>
+			<div id="navigation-div">
+			    <ul id="navigation">
+					<li><%= link_to image_tag("events.png", :alt => "Events"), :controller => "/events", :action => "convention" %></li>
+					<li><%= link_to image_tag("members.png", :alt => "Members"), :controller => "/members/scholarships", :action => "hal_rather" %></li>
+			        <li><%= link_to image_tag("official.png", :alt => "Official Business"), :controller => "/business/officers", :link => "president" %></li>
+			        <li><%= link_to image_tag("publications.png", :alt => "Publications"), :controller => "/publications", :action => "convention_ear" %></li>
+					<li><%= link_to image_tag("nscl50.png", :alt => "NSCL 50"), "/nscl50" %></li>
+			    </ul>
+			</div>
+		</div>
 
-	<div id="content">
-		<div id="sectionnav">
-			<%= render :partial => @controller.controller_path.split('/')[0] + "/section_nav" %>
+		<div id="content">
+			<div id="sectionnav">
+				<%= render :partial => @controller.controller_path.split('/')[0] + "/section_nav" %>
+			</div>
+			<div id="text">
+				<% unless flash[:notice].blank? %><p id="notice"><%= flash[:notice] %></p><% end %>
+				<% unless flash[:error].blank? %><p id="error"><%= flash[:error] %></p><% end %>
+				<%= @content_for_layout %>
+				<!--[if lte IE 6]>
+					<p><%=link_to "Does this site look strange?", :controller => '/about', :action => 'ie6'%></p>
+				<![endif]-->
+			</div>
 		</div>
-		<div id="text">
-			<% unless flash[:notice].blank? %><p id="notice"><%= flash[:notice] %></p><% end %>
-			<% unless flash[:error].blank? %><p id="error"><%= flash[:error] %></p><% end %>
-			<%= @content_for_layout %>
-			<!--[if lte IE 6]>
-				<p><%=link_to "Does this site look strange?", :controller => '/about', :action => 'ie6'%></p>
-			<![endif]-->
-		</div>
-	</div>
 	
-<div id="footer"></div>
-</body>
+		<div id="footer"></div>
+	</body>
 </html>
