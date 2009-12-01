@@ -9,28 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090410152617) do
-
-  create_table "blog_post_categories", :force => true do |t|
-    t.integer  "blog_post_id"
-    t.integer  "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "blog_posts", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.integer  "author_id"
-    t.integer  "published"
-    t.datetime "publish_date"
-  end
-
-  create_table "categories", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20091201181356) do
 
   create_table "links", :force => true do |t|
     t.string "url",         :default => "", :null => false
@@ -58,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20090410152617) do
     t.string  "school_zip",      :limit => 5
     t.string  "phone",           :limit => 10
     t.string  "school_name",     :limit => 100
+    t.boolean "active",                         :default => true
   end
 
   create_table "officers", :force => true do |t|
@@ -65,21 +45,6 @@ ActiveRecord::Schema.define(:version => 20090410152617) do
     t.integer "member_id"
     t.string  "link",      :limit => 50
     t.string  "email",     :limit => 100
-  end
-
-  create_table "page_categories", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "pages", :force => true do |t|
-    t.string   "title"
-    t.string   "address"
-    t.text     "body"
-    t.integer  "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "publications", :force => true do |t|
