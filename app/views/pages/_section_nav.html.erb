@@ -1,9 +1,0 @@
-<% unless @pages.blank? %>
-<ul>
-<% @pages.each do |page| %>
-<% unless page.address == 'index' %>
-	<li><%=link_to_for_sidebar page.title, cms_page_url(@category.name, page.address) %></li>
-<% end %>
-<% end %>
-</ul>
-<% end %>
