@@ -16,29 +16,24 @@ class AboutController < ApplicationController
   end
   
   def submit_application
-    applicant = Member.new(params[:member])
-    if applicant.school_id == 0
-      school = School.new do |s|
-        s.name = params[:school_other]
-      end
-      in_database = false
+    @member = Member.new(params[:member])
+    @member.active = false
+        
+    if @member.school_id == 0
+      school = School.create(:name => params[:school_other])
+      @member.school = school
     else
-      school = School.find(applicant.school_id)
-      in_database = true
+      school = School.find(@member.school_id)
     end
-=begin    
-    case params[:commit]
-    when "I will send payment"
-      render :action => 'submit_application'
-      Mail.deliver_membership_thanks(applicant, false)
-    when "I will pay online"  
-      render :action => 'pay_online'
-      Mail.deliver_membership_thanks(applicant, true)
-    end
-=end
-    Mail.deliver_membership_thanks(applicant, false)
     
-    Mail.deliver_membership_request(applicant, school, in_database)
+    if @member.save
+      Mail.deliver_membership_thanks(@member, false)
+      Mail.deliver_membership_request(@member, school)
+    else
+      @schools = School.find(:all, :order => "name ASC")
+      @states = State.find(:all, :order => "name ASC")
+      render :action => 'join'
+    end
   end
     
   def states
