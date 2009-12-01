@@ -4,7 +4,7 @@
 		<select id="year" name="year">
 		<% @publications.group_by(&:year).sort {|a,b| b <=> a }.each do |year, pub| %>
 			<option value="<%= year %>"<% if year == @year %> selected="selected"<% end %>><%= year %></option>
-		<% end # do %>
+		<% end #do -%>
 		</select>
 		<input type="submit" value="Go" />
 	<% end #form -%>
