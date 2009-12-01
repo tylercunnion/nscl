@@ -14,12 +14,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :schools, :controller => 'admin/schools', :path_prefix => "admin"
   map.resources :links, :controller => 'admin/links', :path_prefix => "admin"
   map.resources :officers, :controller => 'admin/officers', :path_prefix => "admin"
-  map.resources :page_categories, :controller => 'admin/cms/page_categories', :path_prefix => "admin/cms" do |category|
-    category.resources :pages, :controller => 'admin/cms/pages'
-  end
 
 
-  #map.resources :blog_posts, :as => "blog"
   map.connect 'admin/:action', :controller => "admin"
   map.denied 'admin/denied', :controller => "admin", :action => "denied"
   
@@ -39,9 +35,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'members/scholarships/:action', :controller => "members/scholarships"
   map.connect 'members/services/:action', :controller => "members/services"
 
-  map.cms_page ':category/:page', :controller => "pages", :action => "index"
 
-  map.error '*path', :controller => "pages", :action => "index"
   #map.connect ':controller/:action/:id.:format'
   #map.connect ':controller/:action/:id'
 end
