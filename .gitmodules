@@ -16,3 +16,6 @@
 [submodule "vendor/plugins/role_requirement"]
 	path = vendor/plugins/role_requirement
 	url = git://github.com/timcharper/role_requirement.git
+[submodule "vendor/plugins/paperclip"]
+	path = vendor/plugins/paperclip
+	url = git://github.com/thoughtbot/paperclip.git
