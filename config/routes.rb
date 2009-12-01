@@ -16,7 +16,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :officers, :controller => 'admin/officers', :path_prefix => "admin"
 
 
-  #map.resources :blog_posts, :as => "blog"
   map.connect 'admin/:action', :controller => "admin"
   map.denied 'admin/denied', :controller => "admin", :action => "denied"
   
