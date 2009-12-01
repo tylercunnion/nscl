@@ -49,9 +49,7 @@ Rails::Initializer.run do |config|
   config.action_controller.session = { :session_key => "_nscl_session", :secret => APP_CONFIG['session_secret'] } 
   
   #Gems
-  
   config.gem "ruby-stemmer", :lib => "lingua/stemmer"
-  
   
 end
 

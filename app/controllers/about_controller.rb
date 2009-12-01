@@ -42,7 +42,6 @@ class AboutController < ApplicationController
   end
     
   def states
-    Rubaidh::GoogleAnalytics.defer_load = false
     @page_title = "State Chapters"
     @links = Link.find(:all, :order => "name")
   end
