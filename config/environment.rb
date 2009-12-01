@@ -48,6 +48,11 @@ Rails::Initializer.run do |config|
   config.cache_store = :file_store, File.join(RAILS_ROOT, "tmp", "cache")
   config.action_controller.session = { :session_key => "_nscl_session", :secret => APP_CONFIG['session_secret'] } 
   
+  #Gems
+  
+  config.gem "ruby-stemmer"
+  
+  
 end
 
 # Add new inflection rules using the following format 
