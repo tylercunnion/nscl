@@ -6,6 +6,10 @@ Options +FollowSymLinks +ExecCGI
 ExpiresActive On
 ExpiresDefault "access plus 1 year"
 
+<FilesMatch "\.(ttf|otf|eot)$">
+        SetOutputFilter DEFLATE
+</FilesMatch>
+
 
 RedirectMatch 301 "^/(about_scl|join|website|states|submit_application)$" /about/$1
 
@@ -34,15 +38,11 @@ RewriteEngine On
 
 RewriteBase /
 
-RewriteCond %{HTTP_USER_AGENT} ^NV32ts
-RewriteRule ^(.*)$ http://пошёл.на.хуй
+RewriteRule ^$ index.html [QSA]
+RewriteRule ^([^.]+)$ $1.html [QSA]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ http://127.0.0.1:42246%{REQUEST_URI} [P,QSA,L]
 
-RewriteRule "^/(images|stylesheets|javascripts|fonts|files|documents)/?(.*)""$0" [L]
-
-RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_FILENAME} \.php
-RewriteRule ^(.*)$ $1 [QSA,L]
-
-RewriteRule ^(.*)$ http://127.0.0.1:42246/$1 [P,L]
 
 # In case Rails experiences terminal errors
 # Instead of displaying this message you can supply a file here which will be rendered instead
