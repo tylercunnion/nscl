@@ -15,4 +15,5 @@ routes.txt
 *._*
 *.swp
 config/smtp_gmail.yml
-
+public/nscl50/*
+public/images/members/*
