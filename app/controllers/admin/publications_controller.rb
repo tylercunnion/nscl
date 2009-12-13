@@ -1,6 +1,8 @@
 class Admin::PublicationsController < AdminController
   
   require_role "publications"
+  cache_sweeper :publication_sweeper, :only => [:create, :update, :destroy]
+  
   
   def index
     @publications = Publication.find(:all, :order => 'date')
