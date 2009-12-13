@@ -10,7 +10,7 @@ class PublicationSweeper < ActionController::Caching::Sweeper
   end
   
   def expire_cache_for(pub)
-    action = case pub.type
+    action = case pub.pub_type
       when "Convention Ear" then "convention_ear"
       when "Letter of the League" then "letter"
     end
