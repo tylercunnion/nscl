@@ -15,7 +15,7 @@ class PublicationSweeper < ActionController::Caching::Sweeper
       when "Letter of the League" then "letter"
     end
     
-    expire_fragment(:controller => '/publications', :action => action, :year => pub.year)
+    expire_fragment(Regexp.new("publications/" + action))
   end
 
   
