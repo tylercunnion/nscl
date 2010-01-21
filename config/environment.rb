@@ -42,16 +42,16 @@ Rails::Initializer.run do |config|
 
   # Make Active Record use UTC-base instead of local time
   # config.active_record.default_timezone = :utc
-  
   # See Rails::Configuration for more options
   config.load_paths += %W( #{RAILS_ROOT}/app/sweepers )
   config.cache_store = :file_store, File.join(RAILS_ROOT, "tmp", "cache")
   config.action_controller.session = { :session_key => "_nscl_session", :secret => APP_CONFIG['session_secret'] } 
   
   #Gems
-  
+  config.gem "mysql" 
   config.gem "ruby-stemmer", :lib => "lingua/stemmer"
   config.gem "madeleine"
+
   
   
 end
