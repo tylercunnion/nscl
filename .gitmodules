@@ -10,9 +10,6 @@
 [submodule "vendor/plugins/permalink_fu"]
 	path = vendor/plugins/permalink_fu
 	url = git://github.com/technoweenie/permalink_fu.git
-[submodule "vendor/plugins/sitemap_xml"]
-	path = vendor/plugins/sitemap_xml
-	url = git@github.com:tylercunnion/sitemap_xml.git
 [submodule "vendor/plugins/role_requirement"]
 	path = vendor/plugins/role_requirement
 	url = git://github.com/timcharper/role_requirement.git
@@ -25,3 +22,6 @@
 [submodule "vendor/plugins/google_analytics"]
 	path = vendor/plugins/google_analytics
 	url = git://github.com/rubaidh/google_analytics.git
+[submodule "vendor/plugins/sitemap_xml"]
+	path = vendor/plugins/sitemap_xml
+	url = git://github.com/tylercunnion/sitemap_xml.git
