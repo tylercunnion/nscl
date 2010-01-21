@@ -36,10 +36,8 @@ class SpamFilter
   def is_legit?(subject)
     subject = stringify(subject)
     return case @m.system.classify subject
-    when "Legit":
-      true
-    when "Spam":
-      false
+    when "Legit" then true
+    when "Spam" then false
     end
   end
   
