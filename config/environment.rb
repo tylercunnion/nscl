@@ -51,6 +51,7 @@ Rails::Initializer.run do |config|
   #Gems
   
   config.gem "ruby-stemmer", :lib => "lingua/stemmer"
+  config.gem "madeleine"
   
   
 end
