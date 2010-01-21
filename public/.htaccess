@@ -27,7 +27,7 @@ RedirectMatch 301 "^/(about_scl|join|website|states|submit_application)$" /about
 #
 # Example:
 #   RewriteRule ^(.*)$ dispatch.fcgi [QSA,L]
-RewriteEngine On
+#RewriteEngine On
 
 # If your Rails application is accessed via an Alias directive,
 # then you MUST also set the RewriteBase in this htaccess file.
@@ -36,12 +36,12 @@ RewriteEngine On
 #   Alias /myrailsapp /path/to/myrailsapp/public
 #   RewriteBase /myrailsapp
 
-RewriteBase /
+#RewriteBase /
 
-RewriteRule ^$ index.html [QSA]
-RewriteRule ^([^.]+)$ $1.html [QSA]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ http://127.0.0.1:42246%{REQUEST_URI} [P,QSA,L]
+#RewriteRule ^$ index.html [QSA]
+#RewriteRule ^([^.]+)$ $1.html [QSA]
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteRule ^(.*)$ http://127.0.0.1:42246%{REQUEST_URI} [P,QSA,L]
 
 
 # In case Rails experiences terminal errors
@@ -49,5 +49,8 @@ RewriteRule ^(.*)$ http://127.0.0.1:42246%{REQUEST_URI} [P,QSA,L]
 # 
 # Example:
 #   ErrorDocument 500 /500.html
+
+RailsBaseUri /
+PassengerAppRoot /home/virtual/site224/fst/var/www/nscl
 
 ErrorDocument 500 "<h2>Application error</h2>Rails application failed to start properly"
