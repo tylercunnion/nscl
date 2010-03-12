@@ -13,23 +13,27 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,p,blockquote,th,t
 @font-face
 {
     font-family: "Fontin Sans";
-    src: url("/fonts/FontinSans_49/Fontin_Sans_R_45b.otf");
+	src: url('/fonts/FontinSans_49/Fontin_Sans_R_45b.eot');
+	src: local('Fontin Sans'), local('FontinSans-Regular'), url('/fonts/FontinSans_49/Fontin_Sans_R_45b.woff') format('woff'), url('/fonts/FontinSans_49/Fontin_Sans_R_45b.ttf') format('truetype');
 }
 @font-face
 {
     font-family: "Fontin Sans";
-    src: url("/fonts/FontinSans_49/Fontin_Sans_I_45b.otf");
+	src: url('/fonts/FontinSans_49/Fontin_Sans_I_45b.eot');
+	src: local('Fontin Sans'), local('FontinSans-Italic'), url('/fonts/FontinSans_49/Fontin_Sans_I_45b.woff') format('woff'), url('/fonts/FontinSans_49/Fontin_Sans_I_45b.ttf') format('truetype');
     font-style:italic;
 }
 @font-face
 {
     font-family: "Fontin Sans";
-    src: url("/fonts/FontinSans_49/Fontin_Sans_B_45b.otf");
+	src: url('/fonts/FontinSans_49/Fontin_Sans_B_45b.eot');
+	src: local('Fontin Sans'), local('FontinSans-Bold'), url('/fonts/FontinSans_49/Fontin_Sans_B_45b.woff') format('woff'), url('/fonts/FontinSans_49/Fontin_Sans_B_45b.ttf') format('truetype');
     font-weight:bold;
 }
 @font-face {
-    font-family: "Fontin Sans";;
-	src: url("/fonts/FontinSans_49/Fontin_Sans_SC_45b.otf");
+    font-family: "Fontin Sans";
+	src: url('/fonts/FontinSans_49/Fontin_Sans_BI_45b.eot');
+	src: local('Fontin Sans'), local('FontinSans-BoldItalic'), url('/fonts/FontinSans_49/Fontin_Sans_BI_45b.woff') format('woff'), url('/fonts/FontinSans_49/Fontin_Sans_BI_45b.ttf') format('truetype');
 	font-weight:bold;
 	font-style:italic;
 }
