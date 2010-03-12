@@ -42,24 +42,28 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,p,blockquote,th,t
 
 @font-face {
     font-family: Gentium;
-    src: url("/fonts/Gentium/GenBasR.ttf");
+	src: url('/fonts/Gentium/GenBasR.eot');
+	src: local('Gentium Basic'), local('GentiumBasic'), url('/fonts/Gentium/GenBasR.woff') format('woff'), url('/fonts/Gentium/GenBasR.ttf') format('truetype');
 }
 
 @font-face {
     font-family: Gentium;
-    src: url("/fonts/Gentium/GenBasI.ttf");
+	src: url('/fonts/Gentium/GenBasI.eot');
+	src: local('Gentium Basic'), local('GentiumBasic-Italic'), url('/fonts/Gentium/GenBasI.woff') format('woff'), url('/fonts/Gentium/GenBasI.ttf') format('truetype');
     font-style: italic;
 }
 
 @font-face {
     font-family: Gentium;
-    src: url("/fonts/Gentium/GenBasB.ttf");
+	src: url('/fonts/Gentium/GenBasB.eot');
+	src: local('Gentium Basic'), local('GentiumBasic-Bold'), url('/fonts/Gentium/GenBasB.woff') format('woff'), url('/fonts/Gentium/GenBasB.ttf') format('truetype');
     font-weight: bold;
 }
 
 @font-face {
     font-family: Gentium;
-    src: url("/fonts/Gentium/GenBasBI.ttf");
+	src: url('/fonts/Gentium/GenBasBI.eot');
+	src: local('Gentium Basic'), local('GentiumBasic-BoldItalic'), url('/fonts/Gentium/GenBasBI.woff') format('woff'), url('/fonts/Gentium/GenBasBI.ttf') format('truetype');
     font-style: italic;
     font-weight: bold;
 }
