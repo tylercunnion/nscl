@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
 
   before_filter :login_from_cookie
   
+  filter_parameter_logging :password if Rails.env.production?
+  
   def set_javascript
     logger.debug "Javascripts on"
     @javascripts = true
