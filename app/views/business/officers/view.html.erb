@@ -1,9 +1,9 @@
 <div class="vcard">
 	<div class="officer-picture">
 		<% if File.exists? "#{RAILS_ROOT}/public/images/members/#{@officer.member.id}.jpg" -%>
-		<%= image_tag "members/#{@officer.member.id}.jpg", :class => "photo" %>
+		<%= image_tag "members/#{@officer.member.id}.jpg", :class => "photo", :width => "150" %>
 		<% else -%>
-		<%= image_tag "members/missing.png"%>
+		<%= image_tag "members/missing.png", :width => "150", :height => "187" %>
 		<% end -%>
 	</div>
 	<div class="officer-profile">
