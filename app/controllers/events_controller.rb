@@ -16,7 +16,13 @@ class EventsController < ApplicationController
   end
   
   def chairs_signup
-    Mail.deliver_event_chair(params)
+    spam = SpamFilter.new
+    if spam.is_legit?(params)
+      Mail.deliver_event_chair(params)
+      @spam = false
+    else
+      @spam = true
+    end
   end
   
   enable_sitemap :except => ["chairs_signup"]

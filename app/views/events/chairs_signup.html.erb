@@ -1,2 +1,7 @@
+<% unless @spam %>
 <h1>Thanks!</h1>
 <p>Thanks for expressing interest in chairing an event. Your information has been forwarded to the NSCL Vice-President, who will contact you if there is an opening.</p>
+<% else %>
+<h1>We're Sorry</h1>
+<p>The NSCL website uses a filter to prevent spam applications from being submitted. Your application has been flagged by our system as probable spam. If this is an error, please alert <%=link_to "NSCL Web Crew", :controller => "/about", :action => "website" %> and we will attempt to fix the problem.</p>
+<% end %>
