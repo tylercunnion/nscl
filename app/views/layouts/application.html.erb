@@ -42,7 +42,10 @@
 
 	<div id="content">
 		<div id="sectionnav">
+			<% begin %>
 			<%= render :partial => @controller.controller_path.split('/')[0] + "/section_nav" %>
+			<% rescue %>
+			<% end %>
 		</div>
 		<div id="text">
 			<% unless flash[:notice].blank? %><p id="notice"><%= flash[:notice] %></p><% end %>
