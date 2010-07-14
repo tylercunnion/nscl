@@ -18,6 +18,8 @@ class ApplicationController < ActionController::Base
     @javascripts = true
   end
 
+protected
+
   def rescue_action_in_public(exception)
     log_error(exception)
     render 'error/index', :status => 404
