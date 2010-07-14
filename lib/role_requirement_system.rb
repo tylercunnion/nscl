@@ -110,8 +110,9 @@ module RoleRequirementSystem
     
     def access_denied
       if logged_in?
-        render_optional_error_file(401)
-        return false
+        #render_optional_error_file(401)
+        #return false
+        render 'error/forbidden', :status => 401
       else
         super
       end
