@@ -1,5 +1,6 @@
-<h1>List all Links</h1>
+<%= render :partial => "nav" %>
+<h1>Links</h1>
 <ul>
 <% @links.each do |l| %>
-<li><%= link_to "#{l.name} &#8212; #{l.url}", :action => 'show', :id => l %></li>
+<li><%= link_to "#{l.name} &#8212; #{l.url}", l %></li>
 <% end -%>
