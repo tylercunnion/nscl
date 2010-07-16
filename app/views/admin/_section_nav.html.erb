@@ -1,43 +1,7 @@
 <ul>
-	<li>Members
-		<ul>
-			<li><%=link_to "New Member", new_member_url %></li>
-			<% unless @member.blank? -%><li><%=link_to "Edit this member", edit_member_url(@member) %></li>
-			<li><%= link_to "Delete this member", member_url(@member), :confirm => "Are you sure?", :method => :delete %> </li>
-			<li><%=link_to "Register this member", {:controller => 'admin/members', :action => 'register', :id => @member} %></li>
-			<li><%= link_to "Convention Registration", register_members_url(@member) %></li>
-			<% end -%>
-			<li>Find a member:<br />
-			<input id="member_name" name="member[name]" size="20" type="text" /><div class="auto_complete" id="member_name_auto_complete"></div>
-			<%= auto_complete_field "member_name", :url => auto_complete_for_member_name_members_url, :min_chars => 3%>	
-		</ul>
-	</li>
-	<li>Schools
-		<ul>
-			<li><%=link_to "New School", new_school_url %></li>
-			<% unless @school.blank? -%><li><%= link_to "Edit this school", edit_school_url(@school) %></li>
-			<li><%= link_to "Delete this school", school_url(@school), :confirm => "Are you sure?", :method => :delete %></li><% end -%>
-			<li><%= link_to "List all schools", schools_url %></li>
-		</ul>
-	</li>	<li>Links
-		<ul>
-			<li><%=link_to "New Link", new_link_url %></li>
-			<% unless @link.blank? -%><li><%= link_to "Edit this link", edit_link_url(@link) %></li>
-			<li><%= link_to "Delete this link", link_url(@link), :confirm => "Are you sure?", :method => :delete %></li><% end -%>
-			<li><%=link_to "List all links", links_url %></li>
-		</ul>
-	</li>
-	<li>Publications
-		<ul>
-			<li><%= link_to "New Publication", new_publication_url %></li>
-			<% unless @publication.blank? -%><li><%= link_to "Edit this publication", edit_publication_url(@publication) %></li>
-			<li><%= link_to "Delete this publication", publication_url(@publication), :confirm => "Are you sure?", :method => :delete %></li><% end -%>
-			<li><%= link_to "List all publications", publications_url %></li>
-		</ul>
-	</li>
-	<li>Officers
-		<ul>
-			<li><%= link_to "List Officers", officers_url %></li>
-		</ul>
-	</li>
+	<li><%= link_to "Members", members_url %></li>
+	<li><%= link_to "Schools", schools_url %></li>
+	<li><%= link_to "Links", links_url %></li>
+	<li><%= link_to "Publications", publications_url %></li>
+	<li><%= link_to "Officers", officers_url %></li>
 </ul>
