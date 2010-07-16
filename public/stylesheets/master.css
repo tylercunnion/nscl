@@ -338,7 +338,7 @@ label, legend
 	font-weight: bold;
 }
 
-label 
+label
 {
 	text-align: right;
 	float: left;
@@ -365,7 +365,7 @@ form br, form p, form fieldset
 	clear: both;
 }
 
-.radio
+.radio, .submit
 {
 	margin-left: 155px;
 }

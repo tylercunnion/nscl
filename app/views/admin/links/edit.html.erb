@@ -1,5 +1,5 @@
 <h1>Editing <%= @link.name %></h1>
 <% form_for @link do |f| %>
 <%= render :partial => f %>
-<%= submit_tag "Update this link" %>
+<p class="submit"><%= submit_tag "Update this link" %></p>
 <% end %>
