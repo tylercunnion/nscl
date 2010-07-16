@@ -405,3 +405,11 @@ ul.registration-results li.selected { background-color: #ffb;}
 
 .invisible {display: none;}
 
+.admin-nav { margin-top: 1em; }
+.admin-nav li
+{
+	display: inline;
+	list-style: none;
+}
+
+.admin-list input { float: none; }

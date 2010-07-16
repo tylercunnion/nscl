@@ -1,6 +1,0 @@
-<ul>
-	<li><%=link_to "New Link", new_link_url %></li>
-	<% unless @link.blank? -%><li><%= link_to "Edit this link", edit_link_url(@link) %></li>
-	<li><%= link_to "Delete this link", link_url(@link), :confirm => "Are you sure?", :method => :delete %></li><% end -%>
-	<li><%=link_to "List all links", links_url %></li>
-</ul>

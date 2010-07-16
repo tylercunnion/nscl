@@ -1,6 +1,5 @@
-<%= render :partial => "nav"%>
 <h1>Editing <%= @link.name %></h1>
 <% form_for @link do |f| %>
 <%= render :partial => f %>
-<p class="submit"><%= submit_tag "Update this link" %></p>
+<p class="submit"><%= submit_tag "Update this link" %> <%=link_to "Cancel", links_url %></p>
 <% end %>

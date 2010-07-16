@@ -1,6 +1,11 @@
-<%= render :partial => "nav" %>
 <h1>Links</h1>
-<ul>
+<ul class="admin-list">
 <% @links.each do |l| %>
-<li><%= link_to "#{l.name} &#8212; #{l.url}", l %></li>
+	<li>
+		<% form_for(l, :html => {:method => :delete}) do |f| %>
+		<%= "#{l.name} &#8212; #{l.url}" %> 
+		<%= link_to "(edit)", edit_link_url(l) %> 
+		<%=submit_tag "delete" %><% end %>
+	</li>
 <% end -%>
+</ul>
