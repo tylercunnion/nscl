@@ -1,4 +1,14 @@
 <h1>Members Admin</h1>
+<h2><%= @letter %>: <%= @members.count %> record<% unless @members.count == 1 %>s<%end%> found.</h2>
+<p>
+<% 
+@l = "A"
+26.times do %>
+<%= link_to @l, "?letter=#{@l}"%>
+<% @l.succ! %>
+<% end %>
+</p>
+<% unless @members.empty? %>
 <table>
 	<thead>
 		<tr>
@@ -9,9 +19,15 @@
 	<tbody>
 <% @members.each do |m| %>
 		<tr>
+			<% form_for m, :html => { :method => :delete } do |f|%>
 			<td><%= m.last %></td>
 			<td><%= m.first %></td>
+			<td><%= link_to "Show", m %></td>
+			<td><%= link_to "Edit", edit_member_path(m) %></td>
+			<td><%= f.submit "Delete" %></td>
+			<% end %>
 		</tr>
 <% end %>
 	</tbody>
 </table>
+<% end %>
