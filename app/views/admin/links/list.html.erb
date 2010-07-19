@@ -1,7 +1,8 @@
 <h1>Links Admin</h1>
+<p><%= link_to "Add New Link", new_link_url %></p>
 <ul class="admin-list">
 <% @links.each do |l| %>
-	<li>
+	<li id="link-<%= l.id %>">
 		<% form_for(l, :html => {:method => :delete}) do |f| %>
 		<%= "#{l.name} &#8212; #{l.url}" %> 
 		<%= link_to "(edit)", edit_link_url(l) %> 

@@ -16,7 +16,8 @@ class Admin::LinksController < AdminController
     @link = Link.new(params[:link])
     if @link.save
       flash[:notice] = 'Link successfully created'
-      redirect_to :action => "show", :id => @link
+      #redirect_to :action => "show", :id => @link
+      redirect_to links_url(:anchor => "link-#{@link.id}")
     else
       render :action => "new"
     end
@@ -26,7 +27,8 @@ class Admin::LinksController < AdminController
     @link = Link.find(params[:id])
     if @link.update_attributes(params[:link])
       flash[:notice] = "Link successfully updated"
-      redirect_to link_url(@link)
+      #redirect_to link_url(@link)
+      redirect_to links_url(:anchor => "link-#{@link.id}")
     else
       render :action => "edit"
     end
