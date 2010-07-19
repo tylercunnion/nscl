@@ -1,6 +1,7 @@
-<h1>List all schools</h1>
+<h1>Schools Admin</h1>
+<p><%= link_to "Add New School", new_school_url %></p>
 <ul>
 <% @schools.each do |s| %>
-	<li><%=link_to s.name, :action => "show", :id => s %></li>
+	<li id="school-<%= s.id %>"><%= s.name %> <%= link_to "(edit)", edit_school_path(s) %></li>
 <% end %>
 </ul>
