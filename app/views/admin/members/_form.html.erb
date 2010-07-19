@@ -13,5 +13,9 @@
 
 <p><label for="member[public]">Public?</label><%= f.check_box :public %></p>
 
-	<p class="submit"><%= submit_tag "Save"%></p>
+	<p class="submit"><%= f.submit "Save"%>
+		<% if @member.last.blank? %><%= link_to "Cancel", members_url %>
+		<% else %><%= link_to "Cancel", member_path(@member)%>
+		<% end %>
+	</p>
 <% end %>
