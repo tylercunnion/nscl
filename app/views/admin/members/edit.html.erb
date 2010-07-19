@@ -1,2 +1,3 @@
 <h1>Edit <%= @member.name %></h1>
 <%= render :partial => 'form' %>
+<p><%= link_to "Cancel", member_path(@member) %></p>

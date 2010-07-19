@@ -2,19 +2,11 @@
 <p>
 	State: <%= @member.state.name %><br />
 	Graduated: <%= @member.grad_year %><br />
-	School: <% if @member.school -%><%= @member.school.name %><% end %><br />
-	Phone: <% if @member.phone && @member.phone != "" -%><%= "(" + @member.phone[0,3] + ") " + @member.phone[3,3] + "-" + @member.phone[6,4] %><% end %><br />
-	Public?: <% if @member.public == 1 -%>True<% else -%>False<% end -%>
+	School: <% if @member.school -%><%= link_to @member.school.name, edit_school_path(@member.school) %><% end %><br />
+	Phone: <% unless @member.phone.blank? -%><%= "(" + @member.phone[0,3] + ") " + @member.phone[3,3] + "-" + @member.phone[6,4] %><% end %><br />
+	E-mail: <%= @member.email unless @member.email.blank? %><br>
+	Public: <% if @member.public == 1 -%>True<% else -%>False<% end -%>
 </p>
-<h2>Home Address</h2>
-<p>
-	<%= @member.home_apt %><br />
-	<%= @member.home_address %><br />
-	<%= @member.home_city %>, <% if @member.home_state -%><%= @member.home_state.abbreviation %><% end -%> <%= @member.home_zip %>
-</p>
-<h2>School Address</h2>
-<p>
-	<%= @member.school_apt %><br />
-	<%= @member.school_address %><br />
-	<%= @member.school_city %>, <% if @member.school_state -%><%= @member.school_state.abbreviation %><% end -%> <%= @member.school_zip %>
-</p>
+
+<p><%= link_to "Edit Member", edit_member_path(@member) %></p>
+<p><%= link_to "&laquo; Back to List", members_path(:letter => @member.last[0]) %></p>

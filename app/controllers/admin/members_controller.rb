@@ -8,7 +8,7 @@ class Admin::MembersController < AdminController
   
   def index
     @letter = params[:letter] ? params[:letter] : "A"
-    @members = Member.find(:all, :conditions => ["last like ?", @letter + "%"], :order => 'last, first')
+    @members = Member.find(:all, :conditions => ["last like ?", @letter + "%"], :order => 'last, first', :include => :state)
   end
   
   

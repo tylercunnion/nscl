@@ -4,8 +4,10 @@
 <% 
 @l = "A"
 26.times do %>
-<%= link_to @l, "?letter=#{@l}"%>
-<% @l.succ! %>
+	<%= link_to_unless_current @l, members_path(:letter => @l) do
+			"<strong>#{@l}</strong>"
+		end %>
+	<% @l.succ! %>
 <% end %>
 </p>
 <% unless @members.empty? %>
@@ -14,6 +16,7 @@
 		<tr>
 			<th>Last</th>
 			<th>First</th>
+			<th>State</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -22,6 +25,7 @@
 			<% form_for m, :html => { :method => :delete } do |f|%>
 			<td><%= m.last %></td>
 			<td><%= m.first %></td>
+			<td><%= m.state.abbreviation %></td>
 			<td><%= link_to "Show", m %></td>
 			<td><%= link_to "Edit", edit_member_path(m) %></td>
 			<td><%= f.submit "Delete" %></td>
