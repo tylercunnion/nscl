@@ -1,5 +1,5 @@
-<h1>Publications</h1>
-<ul>
+<h1>Publications Admin</h1>
+<ul class="admin-list">
 <% @publications.group_by(&:year).sort {|a,b| b <=> a}.each do |year, pub| %>
 	<li><%= year %>
 		<ul>
