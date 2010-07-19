@@ -5,7 +5,13 @@
 	<li><%= year %>
 		<ul>
 			<% pub.each do |p| %>
-				<li><%= link_to p.pub_type, publication_url(p) %> - <%= p.date %></li>
+				<li id="pub-<%= p.id %>">
+					<% form_for(p, :html => {:method => :delete}) do |f| %>
+						<%= link_to p.pub_type, publication_url(p) %> - <%= p.date %>
+						<%= link_to "(edit)", edit_publication_url(p) %>
+						<%= f.submit "delete" %>
+					<% end %>
+				</li>
 			<% end %>
 		</ul>
 	</li>

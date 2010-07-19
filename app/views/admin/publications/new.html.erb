@@ -1,4 +1,7 @@
 <h1>New Publication</h1>
 <% form_for @publication, :html=> {:multipart => true} do |f| %>
 <%= render :partial => f %>
+<p class="submit"><%= f.submit "Save Publication" %>
+	<%= link_to "Cancel", publications_url %>
+</p>
 <% end %>

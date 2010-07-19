@@ -1,5 +1,9 @@
+<h1>Publication</h1>
 <%= image_tag @publication.publication.url(:thumb) %>
 <p>
 	Publication type: <%= @publication.pub_type %><br />
 	Date: <%= @publication.date %><br />
 </p>
+
+<p><%= link_to "Edit", edit_publication_url(@publication)%></p>
+<p><%= link_to "&laquo Back", publications_url %></p>
