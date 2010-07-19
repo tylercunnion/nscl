@@ -48,9 +48,12 @@ class Admin::SchoolsController < AdminController
   end
   
   def destroy
-    @school = School.find(params[:id])
-    @school.destroy
-    redirect_to schools_url
+    @school = School.find(params[:id], :include => :members)
+    if @school.members.empty?
+      flash[:notice] = 'School deleted.'
+      @school.destroy
+      redirect_to schools_url
+    end      
   end
   
 end

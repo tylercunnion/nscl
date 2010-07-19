@@ -1,0 +1,10 @@
+<h1>Delete Failed: <%= @school.name %></h1>
+<p>The following members are associated with this school. A school cannot be deleted unless no members are associated with it.</p>
+<p>Please give each member another school before attempting to delete this school.</p>
+<ul>
+	<% @school.members.each do |m| %>
+		<li><%= link_to m.name, edit_member_url(m) %></li>
+	<% end %>
+</ul>
+
+<p><%=link_to "&laquo; Back", schools_url %></p>
