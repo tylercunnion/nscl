@@ -2,5 +2,5 @@
 <% form_for @school do |f| %>
 <%= render :partial => f %>
 <p class="submit"><%= submit_tag "Save Changes" %>
-<%= link_to "Cancel", schools_path %></p>
+<%= link_to "Cancel", schools_path(:anchor => "school-#{@school.id}") %></p>
 <% end %>
