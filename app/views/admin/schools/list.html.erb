@@ -1,7 +1,12 @@
 <h1>Schools Admin</h1>
 <p><%= link_to "Add New School", new_school_url %></p>
-<ul>
+<ul class="admin-list">
 <% @schools.each do |s| %>
-	<li id="school-<%= s.id %>"><%= s.name %> <%= link_to "(edit)", edit_school_path(s) %></li>
+	<li id="school-<%= s.id %>">
+		<% form_for(s, :html => {:method => :delete}) do |f| %>
+		<%= s.name %> <%= link_to "(edit)", edit_school_path(s) %>
+		<%= f.submit "delete" %>
+		<% end %>
+	</li>
 <% end %>
 </ul>
