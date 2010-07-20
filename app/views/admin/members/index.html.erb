@@ -26,7 +26,7 @@
 			<% form_for m, :html => { :method => :delete } do |f|%>
 			<td><%= m.last %></td>
 			<td><%= m.first %></td>
-			<td><%= m.state.abbreviation %></td>
+			<td><%= m.state.abbreviation unless m.state.blank? %></td>
 			<td><%= link_to "Show", m %></td>
 			<td><%= link_to "Edit", edit_member_path(m) %></td>
 			<td class="delete"><%= f.submit "Delete" %></td>
