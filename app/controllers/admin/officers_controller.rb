@@ -10,14 +10,7 @@ class Admin::OfficersController < AdminController
   def edit
     @officer = Officer.find(params[:id])
     
-    #This finds primary members, as only they can be officers.
-    d = Date.today
-    if d.month <= 8 #August
-      year = d.year - 4
-    else
-      year = d.year - 3
-    end
-    @members = Member.find(:all, :conditions => {:grad_year => year..d.year}, :order => :last)
+    @members = Member.find(:all, :order => :last).select { |item| item.primary_member? }
   end
   
   def show

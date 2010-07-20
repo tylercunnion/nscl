@@ -21,5 +21,9 @@ class Member < ActiveRecord::Base
     end
   end
   
+  def primary_member?
+    return (Date.today - Date.new(grad_year, 6, 1)).to_f / 4 <= 4
+  end
+  
   validates_presence_of :first, :last, :grad_year, :school_id, :state_id
 end

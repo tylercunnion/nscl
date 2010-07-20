@@ -2,11 +2,11 @@
 <h2 class="fn"><%= profile.name %></h2>
 <p>
 <% if profile.grad_year -%>
-<% if Date.today.year - profile.grad_year <= 4 %>
-	<strong>Status:</strong> Primary Member<br />
-<% else %>
-	<strong>Status:</strong> Secondary Member<br />
-<% end %>
+	<% if profile.primary_member? %>
+		<strong>Status:</strong> Primary Member<br />
+	<% else %>
+		<strong>Status:</strong> Secondary Member<br />
+	<% end %>
 <% end %>
 <% if profile.school -%>
 	<strong>School:</strong> <%= profile.school.name %><br />
