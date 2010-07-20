@@ -5,11 +5,8 @@
 	<link rel="icon" href="/favicon.png" type="image/png" />
 	<title><%= @page_title ||= "National Senior Classical League" %> | nscl.org</title>
 	<%= stylesheet_link_tag 'master' %>
-	<!--[if gte IE 5]><%= stylesheet_link_tag 'internet-explorer' %><![endif]-->
 	<%= javascript_include_tag 'modernizr-1.1.min' %>
-	<% if @javascripts %>
-	<%= javascript_include_tag :defaults %>
-	<% end %>
+	<%= javascript_include_tag :defaults if @javascripts %>
 	<script type="text/javascript">
 		function other_school()
 		{
