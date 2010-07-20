@@ -15,10 +15,10 @@
 		<strong>Delegation:</strong> <%= profile.state.name %><br />
 <% end -%>
 
-<% if profile.phone != nil and profile.phone != "" -%>
+<% unless profile.phone.blank? -%>
 	<%= "(" + profile.phone[0,3] + ") " + profile.phone[3,3] + "-" + profile.phone[6,4] %><br />
 <% end -%>
-<% if profile.email != nil and profile.phone != "" -%>
+<% unless profile.email.blank? -%>
 	<%= mail_to profile.email, "E-mail " + profile.first, :encode => "hex"%>
 <% end %>
 </p>
