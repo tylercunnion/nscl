@@ -1,6 +1,0 @@
-<h1>Edit <%= @pageCategory.name %></h1>
-<%= link_to "Return to directories", page_categories_url %>
-<p>Warning: Changing the name of a well-established directory may cause broken links and a loss of search engine standing. You probably shouldn't do this unless you have a very good reason.</p>
-<% form_for @pageCategory do |f| %>
-	<%= render :partial => f %>
-<% end %>
