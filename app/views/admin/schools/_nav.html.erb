@@ -1,6 +1,0 @@
-<ul>
-	<li><%=link_to "New School", new_school_url %></li>
-	<% unless @school.blank? -%><li><%= link_to "Edit this school", edit_school_url(@school) %></li>
-	<li><%= link_to "Delete this school", school_url(@school), :confirm => "Are you sure?", :method => :delete %></li><% end -%>
-	<li><%= link_to "List all schools", schools_url %></li>
-</ul>
