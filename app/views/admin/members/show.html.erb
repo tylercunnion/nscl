@@ -1,7 +1,7 @@
 <h1>Viewing <%= @member.name %></h1>
 <p>
-	State: <%= @member.state.name %><br />
-	Graduated: <%= @member.grad_year %><br />
+	State: <%= @member.state.name unless @member.state.blank? %><br />
+	Graduated: <%= @member.grad_year unless @member.grad_year.blank? %><br />
 	School: <% if @member.school -%><%= link_to @member.school.name, edit_school_path(@member.school) %><% end %><br />
 	Phone: <% unless @member.phone.blank? -%><%= "(" + @member.phone[0,3] + ") " + @member.phone[3,3] + "-" + @member.phone[6,4] %><% end %><br />
 	E-mail: <%= @member.email unless @member.email.blank? %><br>
