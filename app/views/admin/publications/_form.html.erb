@@ -1,5 +1,5 @@
 <p>
-	<label for="publication[date]">Date:</label>
+	<%= form.label :date %>
 	<%= form.date_select :date, {:start_year => 1990} %>
 </p>
 <p>
@@ -9,8 +9,6 @@
 <p>
 	<label for="publication[pub_type]">Publication:</label>
 	<select id="publication_pub_type" name="publication[pub_type]">
-		<option>Convention Ear</option>
-		<option>Letter of the League</option>
+		<%= options_for_select ["Convention Ear", "Letter of the League"], @publication.pub_type %>
 	</select>
 </p>
-<p><%= submit_tag "Save" %></p>

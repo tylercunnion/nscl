@@ -1,2 +1,38 @@
 <h1>Members Admin</h1>
-<p>The functions for administering the member database are in the navigation menu.</p>
+<p><%= link_to "Add New Member", new_member_url %></p>
+<h2><%= @letter %>: <%= @members.count %> record<% unless @members.count == 1 %>s<%end%> found.</h2>
+<p>
+<% 
+@l = "A"
+26.times do -%>
+	<%= link_to_unless_current @l, members_path(:letter => @l) do
+			"<strong>#{@l}</strong>"
+		end %>
+	<% @l.succ! -%>
+<% end -%>
+</p>
+<% unless @members.empty? %>
+<table class="admin-table">
+	<thead>
+		<tr>
+			<th>Last</th>
+			<th>First</th>
+			<th>State</th>
+		</tr>
+	</thead>
+	<tbody>
+<% @members.each do |m| %>
+		<tr>
+			<% form_for m, :html => { :method => :delete } do |f|%>
+			<td><%= m.last %></td>
+			<td><%= m.first %></td>
+			<td><%= m.state.abbreviation %></td>
+			<td><%= link_to "Show", m %></td>
+			<td><%= link_to "Edit", edit_member_path(m) %></td>
+			<td class="delete"><%= f.submit "Delete" %></td>
+			<% end %>
+		</tr>
+<% end %>
+	</tbody>
+</table>
+<% end %>

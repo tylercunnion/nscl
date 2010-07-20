@@ -2,4 +2,7 @@
 <%= image_tag @publication.publication.url(:thumb) %>
 <% form_for @publication, :html=> {:multipart => true, :method => :put} do |f| %>
 <%= render :partial => f %>
+<p class="submit"><%= f.submit "Save Changes" %>
+	<%= link_to "Cancel", publication_url(@publication) %>
+</p>
 <% end %>

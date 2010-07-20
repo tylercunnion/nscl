@@ -1,5 +1,5 @@
-<h1>Officers</h1>
-<ul>
+<h1>Officers Admin</h1>
+<ul class="admin-list">
 	<% @officers.each do |o| %>
 		<li><%= o.name %> - <%= o.member.name %> <%= link_to "(edit)", edit_officer_url(o) %></li>
 	<% end %>

@@ -17,7 +17,8 @@ class Admin::SchoolsController < AdminController
     @school = School.new(params[:school])
     if @school.save
         flash[:notice] = 'School successfully created.'
-        redirect_to school_url(@school)
+        #redirect_to school_url(@school)
+        redirect_to schools_url(:anchor => "school-#{@school.id}")
     else
         render :action => 'new'
     end
@@ -31,7 +32,8 @@ class Admin::SchoolsController < AdminController
     @school = School.find(params[:id])
     if @school.update_attributes(params[:school])
       flash[:notice] = 'School successfully updated.'
-      redirect_to school_url(@school)
+      #redirect_to school_url(@school)
+      redirect_to schools_url(:anchor => "school-#{@school.id}")
     else
       render :action => 'edit'
     end
@@ -46,9 +48,12 @@ class Admin::SchoolsController < AdminController
   end
   
   def destroy
-    @school = School.find(params[:id])
-    @school.destroy
-    redirect_to schools_url
+    @school = School.find(params[:id], :include => :members)
+    if @school.members.empty?
+      flash[:notice] = 'School deleted.'
+      @school.destroy
+      redirect_to schools_url
+    end      
   end
   
 end

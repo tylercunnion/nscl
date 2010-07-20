@@ -338,7 +338,7 @@ label, legend
 	font-weight: bold;
 }
 
-label 
+label
 {
 	text-align: right;
 	float: left;
@@ -365,7 +365,7 @@ form br, form p, form fieldset
 	clear: both;
 }
 
-.radio
+.radio, .submit
 {
 	margin-left: 155px;
 }
@@ -405,3 +405,7 @@ ul.registration-results li.selected { background-color: #ffb;}
 
 .invisible {display: none;}
 
+.admin-list input { float: none; }
+.admin-table { border-collapse: collapse;}
+.admin-table td { padding: 5px 10px;}
+.admin-table .delete {padding-left: 25px;}

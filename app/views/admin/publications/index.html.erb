@@ -1,10 +1,17 @@
-<h1>Publications</h1>
-<ul>
+<h1>Publications Admin</h1>
+<p><%= link_to "New Publication", new_publication_url %></p>
+<ul class="admin-list">
 <% @publications.group_by(&:year).sort {|a,b| b <=> a}.each do |year, pub| %>
 	<li><%= year %>
 		<ul>
 			<% pub.each do |p| %>
-				<li><%= link_to p.pub_type, publication_url(p) %> - <%= p.date %></li>
+				<li id="pub-<%= p.id %>">
+					<% form_for(p, :html => {:method => :delete}) do |f| %>
+						<%= link_to p.pub_type, publication_url(p) %> - <%= p.date %>
+						<%= link_to "(edit)", edit_publication_url(p) %>
+						<%= f.submit "delete" %>
+					<% end %>
+				</li>
 			<% end %>
 		</ul>
 	</li>
