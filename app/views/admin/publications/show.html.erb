@@ -5,5 +5,7 @@
 	Date: <%= @publication.date %><br />
 </p>
 
+<p><%= link_to "Download", @publication.publication.url %></p>
+
 <p><%= link_to "Edit", edit_publication_url(@publication)%></p>
 <p><%= link_to "&laquo Back", publications_url %></p>
