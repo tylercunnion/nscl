@@ -4,12 +4,12 @@
 <p>
 <% 
 @l = "A"
-26.times do %>
+26.times do -%>
 	<%= link_to_unless_current @l, members_path(:letter => @l) do
 			"<strong>#{@l}</strong>"
 		end %>
-	<% @l.succ! %>
-<% end %>
+	<% @l.succ! -%>
+<% end -%>
 </p>
 <% unless @members.empty? %>
 <table class="admin-table">
@@ -29,7 +29,7 @@
 			<td><%= m.state.abbreviation %></td>
 			<td><%= link_to "Show", m %></td>
 			<td><%= link_to "Edit", edit_member_path(m) %></td>
-			<td><%= f.submit "Delete" %></td>
+			<td class="delete"><%= f.submit "Delete" %></td>
 			<% end %>
 		</tr>
 <% end %>
