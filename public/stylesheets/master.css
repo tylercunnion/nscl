@@ -405,11 +405,7 @@ ul.registration-results li.selected { background-color: #ffb;}
 
 .invisible {display: none;}
 
-.admin-nav { margin-top: 1em; }
-.admin-nav li
-{
-	display: inline;
-	list-style: none;
-}
-
 .admin-list input { float: none; }
+.admin-table { border-collapse: collapse;}
+.admin-table td { padding: 5px 10px;}
+.admin-table .delete {padding-left: 25px;}
