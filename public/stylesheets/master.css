@@ -156,6 +156,12 @@ ol
 	list-style-type: lower-alpha;
 }
 
+blockquote
+{
+	margin-left: 15px;
+	font-style: italic;
+}
+
 #header
 {
     position: relative;
