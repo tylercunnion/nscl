@@ -134,7 +134,7 @@ switch ($section)
 						$loc .= "nscl_scholarship";
 						break;
 					case "3-Mark_Schapler_Award":
-						$loc .= "mark_schapler";
+						$loc .= "book_award";
 						break;
 					case "1-Hal_Rather_Award":
 					default:

@@ -20,8 +20,12 @@ class Members::ScholarshipsController < ApplicationController
     @page_title = "NSCL Scholarship"
   end
   
+  def book_award
+    @page_title = "Book Award"
+  end
+  
   def mark_schapler
-    @page_title = "Mark Schapler Award"
+    redirect_to :action => "book_award", :status => 301
   end
   
   def donors
