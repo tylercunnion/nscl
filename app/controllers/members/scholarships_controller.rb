@@ -24,6 +24,10 @@ class Members::ScholarshipsController < ApplicationController
     @page_title = "Mark Schapler Award"
   end
   
+  def donors
+    @page_title = "Donor Thank You List"
+  end
+  
   
   
   def apply_hal_rather
